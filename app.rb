@@ -3,7 +3,7 @@ require "pathological"
 require "sinatra"
 require "bourbon"
 
-class App < Sinatra::Base
+class SocialTeeth < Sinatra::Base
   def initialize(pinion)
     @pinion = pinion
     super

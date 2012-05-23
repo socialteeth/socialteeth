@@ -10,4 +10,4 @@ pinion.watch "public"
 pinion.watch "#{Gem.loaded_specs["bourbon"].full_gem_path}/app/assets/stylesheets"
 
 map(PINION_MOUNT_POINT) { run pinion }
-map("/") { run App.new(pinion) }
+map("/") { run SocialTeeth.new(pinion) }
