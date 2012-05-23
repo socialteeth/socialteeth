@@ -1,9 +1,4 @@
-@import "bourbon";
-
-$pageWidth: 920px;
-$lightGray: #D0D0D0;
-$orange: #FF6700;
-$cyan: #0A6783;
+@import "css/mixins";
 
 * {
   margin: 0px;
@@ -77,4 +72,8 @@ a {
     height: $headerHeight - $paddingTop;
     padding-top: $paddingTop;
   }
+}
+
+#content {
+  overflow-x: hidden;
 }
