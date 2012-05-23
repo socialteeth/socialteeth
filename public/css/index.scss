@@ -11,17 +11,67 @@
   .feature {
     display: inline-block;
     height: 370px;
-    overflow: hidden;
+    margin: 0px 5px;
     @include box-shadow(0px 0px 20px #333333);
-    //display: none;
+    display: none;
   }
 }
 
 #banner {
   height: 55px;
-  background: $lightGray;
+  background: url(/images/classy_fabric.png);
   text-align: center;
   font-size: 2.0em;
   padding-top: 25px;
   border-bottom: 1px solid darken($lightGray, 20%);
+  color: $lightGray;
+}
+
+#categories {
+  .category {
+    &:nth-of-type(1) { margin-top: 100px; }
+    margin-bottom: 100px;
+
+    h2 { margin-bottom: 20px; }
+
+    .smallAd {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      margin-right: 25px;
+
+      .thumbnail {
+        height: 180px;
+        width: 200px;
+        border: 1px solid $lightGray;
+        border-bottom: none;
+        background: #555555;
+        &:hover {
+          background: $lightGray;
+          cursor: pointer;
+        }
+      }
+
+      .thermometer {
+        width: 200px;
+        border: 1px solid $lightGray;
+        border-top: none;
+
+        .thermometerProgress {
+          height: 4px;
+          background: $green;
+        }
+      }
+    }
+
+    &:nth-of-type(1) .smallAd:nth-of-type(1) .thermometerProgress { width: 75%; }
+    &:nth-of-type(1) .smallAd:nth-of-type(2) .thermometerProgress { width: 20%; }
+    &:nth-of-type(1) .smallAd:nth-of-type(3) .thermometerProgress { width: 40%; }
+    &:nth-of-type(1) .smallAd:nth-of-type(4) .thermometerProgress { width: 10%; }
+
+    &:nth-of-type(2) .smallAd:nth-of-type(1) .thermometerProgress { width: 95%; }
+    &:nth-of-type(2) .smallAd:nth-of-type(2) .thermometerProgress { width: 70%; }
+    &:nth-of-type(2) .smallAd:nth-of-type(3) .thermometerProgress { width: 80%; }
+    &:nth-of-type(2) .smallAd:nth-of-type(4) .thermometerProgress { width: 60%; }
+  }
 }
