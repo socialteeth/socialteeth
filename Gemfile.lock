@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    bcrypt-ruby (3.0.1)
     bourbon (1.4.0)
       sass (>= 3.1)
     foreman (0.41.0)
@@ -33,6 +34,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby
   bourbon
   foreman
   pathological

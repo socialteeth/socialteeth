@@ -12,6 +12,8 @@ gem "bourbon"
 gem "sequel"
 gem "pg"
 
+gem "bcrypt-ruby"
+
 group :development do
   gem "foreman"
   gem "rerun"
