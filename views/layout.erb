@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>SocialTeeth</title>
     <%= @pinion.css_url("/css/common.css") %>
     <%= @pinion.js_url("/js/lib/jquery-1.7.2.min.js") %>
   </head>
   <body>
+    <div id="header">
+      <div class="container">
+        <a id="logo" href="/">SocialTeeth</a>
+        <nav>
+          <ul>
+            <li><a href="/browse">Browse Ads</a></li>
+            <li><a href="/submit">Submit Ad</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </nav>
+        <div id="login">
+          <a class="signUp">Sign Up</a> |
+          <a class="signIn">Sign In</a>
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

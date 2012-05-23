@@ -1,6 +1,80 @@
 @import "bourbon";
 
+$pageWidth: 920px;
+$lightGray: #D0D0D0;
+$orange: #FF6700;
+$cyan: #0A6783;
+
 * {
   margin: 0px;
   padding: 0px;
+}
+
+body {
+  font-size: 13px;
+  font-family: "Helvetica Neue", Helvetica, "Lucida Sans", Arial, Verdana, sans-serif;
+  color: #333333;
+}
+
+a {
+  text-decoration: none;
+  color: $cyan;
+  cursor: pointer;
+
+  &:hover { color: lighten($cyan, 20%); }
+}
+
+.container {
+  width: $pageWidth;
+  margin: auto;
+}
+
+#header {
+  $headerHeight: 60px;
+
+  border-bottom: 1px solid $lightGray;
+  height: $headerHeight;
+  @include linear-gradient(#FAFAFA,#EAEAEA);
+
+  #logo {
+    display: block;
+    float: left;
+    width: 210px;
+    height: $headerHeight;
+    background: url(/images/logo36.png) no-repeat;
+    background-position: 0px ($headerHeight / 2 - 16);
+    text-indent: -9999px;
+  }
+
+  nav {
+    float: left;
+    margin-left: 30px;
+
+    $paddingTop: $headerHeight / 2 - 8;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      border-right: 1px solid $lightGray;
+      &:nth-of-type(1) { border-left: 1px solid $lightGray; }
+
+      a {
+        display: block;
+        width: 100px;
+        height: $headerHeight - $paddingTop;
+        padding-top: $paddingTop;
+        text-align: center;
+        font-weight: bold;
+        color: #333333;
+        &:hover { color: $orange; }
+      }
+    }
+  }
+
+  #login {
+    $paddingTop: $headerHeight / 2 - 8;
+    float: right;
+    height: $headerHeight - $paddingTop;
+    padding-top: $paddingTop;
+  }
 }
