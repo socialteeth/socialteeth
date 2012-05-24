@@ -7,7 +7,8 @@ require "lib/models"
 
 class SocialTeeth < Sinatra::Base
   enable :sessions
-  use Rack::Flash, :sweep => true
+  set :session_secret, "abcdefghijklmnop"
+  use Rack::Flash
 
   def initialize(pinion)
     @pinion = pinion
@@ -25,8 +26,7 @@ class SocialTeeth < Sinatra::Base
   post "/signup" do
     errors = []
 
-    empty_fields = [:name, :email, :password, :confirm_password].select { |field| params[field].empty? }
-    errors << "All fields are required." unless empty_fields.empty?
+    errors = enforce_required_params(:name, :email, :password, :confirm_password)
 
     if params[:email]
       existing_user = User.find(:email => params[:email])
@@ -36,12 +36,52 @@ class SocialTeeth < Sinatra::Base
     errors << "Passwords must match." unless params[:password] == params[:confirm_password]
 
     if errors.empty?
-      User.create(:name => params[:name], :email => params[:email], :password => params[:password])
+      self.current_user =
+          User.create(:name => params[:name], :email => params[:email], :password => params[:password])
       redirect "/"
     else
       flash[:errors] = errors
       redirect "/signup"
     end
     redirect "/signup"
+  end
+
+  get "/signin" do
+    erb :signin
+  end
+
+  post "/signin" do
+    errors = enforce_required_params(:email, :password)
+
+    requested_user = User.find(:email => params[:email])
+    if requested_user && requested_user.password == params[:password]
+      self.current_user = requested_user
+      redirect "/"
+    else
+      errors << "Invalid login." if errors.empty?
+      flash[:errors] = errors
+      redirect "/signin"
+    end
+  end
+
+  get "/signout" do
+    session.clear
+    redirect "/"
+  end
+
+  def enforce_required_params(*args)
+    empty_fields = args.select { |field| params[field].empty? }
+    empty_fields.empty? ? [] : ["All fields are required."]
+  end
+
+  def current_user()
+    @current_user ||= User.find(:email => session[:email])
+  end
+
+  def current_user=(user)
+    return if session[:email] == user.email
+    @current_user = nil
+    session.clear
+    session[:email] = user.email if user
   end
 end

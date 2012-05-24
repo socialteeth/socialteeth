@@ -1,5 +1,5 @@
 <%= @pinion.css_url("/assets/css/signup.css") %>
-<%= @pinion.js_url("/assets/js/signup.js") %>
+<%= @pinion.js_url("/assets/js/form_hints.js") %>
 
 <div id="signupPage">
   <div class="container">
@@ -13,7 +13,7 @@
         </ul>
       <% end %>
     </div>
-    <form action="/signup" method="post">
+    <form class="hints" action="/signup" method="post">
       <div class="formField">
         <label for="name">Name</label>
         <input type="text" name="name" />

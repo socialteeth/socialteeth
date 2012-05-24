@@ -17,8 +17,13 @@
           </ul>
         </nav>
         <div id="signin">
-          <a href="/signup">Sign Up</a> |
-          <a href="#">Sign In</a>
+          <% if current_user %>
+            <a href="#"><%= current_user.name %></a> |
+            <a href="/signout">Sign Out</a>
+          <% else %>
+            <a href="/signup">Sign Up</a> |
+            <a href="/signin">Sign In</a>
+          <% end %>
         </div>
       </div>
     </div>

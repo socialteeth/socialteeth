@@ -1,0 +1,27 @@
+<%= @pinion.css_url("/assets/css/signup.css") %>
+<%= @pinion.js_url("/assets/js/form_hints.js") %>
+
+<div id="signupPage">
+  <div class="flashErrors">
+    <% if flash[:errors] && flash[:errors].is_a?(Array) %>
+      <ul>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <form class="hints" action="/signin" method="post">
+    <div class="formField">
+      <label for="email">Email</label>
+      <input type="text" name="email" />
+    </div>
+    <div class="formField">
+      <label for="password">Password</label>
+      <input type="password" name="password" />
+    </div>
+    <div class="formField">
+      <button>Sign in</button>
+    </div>
+  </form>
+</div>
