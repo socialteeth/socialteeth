@@ -48,6 +48,12 @@ a {
     text-indent: -9999px;
   }
 
+  a {
+    font-weight: bold;
+    color: #333333;
+    &:hover { color: $cyan; }
+  }
+
   nav {
     float: left;
     margin-left: 30px;
@@ -57,8 +63,6 @@ a {
     li {
       list-style: none;
       display: inline-block;
-      border-right: 1px solid $lightGray;
-      &:nth-of-type(1) { border-left: 1px solid $lightGray; }
 
       a {
         display: block;
@@ -66,18 +70,17 @@ a {
         height: $headerHeight - $paddingTop;
         padding-top: $paddingTop;
         text-align: center;
-        font-weight: bold;
-        color: #333333;
-        &:hover { color: $orange; }
       }
     }
   }
 
-  #login {
+  #signin {
     $paddingTop: $headerHeight / 2 - 8;
     float: right;
     height: $headerHeight - $paddingTop;
     padding-top: $paddingTop;
+
+    a { padding: 0px 3px; }
   }
 }
 
