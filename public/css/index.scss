@@ -32,13 +32,12 @@
     &:nth-of-type(1) { margin-top: 100px; }
     margin-bottom: 100px;
 
-    h2 { margin-bottom: 20px; }
-
     .smallAd {
       display: inline-block;
       width: 200px;
       height: 200px;
       margin-right: 25px;
+      margin-top: 50px;
 
       .thumbnail {
         height: 180px;
@@ -62,16 +61,15 @@
           background: $green;
         }
       }
+
+      &:nth-of-type(1) .thermometerProgress { width: 75%; }
+      &:nth-of-type(2) .thermometerProgress { width: 20%; }
+      &:nth-of-type(3) .thermometerProgress { width: 40%; }
+      &:nth-of-type(4) .thermometerProgress { width: 10%; }
+      &:nth-of-type(5) .thermometerProgress { width: 95%; }
+      &:nth-of-type(6) .thermometerProgress { width: 70%; }
+      &:nth-of-type(7) .thermometerProgress { width: 80%; }
+      &:nth-of-type(8) .thermometerProgress { width: 60%; }
     }
-
-    &:nth-of-type(1) .smallAd:nth-of-type(1) .thermometerProgress { width: 75%; }
-    &:nth-of-type(1) .smallAd:nth-of-type(2) .thermometerProgress { width: 20%; }
-    &:nth-of-type(1) .smallAd:nth-of-type(3) .thermometerProgress { width: 40%; }
-    &:nth-of-type(1) .smallAd:nth-of-type(4) .thermometerProgress { width: 10%; }
-
-    &:nth-of-type(2) .smallAd:nth-of-type(1) .thermometerProgress { width: 95%; }
-    &:nth-of-type(2) .smallAd:nth-of-type(2) .thermometerProgress { width: 70%; }
-    &:nth-of-type(2) .smallAd:nth-of-type(3) .thermometerProgress { width: 80%; }
-    &:nth-of-type(2) .smallAd:nth-of-type(4) .thermometerProgress { width: 60%; }
   }
 }
