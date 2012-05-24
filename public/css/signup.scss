@@ -4,7 +4,16 @@
   width: 465px;
   margin: auto;
 
-  h3 { margin: 40px 0px 20px 0px; }
+  h3 { margin: 40px 0px 10px 0px; }
+
+  .flashErrors {
+    margin-bottom: 10px;
+    li {
+      margin-left: 30px;
+      padding: 3px 0px;
+      color: $cyan;
+    }
+  }
 
   .formField {
     position: relative;

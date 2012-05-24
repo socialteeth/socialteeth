@@ -4,6 +4,15 @@
 <div id="signupPage">
   <div class="container">
     <h3>Create an account to submit or contribute to ads.</h3>
+    <div class="flashErrors">
+      <% if flash[:errors] && flash[:errors].is_a?(Array) %>
+        <ul>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
     <form action="/signup" method="post">
       <div class="formField">
         <label for="name">Name</label>
@@ -18,8 +27,8 @@
         <input type="password" name="password" />
       </div>
       <div class="formField">
-        <label for="confirmPassword">Confirm password</label>
-        <input type="password" name="confirmPassword" />
+        <label for="confirm_password">Confirm password</label>
+        <input type="password" name="confirm_password" />
       </div>
       <div class="formField">
         <button>Sign up</button>
