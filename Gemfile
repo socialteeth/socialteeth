@@ -14,6 +14,7 @@ gem "sequel"
 gem "pg"
 
 gem "bcrypt-ruby"
+gem "rack-flash3"
 
 group :development do
   gem "foreman"

@@ -19,6 +19,9 @@ GEM
     pinion (0.1.5)
       rack (~> 1.0)
     rack (1.4.1)
+    rack-flash3 (1.0.1)
+      rack
+      rack
     rack-protection (1.2.0)
       rack
     raindrops (0.8.0)
@@ -48,6 +51,7 @@ DEPENDENCIES
   pathological
   pg
   pinion
+  rack-flash3
   rake
   rerun
   sass
