@@ -1,12 +1,14 @@
 class window.FormHints
-  init: ->
+  constructor: (form) ->
+    $form = $(form)
+
     $("form.hints input").each (i, el) ->
-      $("#signupPage label[for=#{el.name}]").show() if el.value == ""
+      $form.find("label[for=#{el.name}]").show() if el.value == ""
 
     $("form.hints input").keydown (e) ->
-      $(".formField label[for=#{e.target.name}]").hide()
+      $form.find("label[for=#{e.target.name}]").hide()
 
     $("form.hints input").blur (e) ->
-      $(".formField label[for=#{e.target.name}]").show() if e.target.value == ""
+      $form.find("label[for=#{e.target.name}]").show() if e.target.value == ""
 
-$(document).ready -> new FormHints().init()
+$(document).ready -> new FormHints(".authenticationForm")

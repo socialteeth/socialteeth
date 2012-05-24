@@ -1,7 +1,7 @@
-<%= @pinion.css_url("/assets/css/signup.css") %>
+<%= @pinion.css_url("/assets/css/authentication.css") %>
 <%= @pinion.js_url("/assets/js/form_hints.js") %>
 
-<div id="signupPage">
+<div class="authenticationForm">
   <div class="flashErrors">
     <% if flash[:errors] && flash[:errors].is_a?(Array) %>
       <ul>
