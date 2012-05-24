@@ -1,0 +1,29 @@
+<%= @pinion.css_url("/assets/css/signup.css") %>
+<%= @pinion.js_url("/assets/js/signup.js") %>
+
+<div id="signupPage">
+  <div class="container">
+    <h3>Create an account to submit or contribute to ads.</h3>
+    <form action="/signup" method="post">
+      <div class="formField">
+        <label for="name">Name</label>
+        <input type="text" name="name" />
+      </div>
+      <div class="formField">
+        <label for="email">Email</label>
+        <input type="text" name="email" />
+      </div>
+      <div class="formField">
+        <label for="password">Password</label>
+        <input type="password" name="password" />
+      </div>
+      <div class="formField">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" name="confirmPassword" />
+      </div>
+      <div class="formField">
+        <button>Sign up</button>
+      </div>
+    </form>
+  </div>
+</div>
