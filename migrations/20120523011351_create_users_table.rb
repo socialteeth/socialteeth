@@ -2,10 +2,10 @@ Sequel.migration do
   up do
     create_table :users do
       primary_key :id
-      String :name, :null => false
-      String :email, :null => false, :unique => true
-      String :password_hash, :null => false
-      String :permission, :null => false, :default => "normal"
+      String :name, :size => 128, :null => false
+      String :email, :size => 128, :null => false, :unique => true
+      String :password_hash, :size => 128, :null => false
+      String :permission, :size => 128, :null => false, :default => "normal"
       DateTime :created_at
       index :created_at
       index :email
