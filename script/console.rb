@@ -3,7 +3,7 @@
 require "bundler/setup"
 require "pathological"
 require "irb"
-require "lib/models"
+require "lib/db"
 
 IRB.start
 

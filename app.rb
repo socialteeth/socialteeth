@@ -3,7 +3,7 @@ require "pathological"
 require "sinatra"
 require "coffee-script"
 require "rack-flash"
-require "lib/models"
+require "lib/db"
 require "lib/authentication"
 
 class SocialTeeth < Sinatra::Base
