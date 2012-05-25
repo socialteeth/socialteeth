@@ -1,0 +1,13 @@
+form.standard {
+  .formField {
+    position: relative;
+    label {
+      position: absolute;
+      top: 12px;
+      left: 7px;
+      color: #BBBBBB;
+      pointer-events: none;
+      display: none;
+    }
+  }
+}

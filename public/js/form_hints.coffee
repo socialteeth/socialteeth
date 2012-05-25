@@ -11,4 +11,4 @@ class window.FormHints
     $("form.hints input").blur (e) ->
       $form.find("label[for=#{e.target.name}]").show() if e.target.value == ""
 
-$(document).ready -> new FormHints(".authenticationForm")
+$(document).ready -> new FormHints("form.hints")
