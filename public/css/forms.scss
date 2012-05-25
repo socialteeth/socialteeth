@@ -16,16 +16,33 @@ form.standard {
     width: 465px;
     margin: 15px 0px;
 
-    input, label { font-size: 1.2em; }
+    input[type=text], label { font-size: 1.2em; }
 
-    label { display: block; }
+    label {
+      display: block;
+      margin-bottom: 3px;
+    }
 
-    input {
+    input[type=text] {
       display: block;
       width: 100%;
       height: 40px;
       border: 1px solid $lightGray;
       padding: 0px 5px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      resize: none;
+      border: 1px solid $lightGray;
+      padding: 5px;
+      font-size: 1.1em;
+    }
+
+    select {
+      width: 477px;
+      font-size: 1.2em;
     }
 
     button {
