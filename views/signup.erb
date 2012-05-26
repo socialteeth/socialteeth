@@ -1,7 +1,9 @@
-<%= @pinion.css_url("/assets/css/forms.css") %>
-<%= @pinion.css_url("/assets/css/form_hints.css") %>
-<%= @pinion.css_url("/assets/css/authentication.css") %>
-<%= @pinion.js_url("/assets/js/form_hints.js") %>
+<% content_for :head do %>
+  <%= @pinion.css_url("/assets/css/forms.css") %>
+  <%= @pinion.css_url("/assets/css/form_hints.css") %>
+  <%= @pinion.css_url("/assets/css/authentication.css") %>
+  <%= @pinion.js_url("/assets/js/form_hints.js") %>
+<% end %>
 
 <div class="container">
   <div class="authenticationForm">

@@ -4,6 +4,7 @@
     <title>SocialTeeth</title>
     <%= @pinion.css_url("/css/common.css") %>
     <%= @pinion.js_url("/js/lib/jquery-1.7.2.min.js") %>
+    <%= yield_content :head %>
   </head>
   <body>
     <div id="header">

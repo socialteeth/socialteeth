@@ -1,4 +1,6 @@
-<%= @pinion.css_url("/assets/css/index.css") %>
+<% content_for :head do %>
+  <%= @pinion.css_url("/assets/css/index.css") %>
+<% end %>
 
 <div id="featurePreview">
   <img class="feature" src="/images/posters/rosie.jpg" />

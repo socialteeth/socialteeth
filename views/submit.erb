@@ -1,5 +1,7 @@
-<%= @pinion.css_url("/css/forms.css") %>
-<%= @pinion.css_url("/css/submit.css") %>
+<% content_for :head do %>
+  <%= @pinion.css_url("/css/forms.css") %>
+  <%= @pinion.css_url("/css/submit.css") %>
+<% end %>
 
 <div class="container">
   <div id="submitAd">

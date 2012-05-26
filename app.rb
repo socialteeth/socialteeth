@@ -2,6 +2,7 @@ require "bundler/setup"
 require "pathological"
 require "sinatra"
 require "coffee-script"
+require "sinatra/content_for2"
 require "rack-flash"
 require "lib/db"
 require "lib/currency"
@@ -12,6 +13,8 @@ class SocialTeeth < Sinatra::Base
   set :session_secret, "abcdefghijklmnop"
   set :views, "views"
   use Rack::Flash
+
+  helpers Sinatra::ContentFor2
 
   def initialize(pinion)
     @pinion = pinion
