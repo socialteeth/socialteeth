@@ -19,5 +19,5 @@ gem "rack-flash3"
 
 group :development do
   gem "foreman"
-  gem "rerun"
+  gem "sinatra-reloader"
 end
