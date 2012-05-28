@@ -5,7 +5,7 @@
 
 <div class="container">
   <div id="submitAd">
-    <form class="standard hints" action="/submit" method="post">
+    <form class="standard hints" action="/submit" method="post" enctype="multipart/form-data">
       <div class="flashErrors">
         <% if flash[:errors] && flash[:errors].is_a?(Array) %>
           <ul>

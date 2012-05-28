@@ -8,6 +8,7 @@ require "rack-flash"
 require "lib/db"
 require "lib/currency"
 require "lib/authentication"
+require "lib/uploader"
 
 class SocialTeeth < Sinatra::Base
   enable :sessions
@@ -39,9 +40,13 @@ class SocialTeeth < Sinatra::Base
     errors << "Goal must be dollar amount." unless params[:goal].is_currency?
 
     if errors.empty?
-      Ad.create(:title => params[:title], :description => params[:description],
+      ad = Ad.create(:title => params[:title], :description => params[:description],
           :goal => params[:goal].to_dollars, :ad_type => params[:ad_type], :url => params[:url],
-          :thumbnail_url => "http://example.com/thumbnail", :deadline => Time.now + 60 * 60 * 24 * 30)
+          :deadline => Time.now + 60 * 60 * 24 * 30)
+
+      ad.thumbnail_url = Uploader.new.upload_ad_thumbnail(ad, params[:thumbnail][:tempfile])
+      ad.save
+
       redirect "/"
     else
       flash[:errors] = errors
