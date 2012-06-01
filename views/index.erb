@@ -16,11 +16,13 @@
       <% featured_ads.each do |ad| %>
         <div class="smallAd">
           <div class="thumbnail">
-            <img src="/uploads/ad/<%= ad.id %>/thumbnail_200_cropped.png" />
+            <a href="#"><img src="/uploads/ad/<%= ad.id %>/thumbnail_200_cropped.png" /></a>
           </div>
           <div class="thermometer">
             <div class="thermometerProgress"></div>
           </div>
+          <a href="#"><h4 class="title"><%= ad.title %></h4></a>
+          <p class="description"><%= ad.description %></p>
         </div>
       <% end %>
     </div>

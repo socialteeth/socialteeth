@@ -35,19 +35,20 @@
     .smallAd {
       display: inline-block;
       width: 200px;
-      height: 200px;
-      margin-right: 25px;
+      height: 400px;
+      margin-right: 20px;
       margin-top: 50px;
+      float: left;
+      overflow: hidden;
+      background: #F0F0F0;
+      padding: 5px;
+      @include border-radius(5px);
 
       .thumbnail {
         height: 200px;
         width: 200px;
         border-bottom: none;
         background: #555555;
-        &:hover {
-          opacity: 0.3;
-          cursor: pointer;
-        }
 
         img {
           display: block;
@@ -56,14 +57,22 @@
       }
 
       .thermometer {
-        width: 200px;
+        width: 198px;
         border: 1px solid $lightGray;
         border-top: none;
 
         .thermometerProgress {
-          height: 4px;
+          height: 5px;
           background: $green;
         }
+      }
+
+      .title {
+        padding: 3px 0px;
+      }
+
+      .description {
+        line-height: 1.5em;
       }
 
       &:nth-of-type(1) .thermometerProgress { width: 75%; }
