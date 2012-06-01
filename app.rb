@@ -20,6 +20,7 @@ class SocialTeeth < Sinatra::Base
 
   configure :development do
     register Sinatra::Reloader
+    also_reload "lib/*"
   end
 
   def initialize(pinion)
