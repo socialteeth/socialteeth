@@ -24,6 +24,13 @@ a {
   cursor: pointer;
 
   &:hover { color: lighten($highlight, 20%); }
+
+  h1 { color: #333333; &:hover { color: $highlight; } }
+  h2 { color: #333333; &:hover { color: $highlight; } }
+  h3 { color: #333333; &:hover { color: $highlight; } }
+  h4 { color: #333333; &:hover { color: $highlight; } }
+  h5 { color: #333333; &:hover { color: $highlight; } }
+  h6 { color: #333333; &:hover { color: $highlight; } }
 }
 
 .container {
