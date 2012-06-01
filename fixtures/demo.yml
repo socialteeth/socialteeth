@@ -1,0 +1,58 @@
+ads:
+  - title: "Visit Palestine"
+    description: >
+      Situated at a strategic location between Egypt, Syria and Arabia, and the birthplace of Judaism and
+      Christianity, the region has a long and tumultuous history as a crossroads for religion, culture,
+      commerce, and politics. The region has been controlled by numerous different peoples, including Ancient
+      Egyptians, Canaanites, Ancient Israelites, Assyrians, Babylonians, Persians, Ancient Greeks, Romans,
+      Byzantines, the Sunni Arab Caliphate, the Shia Fatimid Caliphate, Crusaders, Ayyubids, Mameluks,
+      Ottomans, the British and modern Israelis and Palestinians. Modern archaeologists and historians of the
+      region refer to their field of study as Syro-Palestinian archaeology.
+    about_submitter: >
+      This is the author description for Visit Palestine.
+    goal: 25000
+    ad_type: video
+    url: http://example.com/palestine
+    thumbnail_file: "fixtures/images/palestine.png"
+
+  - title: "Buy War Bonds"
+    description: >
+      War bonds are debt securities issued by a government for the purpose of financing military operations
+      during times of war. War bonds generate capital for the government and make civilians feel involved in
+      their national militaries. This system is also useful as a means of controlling inflation in such an
+      overstimulated economy by removing money from circulation until hopefully after the war is concluded.
+    about_submitter: >
+      This is the author description for Buy War Bonds.
+    goal: 18000
+    ad_type: video
+    url: http://example.com/war bonds
+    thumbnail_file: "fixtures/images/war_bonds.png"
+
+  - title: "Kennedy for President"
+    description: >
+      On January 2, 1960, Kennedy initiated his campaign for President in the Democratic primary election,
+      where he faced challenges from Senator Hubert Humphrey of Minnesota and Senator Wayne Morse of Oregon.
+      Kennedy defeated Humphrey in Wisconsin and West Virginia, Morse in Maryland and Oregon, as well as from
+      token opposition (often write-in candidates) in New Hampshire, Indiana, and Nebraska. Kennedy visited a
+      coal mine in West Virginia; most miners and others in that predominantly conservative, Protestant state
+      were quite wary of Kennedy's Roman Catholicism.
+    about_submitter: >
+      This is the author description for Kennedy for President.
+    goal: 100000
+    ad_type: video
+    url: http://example.com/kennedy
+    thumbnail_file: "fixtures/images/kennedy.png"
+
+  - title: "Rosie the Riveter"
+    description: >
+      Rosie the Riveter is a cultural icon of the United States, representing the American women who worked
+      in factories during World War II, many of whom produced munitions and war supplies. These women
+      sometimes took entirely new jobs replacing the male workers who were in the military. Rosie the Riveter
+      is commonly used as a symbol of feminism and women's economic power.
+    about_submitter: >
+      This is the author description for Rosie the Riveter.
+    goal: 1000
+    ad_type: video
+    url: http://example.com/rosie
+    thumbnail_file: "fixtures/images/rosie.png"
+
