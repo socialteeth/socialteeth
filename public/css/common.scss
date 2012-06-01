@@ -38,6 +38,14 @@ a {
   margin: auto;
 }
 
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
 #header {
   $headerHeight: 60px;
 
