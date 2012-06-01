@@ -20,10 +20,10 @@ h6 { font-size: 0.8em; }
 
 a {
   text-decoration: none;
-  color: $cyan;
+  color: $highlight;
   cursor: pointer;
 
-  &:hover { color: lighten($cyan, 20%); }
+  &:hover { color: lighten($highlight, 20%); }
 }
 
 .container {
@@ -51,7 +51,7 @@ a {
   a {
     font-weight: bold;
     color: #333333;
-    &:hover { color: $cyan; }
+    &:hover { color: $highlight; }
   }
 
   nav {
