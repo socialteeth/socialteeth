@@ -39,10 +39,12 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/submit" do
+    redirect "/signin" if current_user.nil?
     erb :submit
   end
 
   post "/submit" do
+    redirect "/signin" if current_user.nil?
     errors = enforce_required_params(:title, :description, :goal, :ad_type, :url)
     errors << "Goal must be dollar amount." unless params[:goal].is_currency?
 
