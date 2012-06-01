@@ -8,20 +8,23 @@ class Uploader
   # TODO: This should upload to S3 in production and the filesystem in development.
   def upload_ad_thumbnail(ad, thumbnail_file)
     ad_directory = FileUtils.mkdir_p(File.join(UPLOAD_URL_BASE, "ad", "#{ad.id}")).first
-    thumbnail_destination = File.join(ad_directory, "thumbnail_original.png")
-    File.open(thumbnail_destination, "w") do |destination_file|
+    thumbnail_original_destination = File.join(ad_directory, "thumbnail_original.png")
+    File.open(thumbnail_original_destination, "w") do |destination_file|
       while block = thumbnail_file.read(65536)
         destination_file.print block
       end
     end
 
-    thumbnail_200_destination = File.join(ad_directory, "thumbnail_200.png")
-    thumbnail_200_cropped_destination = File.join(ad_directory, "thumbnail_200_cropped.png")
-    ImageScience.with_image(thumbnail_destination) do |image|
-      image.thumbnail(200) { |thumb| thumb.save(thumbnail_200_destination) }
-      image.cropped_thumbnail(200) { |thumb| thumb.save(thumbnail_200_cropped_destination) }
+    [200, 300].each do |size|
+      thumbnail_destination = File.join(ad_directory, "thumbnail_#{size}.png")
+      thumbnail_cropped_destination = File.join(ad_directory, "thumbnail_#{size}_cropped.png")
+
+      ImageScience.with_image(thumbnail_original_destination) do |image|
+        image.thumbnail(size) { |thumb| thumb.save(thumbnail_destination) }
+        image.cropped_thumbnail(size) { |thumb| thumb.save(thumbnail_cropped_destination) }
+      end
     end
 
-    "/#{thumbnail_destination.split("/").drop_while { |directory| directory != "uploads"}.join("/")}"
+    "/#{thumbnail_original_destination.split("/").drop_while { |directory| directory != "uploads"}.join("/")}"
   end
 end
