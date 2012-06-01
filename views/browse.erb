@@ -1,0 +1,17 @@
+<% content_for :head do %>
+  <%= @pinion.css_url("/css/browse.css") %>
+<% end %>
+<div class="container">
+  <% ads.each do |ad| %>
+    <div class="mediumAd">
+      <div class="thumbnail">
+        <img src="/uploads/ad/<%= ad.id %>/thumbnail_300_cropped.png" />
+      </div>
+      <div class="metadata">
+        <a href="#"><h4 class="title"><%= ad.title %></h4></a>
+        <h5 class="goal">Goal: $<%= ad.goal %></h5>
+        <p class="description"><%= ad.description %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -33,6 +33,11 @@ class SocialTeeth < Sinatra::Base
     erb :index, :locals => { :featured_ads => featured_ads }
   end
 
+  get "/browse" do
+    ads = Ad.order_by(:id.desc).all
+    erb :browse, :locals => { :ads => ads }
+  end
+
   get "/submit" do
     erb :submit
   end

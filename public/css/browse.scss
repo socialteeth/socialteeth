@@ -1,0 +1,27 @@
+.mediumAd {
+  background: #F0F0F0;
+  height: 300px;
+  margin: 20px 0px;
+  display: table;
+  width: 100%;
+
+  .thumbnail {
+    display: table-cell;
+    padding: 10px;
+    width: 300px;
+    vertical-align: middle;
+    img {
+      display: block;
+      margin: auto;
+    }
+  }
+
+  .metadata {
+    display: table-cell;
+    padding: 10px;
+
+    .title, .goal {
+      padding-bottom: 10px;
+    }
+  }
+}
