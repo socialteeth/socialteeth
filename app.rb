@@ -29,7 +29,8 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/" do
-    erb :index
+    featured_ads = Ad.order_by(:id.desc).limit(8).all
+    erb :index, :locals => { :featured_ads => featured_ads }
   end
 
   get "/submit" do

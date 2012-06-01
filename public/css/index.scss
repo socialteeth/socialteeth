@@ -40,14 +40,18 @@
       margin-top: 50px;
 
       .thumbnail {
-        height: 180px;
+        height: 200px;
         width: 200px;
-        border: 1px solid $lightGray;
         border-bottom: none;
         background: #555555;
         &:hover {
-          background: $lightGray;
+          opacity: 0.3;
           cursor: pointer;
+        }
+
+        img {
+          display: block;
+          margin: auto;
         }
       }
 

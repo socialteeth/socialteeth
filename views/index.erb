@@ -13,9 +13,11 @@
   <div class="category">
     <div class="container">
       <h2>Featured Ads</h2>
-      <% 8.times do %>
+      <% featured_ads.each do |ad| %>
         <div class="smallAd">
-          <div class="thumbnail"></div>
+          <div class="thumbnail">
+            <img src="/uploads/ad/<%= ad.id %>/thumbnail_200_cropped.png" />
+          </div>
           <div class="thermometer">
             <div class="thermometerProgress"></div>
           </div>
