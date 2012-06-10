@@ -52,17 +52,17 @@ end
 # Database configurations
 
 dep "create database" do
-  met? { `sudo su postgres -c "psql --list"`.include?("socialteeth") }
-  meet { shell("sudo su postgres -c 'createdb socialteeth -l en_US.utf8 -E utf8 -T template0'") }
+  met? { `sudo su postgres -c "psql --list"`.include?(DB_NAME) }
+  meet { shell("sudo su postgres -c 'createdb #{DB_NAME} -l en_US.utf8 -E utf8 -T template0'") }
 end
 
 dep "create socialteeth database user" do
   list_users_sql = "select usename from pg_user"
-  met? { `sudo su postgres -c "psql socialteeth -tc '#{list_users_sql}'"`.include?("socialteeth") }
+  met? { `sudo su postgres -c "psql #{DB_NAME} -tc '#{list_users_sql}'"`.include?(DB_USER) }
   meet do
-    create_user_sql = "CREATE USER socialteeth WITH PASSWORD '\"'\"'#{DB_PASS}'\"'\"'"
+    create_user_sql = "CREATE USER #{DB_USER} WITH PASSWORD '\"'\"'#{DB_PASS}'\"'\"'"
     shell(%Q{sudo su postgres -c 'psql -c "#{create_user_sql}"'})
-    shell(%Q{sudo su postgres -c "psql -c 'GRANT ALL PRIVILEGES ON DATABASE socialteeth TO socialteeth'"})
+    shell(%Q{sudo su postgres -c "psql -c 'GRANT ALL PRIVILEGES ON DATABASE #{DB_NAME} TO #{DB_USER}'"})
   end
 end
 

@@ -16,7 +16,8 @@ namespace :fezzik do
   remote_task :pre_push_setup, :roles => :root_user do
     puts "performing pre-push setup"
     add_user("socialteeth") unless has_user?("socialteeth")
-    run "ruby --version || apt-get install -y ruby"
+    run "ruby --version > /dev/null || apt-get install -y ruby"
+    run "rsync --version > /dev/null || apt-get install -y rsync"
     run "mkdir -p /opt/#{app}/releases && chown -R socialteeth /opt/#{app}"
   end
 
@@ -35,7 +36,7 @@ namespace :fezzik do
   remote_task :generate_upstart_scripts, :roles => :socialteeth_user do
     puts "generating upstart scripts"
     run "cd #{release_path} && bundle exec foreman export upstart upstart_scripts -a #{app} -u #{user}"
-    run "sudo cp #{current_path}/upstart_scripts/* /etc/init"
+    run "sudo cp #{release_path}/upstart_scripts/* /etc/init"
   end
 
   desc "rsyncs the project from its staging location a destination server"

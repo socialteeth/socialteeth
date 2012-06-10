@@ -1,8 +1,18 @@
+def set_application_paths(app)
+  set :deploy_to, "/opt/#{app}"
+  set :staging_path, "/tmp/#{app}"
+  set :local_path, Dir.pwd
+  set :release_path, "#{deploy_to}/releases/#{Time.now.strftime("%Y%m%d%H%M")}"
+end
+
+def set_common_environment
+  env :db_host, "localhost"
+  env :db_name, "socialteeth"
+  env :db_user, "socialteeth"
+end
+
 set :app, "socialteeth"
-set :deploy_to, "/opt/#{app}"
-set :staging_path, "/tmp/#{app}"
-set :local_path, Dir.pwd
-set :release_path, "#{deploy_to}/releases/#{Time.now.strftime("%Y%m%d%H%M")}"
+set_application_paths(app)
 set :user, "socialteeth"
 
 role :root_user, :user => "root"
@@ -10,10 +20,30 @@ role :socialteeth_user, :user => "socialteeth"
 
 destination :vagrant do
   set :domain, "socialteeth-vagrant"
-  env :db_host, "localhost"
+  set_common_environment
+  env :rack_env, "production"
+  env :port, 8200
+end
+
+destination :staging do
+  set :app, "socialteeth_staging"
+  set_application_paths(app)
+  set :domain, "50.116.26.92"
+  set_common_environment
+  env :rack_env, "staging"
+  env :db_name, "socialteeth_staging"
+  env :db_user, "socialteeth_staging"
+  env :port, 8100
+  env :unicorn_workers, 2
+end
+
+destination :prod do
+  set :domain, "50.116.26.92"
+  set_common_environment
+  env :rack_env, "production"
   env :db_name, "socialteeth"
-  env :db_user, "socialteeth"
-  env :port, 8090
+  env :port, 8200
+  env :unicorn_workers, 4
 end
 
 # Load secure credentials

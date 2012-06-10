@@ -14,6 +14,7 @@ class SocialTeeth < Sinatra::Base
   enable :sessions
   set :session_secret, "abcdefghijklmnop"
   set :views, "views"
+  set :public, "public"
   use Rack::Flash
 
   helpers Sinatra::ContentFor2
