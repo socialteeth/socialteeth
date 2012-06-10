@@ -52,7 +52,7 @@ end
 # Database configurations
 
 dep "create database" do
-  met? { `sudo su postgres -c "psql --list"`.include?(DB_NAME) }
+  met? { `sudo su postgres -c "psql --list -tA | cut -d '|' -f 1"`.split("\n").include?(DB_NAME) }
   meet { shell("sudo su postgres -c 'createdb #{DB_NAME} -l en_US.utf8 -E utf8 -T template0'") }
 end
 
