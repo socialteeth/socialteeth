@@ -29,6 +29,14 @@ class SocialTeeth < Sinatra::Base
     super
   end
 
+  before do
+    request.path_info = "/placeholder" if ENV["RACK_ENV"] == "production"
+  end
+
+  get "/placeholder" do
+    erb :placeholder, :locals => { :render_header => false }
+  end
+
   get "/" do
     featured_ads = Ad.order_by(:id.desc).limit(8).all
     erb :index, :locals => { :featured_ads => featured_ads }

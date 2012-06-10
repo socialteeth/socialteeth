@@ -7,27 +7,29 @@
     <%= yield_content :head %>
   </head>
   <body>
-    <div id="header">
-      <div class="container">
-        <a id="logo" href="/">SocialTeeth</a>
-        <nav>
-          <ul>
-            <li><a href="/browse">Browse Ads</a></li>
-            <li><a href="/submit">Submit Ad</a></li>
-            <li><a href="#">About</a></li>
-          </ul>
-        </nav>
-        <div id="signin">
-          <% if current_user %>
-            <a href="#"><%= current_user.name %></a> |
-            <a href="/signout">Sign Out</a>
-          <% else %>
-            <a href="/signup">Sign Up</a> |
-            <a href="/signin">Sign In</a>
-          <% end %>
+    <% unless defined?(render_header) && !render_header %>
+      <div id="header">
+        <div class="container">
+          <a id="logo" href="/">SocialTeeth</a>
+          <nav>
+            <ul>
+              <li><a href="/browse">Browse Ads</a></li>
+              <li><a href="/submit">Submit Ad</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </nav>
+          <div id="signin">
+            <% if current_user %>
+              <a href="#"><%= current_user.name %></a> |
+              <a href="/signout">Sign Out</a>
+            <% else %>
+              <a href="/signup">Sign Up</a> |
+              <a href="/signin">Sign In</a>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
     <div id="content">
       <%= yield %>
     </div>
