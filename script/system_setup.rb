@@ -23,13 +23,33 @@ ensure_file("config/system_config_files/.bashrc", "#{ENV['HOME']}/.bashrc")
 ensure_rbenv_ruby("1.9.2-p290")
 ensure_gem("bundler")
 
-# TODO: configure nginx
+# Nginx configurations
+
+ensure_run_once("nginx site-enabled has correct permissions") do
+  shell("sudo chgrp admin -R /etc/nginx/sites-enabled")
+  shell("sudo chmod g+w -R /etc/nginx/sites-enabled")
+end
+
+dep "remove default nginx configuration" do
+  met? { !File.exists?("/etc/nginx/sites-enabled/default") }
+  meet { shell("sudo rm -f /etc/nginx/sites-enabled/default") }
+end
+
+ensure_file("config/system_config_files/nginx.socialteeth.conf", "/etc/nginx/sites-enabled/socialteeth.conf") do
+  shell("sudo /etc/init.d/nginx restart")
+end
+
+
+# Javascript runtime for compiling coffeescript
 
 ensure_ppa("ppa:chris-lea/node.js") # This PPA is endorsed on the node GH wiki
 dep "node.js" do
   met? { in_path?("node") }
   meet { install_package("nodejs") }
 end
+
+
+# Database configurations
 
 dep "create database" do
   met? { `sudo su postgres -c "psql --list"`.include?("socialteeth") }
