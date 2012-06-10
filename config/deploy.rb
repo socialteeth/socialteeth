@@ -13,6 +13,7 @@ destination :vagrant do
   env :db_host, "localhost"
   env :db_name, "socialteeth"
   env :db_user, "socialteeth"
+  env :port, 8090
 end
 
 # Load secure credentials
