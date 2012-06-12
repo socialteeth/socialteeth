@@ -60,7 +60,7 @@ class SocialTeeth < Sinatra::Base
     if errors.empty?
       ad = Ad.create(:title => params[:title], :description => params[:description],
           :goal => params[:goal].to_dollars, :ad_type => params[:ad_type], :url => params[:url],
-          :deadline => Time.now + 60 * 60 * 24 * 30)
+          :user_id => current_user.id, :deadline => Time.now + 60 * 60 * 24 * 30)
 
       ad.thumbnail_url_base = Uploader.new.upload_ad_thumbnail(ad, params[:thumbnail][:tempfile])
       ad.save
