@@ -11,7 +11,7 @@ Sequel.migration do
       Integer :goal, :null => false
       ad_type :ad_type, :null => false
       String :url, :size => 2083
-      String :thumbnail_url, :size => 2083
+      String :thumbnail_url_base, :size => 2083
       Boolean :is_published, :null => false, :default => false
       DateTime :deadline, :null => false
       DateTime :created_at

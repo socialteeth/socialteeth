@@ -16,7 +16,7 @@
       <% featured_ads.each do |ad| %>
         <div class="smallAd">
           <div class="thumbnail">
-            <a href="#"><img src="/uploads/ad/<%= ad.id %>/thumbnail_200_cropped.png" /></a>
+            <a href="#"><img src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" /></a>
           </div>
           <div class="thermometer">
             <div class="thermometerProgress"></div>
