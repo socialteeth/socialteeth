@@ -18,6 +18,7 @@ gem "bcrypt-ruby"
 gem "rack-flash3"
 gem "image_science"
 gem "uuidtools"
+gem "aws-s3"
 
 group :development do
   gem "foreman"
