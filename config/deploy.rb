@@ -35,6 +35,7 @@ destination :staging do
   env :db_user, "socialteeth_staging"
   env :port, 8100
   env :unicorn_workers, 2
+  env :s3_bucket, "staging.socialteeth.org"
 end
 
 destination :prod do
@@ -44,6 +45,7 @@ destination :prod do
   env :db_name, "socialteeth"
   env :port, 8200
   env :unicorn_workers, 4
+  env :s3_bucket, "socialteeth.org"
 end
 
 # Load secure credentials
