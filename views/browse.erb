@@ -5,7 +5,7 @@
   <% ads.each do |ad| %>
     <div class="mediumAd">
       <div class="thumbnail">
-        <img src="/uploads/ad/<%= ad.id %>/thumbnail_300_cropped.png" />
+        <img src="<%= ad.thumbnail_url(:size => 300, :cropped => true)%>" />
       </div>
       <div class="metadata">
         <a href="#"><h4 class="title"><%= ad.title %></h4></a>
