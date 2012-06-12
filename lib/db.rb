@@ -1,10 +1,12 @@
 require "sequel"
+require "uuidtools"
 require "pathological"
 require "environment"
 
 class Sequel::Model
   def before_create
     self.created_at ||= Time.now if self.columns.include?(:created_at)
+    self.public_id = UUIDTools::UUID.random_create.to_i.to_s(16) if self.columns.include?(:public_id)
     super
   end
 end

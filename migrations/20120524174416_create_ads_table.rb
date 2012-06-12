@@ -4,6 +4,7 @@ Sequel.migration do
     create_table :ads do
       primary_key :id
       foreign_key :user_id, :users, :null => false
+      String :public_id, :size => 64, :null => false
       String :title, :size => 128, :null => false
       String :description, :size => 4096, :null => false
       String :about_submitter, :size => 4096, :null => false
@@ -15,6 +16,7 @@ Sequel.migration do
       DateTime :deadline, :null => false
       DateTime :created_at
       index :user_id
+      index :public_id
       index :created_at
     end
   end
