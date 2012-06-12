@@ -17,6 +17,7 @@ gem "pg"
 gem "bcrypt-ruby"
 gem "rack-flash3"
 gem "image_science"
+gem "uuidtools"
 
 group :development do
   gem "foreman"
