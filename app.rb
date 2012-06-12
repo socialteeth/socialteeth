@@ -62,7 +62,7 @@ class SocialTeeth < Sinatra::Base
           :goal => params[:goal].to_dollars, :ad_type => params[:ad_type], :url => params[:url],
           :deadline => Time.now + 60 * 60 * 24 * 30)
 
-      ad.thumbnail_url = Uploader.new.upload_ad_thumbnail(ad, params[:thumbnail][:tempfile])
+      ad.thumbnail_url_base = Uploader.new.upload_ad_thumbnail(ad, params[:thumbnail][:tempfile])
       ad.save
 
       redirect "/"

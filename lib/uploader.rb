@@ -2,12 +2,20 @@ require "fileutils"
 require "image_science"
 
 class Uploader
-  UPLOAD_URL_BASE = File.join(File.dirname(File.dirname(__FILE__)), "public", "uploads")
-
-  # Uploads a file to socialteeth/public/uploads.
-  # TODO: This should upload to S3 in production and the filesystem in development.
   def upload_ad_thumbnail(ad, thumbnail_file)
-    ad_directory = FileUtils.mkdir_p(File.join(UPLOAD_URL_BASE, "ad", "#{ad.id}")).first
+    if defined?(AWS_BUCKET)
+      # TODO: This should upload to S3 in production.
+    else
+      # Uploads a file to socialteeth/public/uploads.
+      upload_ad_thumbnail_to_filesystem(ad, thumbnail_file)
+    end
+  end
+
+  private
+
+  def upload_ad_thumbnail_to_filesystem(ad, thumbnail_file)
+    uploads_root = File.join(File.dirname(File.dirname(__FILE__)), "public", "uploads")
+    ad_directory = FileUtils.mkdir_p(File.join(uploads_root, "ad", "#{ad.public_id}")).first
     thumbnail_original_destination = File.join(ad_directory, "thumbnail_original.png")
     File.open(thumbnail_original_destination, "w") do |destination_file|
       while block = thumbnail_file.read(65536)
@@ -25,6 +33,8 @@ class Uploader
       end
     end
 
-    "/#{thumbnail_original_destination.split("/").drop_while { |directory| directory != "uploads"}.join("/")}"
+    "/#{File.dirname(thumbnail_original_destination).split("/").drop_while do |directory|
+      directory != "uploads"
+    end.join("/")}"
   end
 end
