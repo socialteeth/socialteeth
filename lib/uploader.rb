@@ -18,37 +18,36 @@ class Uploader
 
   private
 
-  # TODO: Refactor common logic between s3 and filesystem uploads.
   def upload_ad_thumbnails_to_s3(ad, thumbnail_file)
-    ad_directory = "/st_ads/#{ad.public_id}"
+    ad_path = "/st_ads/#{ad.public_id}"
 
-    write_to_s3("#{ad_directory}/thumbnail_original.png", thumbnail_file)
+    write_to_s3("#{ad_path}/thumbnail_original.png", thumbnail_file)
     thumbnail_file.rewind
 
-    tmp_thumbnail = "/tmp/socialteeth/uploads/stads/#{ad.public_id}/thumbnail_original.png"
+    tmp_thumbnail = "/tmp/socialteeth/uploads/#{ad_path}/thumbnail_original.png"
     write_to_filesystem(tmp_thumbnail, thumbnail_file)
 
     [200, 300].each do |size|
-      thumbnail_destination = File.join(ad_directory, "thumbnail_#{size}.png")
-      thumbnail_cropped_destination = File.join(ad_directory, "thumbnail_#{size}_cropped.png")
-      thumbnail_tmp_destination = File.join(File.dirname(tmp_thumbnail), "thumbnail_#{size}.png")
-      thumbnail_tmp_cropped_destination = File.join(File.dirname(tmp_thumbnail), "thumbnail_#{size}_cropped.png")
+      thumbnail_path = File.join(ad_path, "thumbnail_#{size}.png")
+      cropped_thumbnail_path = File.join(ad_path, "thumbnail_#{size}_cropped.png")
+      thumbnail_path_tmp = File.join(File.dirname(tmp_thumbnail), "thumbnail_#{size}.png")
+      cropped_thumbnail_path_tmp = File.join(File.dirname(tmp_thumbnail), "thumbnail_#{size}_cropped.png")
 
       ImageScience.with_image(tmp_thumbnail) do |image|
         image.thumbnail(size) do |thumb|
-          thumb.save(thumbnail_tmp_destination)
-          write_to_s3(thumbnail_destination, File.open(thumbnail_tmp_destination))
+          thumb.save(thumbnail_path_tmp)
+          write_to_s3(thumbnail_path, File.open(thumbnail_path_tmp))
         end
         image.cropped_thumbnail(size) do |thumb|
-          thumb.save(thumbnail_tmp_cropped_destination)
-          write_to_s3(thumbnail_cropped_destination, File.open(thumbnail_tmp_cropped_destination))
+          thumb.save(cropped_thumbnail_path_tmp)
+          write_to_s3(cropped_thumbnail_path, File.open(cropped_thumbnail_path_tmp))
         end
       end
     end
 
     FileUtils.rm_rf(File.dirname(tmp_thumbnail))
 
-    "https://s3.amazonaws.com/#{S3_BUCKET}/st_ads/#{ad.public_id}"
+    "https://s3.amazonaws.com/#{S3_BUCKET}#{ad_path}"
   end
 
   def upload_ad_thumbnails_to_filesystem(ad, thumbnail_file)
