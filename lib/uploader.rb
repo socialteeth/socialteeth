@@ -7,11 +7,11 @@ require "environment"
 class Uploader
   def upload_ad_thumbnail(ad, thumbnail_file)
     if defined?(S3_BUCKET)
-      # Uploads thumbnails to S3_BUCKET/ad/:public_id/
+      # Uploads thumbnails to S3_BUCKET/st_ads/:public_id/
       establish_s3_connection!
       upload_ad_thumbnails_to_s3(ad, thumbnail_file)
     else
-      # Uploads thumbnails to socialteeth/public/uploads/ad/:public_id/
+      # Uploads thumbnails to socialteeth/public/uploads/st_ads/:public_id/
       upload_ad_thumbnails_to_filesystem(ad, thumbnail_file)
     end
   end
@@ -20,12 +20,12 @@ class Uploader
 
   # TODO: Refactor common logic between s3 and filesystem uploads.
   def upload_ad_thumbnails_to_s3(ad, thumbnail_file)
-    ad_directory = "/ad/#{ad.public_id}"
+    ad_directory = "/st_ads/#{ad.public_id}"
 
     write_to_s3("#{ad_directory}/thumbnail_original.png", thumbnail_file)
     thumbnail_file.rewind
 
-    tmp_thumbnail = "/tmp/socialteeth/uploads/ad/#{ad.public_id}/thumbnail_original.png"
+    tmp_thumbnail = "/tmp/socialteeth/uploads/stads/#{ad.public_id}/thumbnail_original.png"
     write_to_filesystem(tmp_thumbnail, thumbnail_file)
 
     [200, 300].each do |size|
@@ -48,12 +48,12 @@ class Uploader
 
     FileUtils.rm_rf(File.dirname(tmp_thumbnail))
 
-    "https://s3.amazonaws.com/#{S3_BUCKET}/ad/#{ad.public_id}"
+    "https://s3.amazonaws.com/#{S3_BUCKET}/st_ads/#{ad.public_id}"
   end
 
   def upload_ad_thumbnails_to_filesystem(ad, thumbnail_file)
     uploads_root = File.join(File.dirname(File.dirname(__FILE__)), "public", "uploads")
-    ad_directory = File.join(uploads_root, "ad", "#{ad.public_id}")
+    ad_directory = File.join(uploads_root, "st_ads", "#{ad.public_id}")
     thumbnail_original_destination = File.join(ad_directory, "thumbnail_original.png")
     write_to_filesystem(thumbnail_original_destination, thumbnail_file)
 
