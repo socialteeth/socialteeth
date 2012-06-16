@@ -14,7 +14,7 @@ class SocialTeeth < Sinatra::Base
   enable :sessions
   set :session_secret, "abcdefghijklmnop"
   set :views, "views"
-  set :public, "public"
+  set :public_folder, "public"
   use Rack::Flash
 
   helpers Sinatra::ContentFor2
@@ -22,6 +22,10 @@ class SocialTeeth < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
     also_reload "lib/*"
+  end
+
+  configure do
+    set :root, File.expand_path(File.dirname(__FILE__))
   end
 
   def initialize(pinion)
