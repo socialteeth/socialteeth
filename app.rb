@@ -22,6 +22,7 @@ class SocialTeeth < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
     also_reload "lib/*"
+    also_reload "models/*"
   end
 
   configure do
