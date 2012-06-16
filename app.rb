@@ -52,6 +52,11 @@ class SocialTeeth < Sinatra::Base
     erb :browse, :locals => { :ads => ads }
   end
 
+  get "/ads/:id" do
+    halt 404 unless ad = Ad.find(:public_id => params[:id])
+    erb :details, :locals => { :ad => ad }
+  end
+
   get "/submit" do
     redirect "/signin" if current_user.nil?
     erb :submit

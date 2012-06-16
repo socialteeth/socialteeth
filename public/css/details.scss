@@ -1,0 +1,39 @@
+@import "css/mixins";
+
+#details {
+  #letterbox {
+    * {
+      width: 640px;
+      margin: auto;
+    }
+  }
+
+  h1 { margin: 30px 0px; }
+
+  #mainDetails {
+    display: table;
+
+    #detailsDescription {
+      display: table-cell;
+      width: 550px;
+      padding-right: 80px;
+    }
+
+    #detailsGutter {
+      display: table-cell;
+
+      .goal {
+        color: $darkGreen;
+        font-size: 1.8em;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .summary {
+        font-weight: bold;
+        line-height: 1.0em;
+      }
+    }
+  }
+}

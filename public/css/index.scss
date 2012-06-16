@@ -1,20 +1,5 @@
 @import "css/mixins";
 
-#featurePreview {
-  height: 385px;
-  background: #555555;
-  overflow: hidden;
-  @include box-shadow(inset 0px 0px 20px #333333);
-
-  .feature {
-    display: inline-block;
-    height: 370px;
-    margin: 0px 5px;
-    @include box-shadow(0px 0px 20px #333333);
-    display: none;
-  }
-}
-
 #banner {
   height: 55px;
   background: url(/images/classy_fabric.png);

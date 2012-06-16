@@ -1,0 +1,30 @@
+<%
+# Parameters:
+#   ad - the ad to render
+%>
+
+<% content_for :head do %>
+  <%= @pinion.css_url("/css/details.css") %>
+<% end %>
+
+<div id="details">
+  <div id="letterbox">
+    <%= erb :"embeds/youtube", :locals => { :ad => ad } %>
+  </div>
+  <div class="container">
+    <h1><%= ad.title %></h1>
+    <div id="mainDetails">
+      <div id="detailsDescription">
+        <p><%= ad.description %></p>
+      </div>
+      <div id="detailsGutter">
+        <div class="goal">
+          <p>$<%= ad.goal %> Goal</p>
+        </div>
+        <div class="summary">
+          <p>We need to raise $<%= ad.goal %> to run this ad for three weeks on California local television.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

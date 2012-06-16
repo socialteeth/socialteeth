@@ -2,7 +2,7 @@
   <%= @pinion.css_url("/assets/css/index.css") %>
 <% end %>
 
-<div id="featurePreview">
+<div id="letterbox">
 </div>
 
 <div id="banner">
@@ -16,12 +16,14 @@
       <% featured_ads.each do |ad| %>
         <div class="smallAd">
           <div class="thumbnail">
-            <a href="#"><img src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" /></a>
+            <a href="/ads/<%= ad.public_id %>">
+              <img src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" />
+            </a>
           </div>
           <div class="thermometer">
             <div class="thermometerProgress"></div>
           </div>
-          <a href="#"><h4 class="title"><%= ad.title %></h4></a>
+          <a href="/ads/<%= ad.public_id %>"><h4 class="title"><%= ad.title %></h4></a>
           <p class="description"><%= ad.description %></p>
         </div>
       <% end %>
