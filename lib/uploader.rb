@@ -52,24 +52,21 @@ class Uploader
   end
 
   def upload_ad_thumbnails_to_filesystem(ad, thumbnail_file)
-    uploads_root = File.join(File.dirname(File.dirname(__FILE__)), "public", "uploads")
-    ad_directory = File.join(uploads_root, "st_ads", "#{ad.public_id}")
-    thumbnail_original_destination = File.join(ad_directory, "thumbnail_original.png")
-    write_to_filesystem(thumbnail_original_destination, thumbnail_file)
+    ad_path = File.join(File.dirname(File.dirname(__FILE__)), "public", "uploads", "st_ads", ad.public_id)
+    original_thumbnail_path = File.join(ad_path, "thumbnail_original.png")
+    write_to_filesystem(original_thumbnail_path, thumbnail_file)
 
     [200, 300].each do |size|
-      thumbnail_destination = File.join(ad_directory, "thumbnail_#{size}.png")
-      thumbnail_cropped_destination = File.join(ad_directory, "thumbnail_#{size}_cropped.png")
+      thumbnail_path = File.join(ad_path, "thumbnail_#{size}.png")
+      cropped_thumbnail_path = File.join(ad_path, "thumbnail_#{size}_cropped.png")
 
-      ImageScience.with_image(thumbnail_original_destination) do |image|
-        image.thumbnail(size) { |thumb| thumb.save(thumbnail_destination) }
-        image.cropped_thumbnail(size) { |thumb| thumb.save(thumbnail_cropped_destination) }
+      ImageScience.with_image(original_thumbnail_path) do |image|
+        image.thumbnail(size) { |thumb| thumb.save(thumbnail_path) }
+        image.cropped_thumbnail(size) { |thumb| thumb.save(cropped_thumbnail_path) }
       end
     end
 
-    "/#{File.dirname(thumbnail_original_destination).split("/").drop_while do |directory|
-      directory != "uploads"
-    end.join("/")}"
+    "/#{ad_path.split("/").drop_while { |directory| directory != "uploads" }.join("/")}"
   end
 
   def establish_s3_connection!
