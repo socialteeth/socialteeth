@@ -12,7 +12,7 @@ ads:
       This is the author description for Visit Palestine.
     goal: 25000
     ad_type: video
-    url: http://example.com/palestine
+    url: "http://youtu.be/YnTPrH-jS48"
     thumbnail_file: "fixtures/images/palestine.png"
 
   - title: "Buy War Bonds"
@@ -25,7 +25,7 @@ ads:
       This is the author description for Buy War Bonds.
     goal: 18000
     ad_type: video
-    url: http://example.com/war bonds
+    url: "http://youtu.be/W8UBUbqC6t8"
     thumbnail_file: "fixtures/images/war_bonds.png"
 
   - title: "Kennedy for President"
@@ -40,7 +40,7 @@ ads:
       This is the author description for Kennedy for President.
     goal: 100000
     ad_type: video
-    url: http://example.com/kennedy
+    url: http://youtu.be/JLXTB_S193w
     thumbnail_file: "fixtures/images/kennedy.png"
 
   - title: "Rosie the Riveter"
@@ -53,6 +53,6 @@ ads:
       This is the author description for Rosie the Riveter.
     goal: 1000
     ad_type: video
-    url: http://example.com/rosie
+    url: "http://youtu.be/PK0CAivQsYM"
     thumbnail_file: "fixtures/images/rosie.png"
 
