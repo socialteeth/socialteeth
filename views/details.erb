@@ -9,7 +9,7 @@
 
 <div id="details">
   <div id="letterbox">
-    <%= erb :"embeds/youtube", :locals => { :ad => ad } %>
+    <%= erb :video_embed, :locals => { :ad => ad } %>
   </div>
   <div class="container">
     <h1><%= ad.title %></h1>
