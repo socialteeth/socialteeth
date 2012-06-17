@@ -8,7 +8,6 @@
 body {
   font-size: 13px;
   font-family: "Helvetica Neue", Helvetica, "Lucida Sans", Arial, Verdana, sans-serif;
-  line-height: 1.5em;
   color: #333333;
 }
 
@@ -33,6 +32,8 @@ a {
   h5 { color: #333333; &:hover { color: $highlight; } }
   h6 { color: #333333; &:hover { color: $highlight; } }
 }
+
+p { line-height: 1.5em }
 
 .container {
   width: $pageWidth;
