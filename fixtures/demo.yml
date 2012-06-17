@@ -53,6 +53,6 @@ ads:
       This is the author description for Rosie the Riveter.
     goal: 1000
     ad_type: video
-    url: "http://youtu.be/PK0CAivQsYM"
+    url: "http://vimeo.com/18770076"
     thumbnail_file: "fixtures/images/rosie.png"
 

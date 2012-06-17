@@ -4,7 +4,6 @@
 %>
 
 <div class="youtube_embed">
-  <% # TODO: Remove this hardcoding and use parsed embed %>
-  <iframe src="http://www.youtube.com/embed/PK0CAivQsYM" type="text/html"i
-      width="640" height="390" frameborder="0"></iframe>
+  <iframe src="<%= ad.video_embed_url %>" width="640" height="390"
+    frameborder="0"></iframe>
 </div>
