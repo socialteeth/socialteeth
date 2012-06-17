@@ -20,6 +20,9 @@ gem "image_science"
 gem "uuidtools"
 gem "aws-s3"
 
+# For parsing and normalizing video urls
+gem "opengraph"
+
 group :development do
   gem "foreman"
   gem "sinatra-reloader"
