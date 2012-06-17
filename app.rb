@@ -57,6 +57,10 @@ class SocialTeeth < Sinatra::Base
     erb :details, :locals => { :ad => ad }
   end
 
+  get "/about" do
+    erb :about
+  end
+
   get "/submit" do
     redirect "/signin" if current_user.nil?
     erb :submit
