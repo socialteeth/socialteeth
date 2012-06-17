@@ -5,6 +5,8 @@ require "sinatra/reloader"
 require "coffee-script"
 require "sinatra/content_for2"
 require "rack-flash"
+require "opengraph"
+require "open-uri"
 require "lib/db"
 require "lib/currency"
 require "lib/authentication"
@@ -68,16 +70,21 @@ class SocialTeeth < Sinatra::Base
 
   post "/submit" do
     redirect "/signin" if current_user.nil?
-    errors = enforce_required_params(:title, :description, :goal, :ad_type, :url)
+    errors = enforce_required_params(:title, :description, :goal, :url)
     errors << "Goal must be dollar amount." unless params[:goal].is_currency?
 
     if errors.empty?
       ad = Ad.create(:title => params[:title], :description => params[:description],
-          :goal => params[:goal].to_dollars, :ad_type => params[:ad_type], :url => params[:url],
+          :goal => params[:goal].to_dollars, :ad_type => "video", :url => params[:url],
           :user_id => current_user.id, :deadline => Time.now + 60 * 60 * 24 * 30)
 
-      ad.thumbnail_url_base = Uploader.new.upload_ad_thumbnail(ad, params[:thumbnail][:tempfile])
-      ad.save
+      # Use thumbnail from YouTube or Vimeo
+      if opengraph_video = OpenGraph.fetch(ad.url)
+        open(opengraph_video.image) do |image|
+          ad.thumbnail_url_base = Uploader.new.upload_ad_thumbnail(ad, image)
+          ad.save
+        end
+      end
 
       redirect "/"
     else
