@@ -53,7 +53,7 @@ p { line-height: 1.5em }
 
   border-bottom: 1px solid $lightGray;
   height: $headerHeight;
-  @include linear-gradient(#FAFAFA,#EAEAEA);
+  @include linear-gradient(#FAFAFA, #EAEAEA);
 
   #logo {
     display: block;
