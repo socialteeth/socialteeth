@@ -2,30 +2,31 @@
   <%= @pinion.css_url("/assets/css/index.css") %>
 <% end %>
 
-<div id="letterbox">
-</div>
+<div id="home">
+  <div id="letterbox" class="faces">
+  </div>
 
-<div id="banner">
-  <span>Put your money where your mouth is.</span>
-</div>
+  <div id="banner">
+    <span>Put your money where your mouth is.</span>
+  </div>
 
-<div id="categories">
-  <div class="category clearfix">
-    <div class="container">
-      <% featured_ads.each do |ad| %>
-        <div class="smallAd">
-          <div class="thumbnail">
-            <a href="/ads/<%= ad.public_id %>">
-              <img src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" />
-            </a>
+  <div id="categories">
+    <div class="category clearfix">
+      <div class="container">
+        <% featured_ads.each do |ad| %>
+          <div class="smallAd">
+            <div class="thumbnail">
+              <a href="/ads/<%= ad.public_id %>">
+                <img src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" />
+              </a>
+            </div>
+            <div class="thermometer">
+              <div class="thermometerProgress"></div>
+            </div>
+            <a href="/ads/<%= ad.public_id %>"><h4 class="title"><%= ad.title %></h4></a>
           </div>
-          <div class="thermometer">
-            <div class="thermometerProgress"></div>
-          </div>
-          <a href="/ads/<%= ad.public_id %>"><h4 class="title"><%= ad.title %></h4></a>
-          <p class="description"><%= ad.description %></p>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
