@@ -5,19 +5,23 @@
     .videoEmbed { width: 640px; }
   }
 
-  h1 { margin: 30px 0px; }
-
   #mainDetails {
     display: table;
+    margin: 30px 0px;
 
-    #detailsDescription {
+    #detailsText {
       display: table-cell;
       width: 550px;
       padding-right: 80px;
+      h1 { margin-bottom: 30px; }
     }
 
     #detailsGutter {
       display: table-cell;
+      background-color:rgba(10,10,10,0.20);
+      @include box-shadow(0px 0px 5px 5px rgba(10,10,10,0.20));
+      height: 500px;
+      padding: 5px;
 
       .goal {
         color: $darkGreen;
@@ -25,11 +29,67 @@
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 20px;
+        text-align: center;
       }
 
       .summary {
         font-weight: bold;
         line-height: 1.0em;
+        p {
+          margin: 20px 0px;
+        }
+      }
+
+      .thermometer {
+        width: 320px;
+        height: 20px;
+        margin: 30px auto;
+        border: 2px solid #333;
+        position: relative;
+
+        .thermometerProgress {
+          height: 20px;
+          width: 65%;
+          background-color: $darkGreen;
+        }
+
+        .milestone {
+          position: absolute;
+          width: 1px;
+          background-color: #333;
+          top: 0px;
+
+          &.milestone1 {
+            left: 25%;
+            height: 50px;
+          }
+
+          &.milestone2 {
+            left: 75%;
+            height: 100px;
+          }
+        }
+
+        .digitalMilestone {
+          color: $darkGreen;
+          font-weight: bold;
+          position: absolute;
+          top: 50px;
+          left: 39px;
+        }
+
+        .televisionMilestone {
+          color: #333;
+          font-weight: bold;
+          position: absolute;
+          top: 100px;
+          left: 178px;
+        }
+      }
+
+      .formField {
+        width: inherit;
+        margin-top: 130px;
       }
     }
   }

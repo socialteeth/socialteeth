@@ -5,6 +5,7 @@
 
 <% content_for :head do %>
   <%= @pinion.css_url("/css/details.css") %>
+  <%= @pinion.css_url("/css/forms.css") %>
 <% end %>
 
 <div id="details">
@@ -12,9 +13,9 @@
     <%= erb :video_embed, :locals => { :ad => ad } %>
   </div>
   <div class="container">
-    <h1><%= ad.title %></h1>
     <div id="mainDetails">
-      <div id="detailsDescription">
+      <div id="detailsText">
+        <h1><%= ad.title %></h1>
         <p><%= ad.description %></p>
       </div>
       <div id="detailsGutter">
@@ -22,8 +23,21 @@
           <p>$<%= ad.goal %> Goal</p>
         </div>
         <div class="summary">
-          <p>We need to raise $<%= ad.goal %> to run this ad for three weeks on California local television.</p>
+          <p>We need $<%= ad.goal / 4 %> to run this ad for four weeks on Hulu.</p>
+          <p>We need $<%= ad.goal %> to run this ad for three weeks on California local television.</p>
         </div>
+        <div class="thermometer">
+          <div class="thermometerProgress"></div>
+          <div class="milestone milestone1"></div>
+          <div class="milestone milestone2"></div>
+          <div class="digitalMilestone">Digital milestone</div>
+          <div class="televisionMilestone">Television milestone</div>
+        </div>
+        <form class="standard">
+          <div class="formField">
+            <button>Sponsor this ad</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
