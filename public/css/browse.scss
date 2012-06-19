@@ -1,9 +1,13 @@
+@import "css/mixins";
+
 .mediumAd {
   background: #F0F0F0;
   height: 300px;
   margin: 20px 0px;
   display: table;
   width: 100%;
+  background-color:rgba(10,10,10,0.20);
+  @include box-shadow(0px 0px 5px 5px rgba(10,10,10,0.20));
 
   .thumbnail {
     display: table-cell;
@@ -20,8 +24,11 @@
     display: table-cell;
     padding: 10px;
 
-    .title, .goal {
-      padding-bottom: 10px;
+    .title {
+      color: $highlight;
+      &:hover { color: #333; }
     }
+
+    .goal { padding: 10px 0px; }
   }
 }
