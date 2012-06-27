@@ -1,6 +1,7 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/css/forms.css") %>
   <%= @pinion.css_url("/css/submit.css") %>
+  <%= @pinion.js_url("/js/form_hints.js") %>
 <% end %>
 
 <div class="container">
@@ -16,20 +17,16 @@
         <% end %>
       </div>
       <div class="formField">
-        <label for="title">Title</label>
-        <input type="text" name="title" />
+        <input type="text" name="title" placeholder="Title" />
       </div>
       <div class="formField">
-        <label for="description">Description</label>
-        <textarea name="description"></textarea>
+        <textarea name="description" placeholder="Description"></textarea>
       </div>
       <div class="formField">
-        <label for="goal">Goal</label>
-        <input type="text" name="goal" />
+        <input type="text" name="goal" placeholder="Goal" />
       </div>
       <div class="formField">
-        <label for="url">YouTube or Vimeo URL</label>
-        <input type="text" name="url" />
+        <input type="text" name="url" placeholder="YouTube or Vimeo URL" />
       </div>
       <div class="formField">
         <button>Submit Ad</button>
