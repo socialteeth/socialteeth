@@ -1,3 +1,4 @@
+RACK_ENV = "development"
 DB_HOST = "localhost"
 DB_NAME = "socialteeth"
 DB_USER = "postgres"
