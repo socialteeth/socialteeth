@@ -45,7 +45,7 @@ destination :prod do
   env :db_name, "socialteeth"
   env :db_user, "socialteeth"
   env :port, 8200
-  env :unicorn_workers, 4
+  env :unicorn_workers, 10
   env :s3_bucket, "socialteeth.org"
 end
 
