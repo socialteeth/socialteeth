@@ -1,6 +1,5 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/forms.css") %>
-  <%= @pinion.css_url("/assets/css/form_hints.css") %>
   <%= @pinion.css_url("/assets/css/authentication.css") %>
   <%= @pinion.js_url("/assets/js/form_hints.js") %>
 <% end %>
@@ -18,12 +17,10 @@
         <% end %>
       </div>
       <div class="formField">
-        <label for="email">Email</label>
-        <input type="text" name="email" />
+        <input type="text" name="email" placeholder="Email" />
       </div>
       <div class="formField">
-        <label for="password">Password</label>
-        <input type="password" name="password" />
+        <input type="password" name="password" placeholder="Password" />
       </div>
       <div class="formField">
         <button>Sign in</button>
