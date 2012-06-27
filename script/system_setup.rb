@@ -57,8 +57,8 @@ dep "create database" do
 end
 
 dep "create socialteeth database user" do
-  list_users_sql = "select usename from pg_user"
-  met? { `sudo su postgres -c "psql #{DB_NAME} -tc '#{list_users_sql}'"`.include?(DB_USER) }
+  users_sql = "select usename from pg_user"
+  met? { `sudo su postgres -c "psql #{DB_NAME} -tc '#{users_sql}'"`.split("\n").map(&:strip).include?(DB_USER) }
   meet do
     create_user_sql = "CREATE USER #{DB_USER} WITH PASSWORD '\"'\"'#{DB_PASS}'\"'\"'"
     shell(%Q{sudo su postgres -c 'psql -c "#{create_user_sql}"'})
