@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="authenticationForm">
-    <form class="standard hints" action="/signin" method="post">
+    <form class="standard hints" action="/signin?redirect=<%= params[:redirect] %>" method="post">
       <div class="flashErrors">
         <% if flash[:errors] && flash[:errors].is_a?(Array) %>
           <ul>

@@ -36,7 +36,7 @@ class SocialTeeth < Sinatra::Base
     requested_user = User.find(:email => params[:email])
     if requested_user && requested_user.password == params[:password]
       self.current_user = requested_user
-      redirect "/"
+      redirect params[:redirect] ? params[:redirect] : "/"
     else
       errors << "Invalid login." if errors.empty?
       flash[:errors] = errors

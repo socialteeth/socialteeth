@@ -64,12 +64,12 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/submit" do
-    redirect "/signin" if current_user.nil?
+    ensure_signed_in
     erb :submit
   end
 
   post "/submit" do
-    redirect "/signin" if current_user.nil?
+    ensure_signed_in
     errors = enforce_required_params(:title, :description, :url)
 
     if errors.empty?
@@ -90,6 +90,10 @@ class SocialTeeth < Sinatra::Base
       flash[:errors] = errors
       redirect "/submit"
     end
+  end
+
+  def ensure_signed_in
+    redirect "/signin?redirect=#{request.path_info}" if current_user.nil?
   end
 
   def enforce_required_params(*args)
