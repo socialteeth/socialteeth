@@ -4,20 +4,21 @@
   #letterbox.faces {
     background-image: url(/images/face_banner150x300.png);
 
-    padding-top: 70px;
-    height: 230px;
+    padding-top: 40px;
+    height: 260px;
 
     #siteSummary {
       background: #EEEEEE;
       margin: auto;
       width: 800px;
-      padding: 30px;
-      height: 100px;
+      padding: 20px;
+      height: 160px;
       border: 5px solid #555;
 
-      h2 { margin-bottom: 20px; }
-
-      p { font-size: 1.2em; }
+      p {
+        font-size: 1.2em;
+        margin: 10px 0px;
+      }
     }
   }
 
