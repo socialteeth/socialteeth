@@ -50,6 +50,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/browse" do
+    halt 404
     ads = Ad.order_by(:id.desc).all
     erb :browse, :locals => { :ads => ads }
   end
