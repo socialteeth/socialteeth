@@ -71,12 +71,11 @@ class SocialTeeth < Sinatra::Base
 
   post "/submit" do
     redirect "/signin" if current_user.nil?
-    errors = enforce_required_params(:title, :description, :goal, :url)
-    errors << "Goal must be dollar amount." unless params[:goal].is_currency?
+    errors = enforce_required_params(:title, :description, :url)
 
     if errors.empty?
       ad = Ad.create(:title => params[:title], :description => params[:description],
-          :goal => params[:goal].to_dollars, :ad_type => "video", :url => params[:url],
+          :goal => 0, :ad_type => "video", :url => params[:url],
           :user_id => current_user.id, :deadline => Time.now + 60 * 60 * 24 * 30)
 
       # Use thumbnail from YouTube or Vimeo
