@@ -86,6 +86,7 @@ class SocialTeeth < Sinatra::Base
           ad.save
         end
       else
+        ad.destroy
         errors << "Unable to parse video URL."
         flash[:errors] = errors
         redirect "/submit"
