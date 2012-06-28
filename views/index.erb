@@ -1,5 +1,6 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/index.css") %>
+  <%= @pinion.css_url("/assets/css/forms.css") %>
 <% end %>
 
 <div id="home">
@@ -26,6 +27,11 @@
       <p>you'll have <em>24 hours</em> to <em>vote</em> for the ads you love.</p>
       <p>THE WINNERS WILL BE FEATURED ON OUR SITE</p>
       <p>and might see their messages <em>on television</em>.</p>
+      <form class="standard">
+        <div class="formField">
+          <a href="/submit"><button>Launch Your Ad</button></a>
+        </div>
+      </form>
     </div>
   </div>
 </div>
