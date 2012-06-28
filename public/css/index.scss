@@ -90,4 +90,53 @@
       }
     }
   }
+
+  #contestAnnouncement {
+    font-weight: bold;
+    width: 580px;
+    margin: auto;
+    font-size: 1.6em;
+    text-align: justify;
+    margin-top: 30px;
+    background: #EEEEEE;
+
+    p { line-height: 2.0em; }
+
+    .block {
+      display: inline-block;
+      height: 18px;
+      color: #333;
+      background-color: #333;
+      border: none;
+
+      &.first {
+        width: 70px;
+        margin-right: 10px;
+      }
+
+      &.second {
+        width: 60px;
+        margin-right: 10px;
+      }
+    }
+
+    em {
+      text-transform: uppercase;
+      color: $red;
+      font-size: 1.1em;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    strong {
+      display: inline-block;
+      text-transform: uppercase;
+      border-top: 10px solid #333;
+      border-bottom: 10px solid #333;
+      font-size: 2.0em;
+      float: right;
+      padding: 15px 0px;
+      margin-top: 7px;
+    }
+  }
 }
