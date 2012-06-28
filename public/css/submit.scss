@@ -1,5 +1,12 @@
-#submitAd {
+#submitAd, #submitComplete {
   margin: 20px auto;
-  width: 470px;
   background-color: #EEEEEE;
+  h2 { margin-bottom: 20px; }
+}
+
+#submitAd { width: 470px; }
+#submitComplete {
+  width: 550px;
+  p { font-size: 1.4em; }
+  a.button { margin-top: 20px; }
 }

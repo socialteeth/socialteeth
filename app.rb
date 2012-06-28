@@ -85,11 +85,15 @@ class SocialTeeth < Sinatra::Base
         end
       end
 
-      redirect "/"
+      redirect "/submit_complete"
     else
       flash[:errors] = errors
       redirect "/submit"
     end
+  end
+
+  get "/submit_complete" do
+    erb :submit_complete
   end
 
   def ensure_signed_in
