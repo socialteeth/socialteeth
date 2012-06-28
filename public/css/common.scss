@@ -59,10 +59,10 @@ p { line-height: 1.5em }
   #logo {
     display: block;
     float: left;
-    width: 210px;
+    width: 240px;
     height: $headerHeight;
-    background: url(/images/logo36.png) no-repeat;
-    background-position: 0px ($headerHeight / 2 - 16);
+    background: url(/images/logos/long240x40.png) no-repeat;
+    background-position: 0px ($headerHeight / 2 - 20);
     text-indent: -9999px;
   }
 
