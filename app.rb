@@ -70,11 +70,11 @@ class SocialTeeth < Sinatra::Base
 
   post "/submit" do
     ensure_signed_in
-    errors = enforce_required_params(:title, :description, :url)
+    errors = enforce_required_params(:title, :description, :about_submitter, :url)
 
     if errors.empty?
       ad = Ad.create(:title => params[:title], :description => params[:description],
-          :goal => 0, :ad_type => "video", :url => params[:url],
+          :goal => 0, :ad_type => "video", :url => params[:url], :about_submitter => params[:about_submitter],
           :user_id => current_user.id, :deadline => Time.now + 60 * 60 * 24 * 30)
 
       # Use thumbnail from YouTube or Vimeo
