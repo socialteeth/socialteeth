@@ -32,6 +32,23 @@ a {
   h4 { color: #333333; &:hover { color: $highlight; } }
   h5 { color: #333333; &:hover { color: $highlight; } }
   h6 { color: #333333; &:hover { color: $highlight; } }
+
+  &.button {
+    display: block;
+    width: 200px;
+    padding: 15px;
+    margin: auto;
+    font-size: 1.2em;
+    text-align: center;
+    border: 1px solid darken($lightGray, 20%);
+    cursor: pointer;
+    background: #333;
+    color: lighten($lightGray, 20%);
+    margin-bottom: 20px;
+    @include border-radius(3px);
+
+    &:hover { @include box-shadow(0px 0px 10px #555); }
+  }
 }
 
 p { line-height: 1.5em }
