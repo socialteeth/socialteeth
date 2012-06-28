@@ -21,7 +21,7 @@
           </nav>
           <div id="signin">
             <% if current_user %>
-              <a><%= current_user.name %></a> |
+              <span class="username"><%= current_user.name %></span> |
               <a href="/signout">Sign Out</a>
             <% else %>
               <a href="/signup">Sign Up</a> |

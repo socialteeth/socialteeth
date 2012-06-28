@@ -115,7 +115,10 @@ p { line-height: 1.5em }
     height: $headerHeight - $paddingTop;
     padding-top: $paddingTop;
 
-    a { padding: 0px 3px; }
+    a, span {
+      padding: 0px 3px;
+      font-weight: bold;
+    }
   }
 }
 
