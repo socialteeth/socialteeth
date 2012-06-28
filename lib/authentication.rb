@@ -8,9 +8,11 @@ class SocialTeeth < Sinatra::Base
     flash[:email] = params[:email]
     errors = enforce_required_params([:name, :email, :password, :confirm_password])
 
-    if params[:email]
+    if params[:email] && params[:email].match(/[^@]+@[^@]+/)
       existing_user = User.find(:email => params[:email])
       errors << "Another user exists with that email." if existing_user
+    else
+      errors << "Invalid email."
     end
 
     errors << "Passwords must match." unless params[:password] == params[:confirm_password]
