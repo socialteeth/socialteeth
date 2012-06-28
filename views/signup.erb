@@ -18,10 +18,10 @@
         <% end %>
       </div>
       <div class="formField">
-        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="name" placeholder="Name" value="<%= flash[:name] %>" />
       </div>
       <div class="formField">
-        <input type="text" name="email" placeholder="Email" />
+        <input type="text" name="email" placeholder="Email" value="<%= flash[:email] %>" />
       </div>
       <div class="formField">
         <input type="password" name="password" placeholder="Password" />

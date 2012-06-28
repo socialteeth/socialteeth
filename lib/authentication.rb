@@ -4,9 +4,9 @@ class SocialTeeth < Sinatra::Base
   end
 
   post "/signup" do
-    errors = []
-
-    errors = enforce_required_params(:name, :email, :password, :confirm_password)
+    flash[:name] = params[:name]
+    flash[:email] = params[:email]
+    errors = enforce_required_params([:name, :email, :password, :confirm_password])
 
     if params[:email]
       existing_user = User.find(:email => params[:email])
@@ -31,7 +31,8 @@ class SocialTeeth < Sinatra::Base
   end
 
   post "/signin" do
-    errors = enforce_required_params(:email, :password)
+    flash[:email] = params[:email]
+    errors = enforce_required_params([:email, :password])
 
     requested_user = User.find(:email => params[:email])
     if requested_user && requested_user.password == params[:password]

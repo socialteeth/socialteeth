@@ -70,7 +70,9 @@ class SocialTeeth < Sinatra::Base
 
   post "/submit" do
     ensure_signed_in
-    errors = enforce_required_params(:title, :description, :about_submitter, :url)
+    fields = [:title, :description, :about_submitter, :url]
+    fields.each { |field| flash[field] = params[field] }
+    errors = enforce_required_params(fields)
     errors << "Description is too long." unless params[:description].size < 4096
     errors << "Submitter description is too long." unless params[:about_submitter].size < 4096
 
@@ -107,8 +109,8 @@ class SocialTeeth < Sinatra::Base
     redirect "/signin?redirect=#{request.path_info}" if current_user.nil?
   end
 
-  def enforce_required_params(*args)
-    empty_fields = args.select { |field| params[field].empty? }
+  def enforce_required_params(fields)
+    empty_fields = fields.select { |field| params[field].nil? || params[field].empty? }
     empty_fields.empty? ? [] : ["All fields are required."]
   end
 end
