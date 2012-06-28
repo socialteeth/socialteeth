@@ -71,6 +71,8 @@ class SocialTeeth < Sinatra::Base
   post "/submit" do
     ensure_signed_in
     errors = enforce_required_params(:title, :description, :about_submitter, :url)
+    errors << "Description is too long." unless params[:description].size < 4096
+    errors << "Submitter description is too long." unless params[:about_submitter].size < 4096
 
     if errors.empty?
       ad = Ad.create(:title => params[:title], :description => params[:description],
@@ -83,6 +85,10 @@ class SocialTeeth < Sinatra::Base
           ad.thumbnail_url_base = Uploader.new.upload_ad_thumbnail(ad, image)
           ad.save
         end
+      else
+        errors << "Unable to parse video URL."
+        flash[:errors] = errors
+        redirect "/submit"
       end
 
       redirect "/submit_complete"
