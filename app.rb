@@ -36,14 +36,6 @@ class SocialTeeth < Sinatra::Base
     super
   end
 
-  before do
-    request.path_info = "/placeholder" if ENV["RACK_ENV"] == "production"
-  end
-
-  get "/placeholder" do
-    erb :placeholder, :locals => { :render_header => false }
-  end
-
   get "/" do
     erb :index
   end
