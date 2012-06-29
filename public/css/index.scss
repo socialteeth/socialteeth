@@ -147,4 +147,12 @@
       font-weight: normal;
     }
   }
+
+  #contestPoster {
+    background: url(/images/contest_poster.jpg) center no-repeat;
+    @include box-shadow(inset 0px 0px 20px #000000);
+    width: 2000;
+    height: 1000px;
+    margin: auto;
+  }
 }
