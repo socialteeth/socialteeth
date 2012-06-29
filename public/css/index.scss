@@ -148,6 +148,17 @@
     }
   }
 
+  #siteIntro {
+    padding-top: 20px;
+
+    .container { background: #EEEEEE; }
+
+    p {
+      font-size: 1.2em;
+      margin: 20px 0px;
+    }
+  }
+
   #contestPoster {
     background: url(/images/contest_poster.jpg) center no-repeat;
     @include box-shadow(inset 0px 0px 20px #000000);
