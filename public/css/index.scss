@@ -165,5 +165,14 @@
     width: 2000;
     height: 1000px;
     margin: auto;
+    position: relative;
+
+    a {
+      display: block;
+      position: absolute;
+      top: 750px;
+      width: 100%;
+      height: 200px;
+    }
   }
 }
