@@ -67,6 +67,22 @@ p { line-height: 1.5em }
   visibility: hidden;
 }
 
+nav {
+
+  li {
+    list-style: none;
+    display: inline-block;
+
+    a {
+      display: block;
+      text-align: center;
+      color: #333333;
+      font-weight: bold;
+      &:hover { color: $highlight; }
+    }
+  }
+}
+
 #header {
   $headerHeight: 60px;
 
@@ -84,12 +100,6 @@ p { line-height: 1.5em }
     text-indent: -9999px;
   }
 
-  a {
-    font-weight: bold;
-    color: #333333;
-    &:hover { color: $highlight; }
-  }
-
   nav {
     float: left;
     margin-left: 30px;
@@ -97,15 +107,11 @@ p { line-height: 1.5em }
     $paddingTop: $headerHeight / 2 - 8;
 
     li {
-      list-style: none;
-      display: inline-block;
-
       a {
         display: block;
         height: $headerHeight - $paddingTop;
         padding: 0px 20px;
         padding-top: $paddingTop;
-        text-align: center;
       }
     }
   }
@@ -119,6 +125,30 @@ p { line-height: 1.5em }
     a, span {
       padding: 0px 3px;
       font-weight: bold;
+      color: #333333;
+    }
+  }
+}
+
+#subheader {
+  height: 30px;
+  background: $yellow;
+  border-bottom: 1px solid darken($yellow, 10%);
+
+  .sublogo {
+    display: inline-block;
+    margin-left: 170px;
+    text-transform: uppercase;
+    float: left;
+  }
+
+  nav {
+    margin-left: 270px;
+    a {
+      font-weight: normal;
+      height: 21px;
+      padding: 0px 20px;
+      padding-top: 7px;
     }
   }
 }

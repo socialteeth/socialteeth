@@ -17,6 +17,7 @@
             <li><a href="/submit">Submit Ad</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/press">Press</a></li>
+            <li><a href="/labs">Labs</a></li>
           </ul>
         </nav>
         <div id="signin">
@@ -30,6 +31,19 @@
         </div>
       </div>
     </div>
+    <% if in_labs? %>
+      <div id="subheader" class="labs">
+        <div class="container">
+          <h2 class="sublogo">Labs</h2>
+          <nav>
+            <ul>
+              <li><a href="/labs/resources">Resources</a></li>
+              <li><a href="/labs/ideas">Ideas</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    <% end %>
     <div id="content">
       <%= yield %>
     </div>

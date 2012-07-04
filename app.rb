@@ -11,6 +11,7 @@ require "lib/db"
 require "lib/currency"
 require "lib/authentication"
 require "lib/uploader"
+require "lib/labs"
 
 class SocialTeeth < Sinatra::Base
   enable :sessions
@@ -120,4 +121,6 @@ class SocialTeeth < Sinatra::Base
     empty_fields = fields.select { |field| params[field].nil? || params[field].empty? }
     empty_fields.empty? ? [] : ["All fields are required."]
   end
+
+  def in_labs?() request.path.match(/^\/labs/) end
 end
