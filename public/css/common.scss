@@ -101,8 +101,8 @@ p { line-height: 1.5em }
 
       a {
         display: block;
-        width: 100px;
         height: $headerHeight - $paddingTop;
+        padding: 0px 20px;
         padding-top: $paddingTop;
         text-align: center;
       }
