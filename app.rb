@@ -55,6 +55,10 @@ class SocialTeeth < Sinatra::Base
     erb :about
   end
 
+  get "/press" do
+    erb :press
+  end
+
   get "/submit" do
     ensure_signed_in
     erb :submit
