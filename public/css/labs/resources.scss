@@ -1,0 +1,40 @@
+#resources {
+
+  .container { background-color: #EEEEEE; }
+
+  h3 { margin-top: 20px; }
+  p {
+    margin: 20px 0px;
+    font-size: 1.2em;
+  }
+
+  .resource {
+    .title {
+      font-size: 1.8em;
+      a { color: #333333; }
+      a:hover { color: lighten(#333333, 30%); }
+    }
+
+    .subtitle {
+      color: #555555;
+      margin: 5px 0px 10px 0px;
+    }
+
+    .body {
+      .thumbnail {
+        display: inline-block;
+        img { width: 400px; }
+      }
+
+      .description {
+        display: inline-block;
+        padding-left: 20px;
+        font-size: 1.2em;
+        width: 400px;
+        vertical-align: top;
+        margin-top: -10px;
+      }
+    }
+  }
+}
+

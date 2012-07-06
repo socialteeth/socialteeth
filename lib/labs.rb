@@ -1,5 +1,9 @@
 class SocialTeeth < Sinatra::Base
   get "/labs" do
-    erb :"labs/index"
+    redirect "/labs/resources"
+  end
+
+  get "/labs/resources" do
+    erb :"labs/resources"
   end
 end
