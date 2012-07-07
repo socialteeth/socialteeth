@@ -3,12 +3,6 @@
   <%= @pinion.js_url("/assets/js/comments.js") %>
 <% end %>
 
-<%
-  comments = 2.times.map do |i|
-    OpenStruct.new(:text => "This is comment number #{i}. And this is what it looks like when there's a lot of text in the comment. What do you think? Do you like it? DO YOU LIKE IT.", :user => OpenStruct.new(:name => "Daniel MacDougall"))
-  end
-%>
-
 <div class="container">
-  <%= erb :comment_thread, :locals => { :comments => comments } %>
+  <%= erb :comment_thread, :locals => { :comments => Comment.all } %>
 </div>

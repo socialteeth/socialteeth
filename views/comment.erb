@@ -4,7 +4,8 @@
   <div class="commentHeader">
     <span class="commentAuthor"><%= comment.user.name %></span>
     <span>commented</span>
-    <span class="commentDate">three days ago</span>
+    <span class="commentDate">
+      <%= comment.created_at.strftime("%B %d, %Y") %></span>
   </div>
   <div class="commentBody">
     <p><%= comment.text %></p>
