@@ -6,13 +6,19 @@
   <% end %>
 </div>
 
-<div class="commentInput">
-  <div class="commentHeader">
-    <span>Add a comment</span>
+<% if current_user %>
+  <div class="commentInput">
+    <input type="hidden" name="user_id" value="<%= current_user.public_id %>" />
+    <div class="commentHeader">
+      <span>Add a comment</span>
+    </div>
+    <textarea></textarea>
+    <div class="commentControls">
+      <a class="button submit">Submit</a>
+    </div>
   </div>
-  <textarea></textarea>
-  <div class="commentControls">
-    <a class="button">Submit</a>
+<% else %>
+  <div class="commentInputPlaceholder">
+    <p><a href="/signin?redirect=<%= request.path_info %>">Sign in</a> or <a href="/signup">create an account</a> to comment.</p>
   </div>
-</div>
-
+<% end %>
