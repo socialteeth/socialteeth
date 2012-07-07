@@ -24,3 +24,10 @@ if demo_user.ads.empty?
     end
   end
 end
+
+if demo_user.comments.empty?
+  comments_data = YAML.load_file("fixtures/demo.yml")["comments"]
+  comments_data.each do |comment_data|
+    Comment.create(:user_id => demo_user.id, :text => comment_data["text"])
+  end
+end

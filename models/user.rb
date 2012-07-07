@@ -2,6 +2,7 @@ require "bcrypt"
 
 class User < Sequel::Model
   one_to_many :ads
+  one_to_many :comments
 
   def password
     BCrypt::Password.new(password_hash)

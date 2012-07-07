@@ -56,3 +56,15 @@ ads:
     url: "http://vimeo.com/18770076"
     thumbnail_file: "fixtures/images/rosie.png"
 
+comments:
+  - text: >
+      If I had a world of my own, everything would be nonsense. Nothing would be what it is because everything
+      would be what it isn't. And contrary-wise; what it is it wouldn't be, and what it wouldn't be, it would.
+      You see?
+  - text: >
+      The time has come, my little friends, to talk of other things. Of shoes and ships and sealing wax, of
+      cabbages and kings. And why the sea is boiling hot, and whether pigs have wigs. Calloo, Callay, come run
+      away with the cabbages and kings.
+  - text: >
+      Better read it first, for if one drinks much from a bottle marked "Poison", it's almost certain to
+      disagree with one sooner or later.
