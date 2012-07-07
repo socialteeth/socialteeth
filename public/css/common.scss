@@ -46,6 +46,7 @@ a {
     color: lighten($lightGray, 20%);
     margin-bottom: 20px;
     @include border-radius(3px);
+    @include user-select(none);
 
     &:hover { @include box-shadow(0px 0px 10px #555); }
   }
