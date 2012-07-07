@@ -101,6 +101,10 @@ class SocialTeeth < Sinatra::Base
     erb :submit_complete
   end
 
+  get "/comment_test" do
+    erb :comment_test
+  end
+
   def ensure_signed_in
     redirect "/signin?redirect=#{request.path_info}" if current_user.nil?
   end

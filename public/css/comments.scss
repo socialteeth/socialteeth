@@ -1,0 +1,41 @@
+@import "css/mixins";
+
+.commentInput {
+  $commentInputWidth: 780px;
+  width: $commentInputWidth;
+  border: 1px solid $lightGray, 30%;
+  margin: 10px;
+  @include box-shadow(0px 0px 10px #555);
+
+  .commentHeader {
+    span { font-weight: bold; }
+    padding: 5px;
+    @include linear-gradient(#EEE, #CCC);
+  }
+
+  textarea {
+    width: $commentInputWidth - 10;
+    height: 100px;
+    display: block;
+    padding: 5px;
+    resize: none;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+  }
+
+  .commentControls {
+    padding: 5px;
+    text-align: right;
+    background-color: #EEE;
+    border-top: 1px solid $lightGray;
+
+    a.button {
+      display: inline-block;
+      width: inherit;
+      margin: inherit;
+      font-size: 1.1em;
+      padding: 10px 20px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<% content_for :head do %>
+  <%= @pinion.css_url("/assets/css/comments.css") %>
+  <%= @pinion.js_url("/assets/js/comments.js") %>
+<% end %>
+
+<div class="container">
+  <%= erb :comment_thread %>
+</div>
