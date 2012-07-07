@@ -1,20 +1,36 @@
 @import "css/mixins";
 
-.commentInput {
-  $commentInputWidth: 780px;
-  width: $commentInputWidth;
+$commentWidth: 800px;
+
+.comment, .commentInput {
   border: 1px solid $lightGray, 30%;
-  margin: 10px;
   @include box-shadow(0px 0px 10px #555);
+  margin: 10px;
+  width: $commentWidth;
 
   .commentHeader {
     span { font-weight: bold; }
     padding: 5px;
     @include linear-gradient(#EEE, #CCC);
   }
+}
 
+.comment {
+  .commentHeader {
+    span { font-weight: normal; }
+    span.commentAuthor { font-weight: bold; }
+  }
+
+  .commentBody {
+    padding: 5px;
+    font-size: 1.1em;
+    background: #FFF;
+  }
+}
+
+.commentInput {
   textarea {
-    width: $commentInputWidth - 10;
+    width: $commentWidth - 10;
     height: 100px;
     display: block;
     padding: 5px;
