@@ -153,10 +153,18 @@
 
     .container { background: #EEEEEE; }
 
-    p {
+    tr:nth-of-type(2) { td { padding-top: 0px; } }
+
+    td {
       font-size: 1.2em;
-      margin: 20px 0px;
+      padding: 20px;
+      width: $pageWidth / 2;
+      vertical-align: top;
+      text-align: justify;
+
+      a { font-size: 1.1em; }
     }
+
   }
 
   #contestPoster {
