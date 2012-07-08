@@ -7,7 +7,7 @@ class SocialTeeth < Sinatra::Base
     erb :"labs/resources"
   end
 
-  get "/labs/ideas" do
-    erb :"labs/ideas"
+  get "/labs/discussions" do
+    erb :"labs/discussions"
   end
 end

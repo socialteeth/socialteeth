@@ -31,3 +31,11 @@ if demo_user.comments.empty?
     Comment.create(:user_id => demo_user.id, :text => comment_data["text"])
   end
 end
+
+if demo_user.discussions.empty?
+  discussions_data = YAML.load_file("fixtures/demo.yml")["discussions"]
+  discussions_data.each do |discussion_data|
+    discussion = Discussion.create(:user_id => demo_user.id, :title => discussion_data["title"])
+    Comment.each { |comment| DiscussionComment.create(:discussion_id => discussion.id, :comment_id => comment.id) }
+  end
+end
