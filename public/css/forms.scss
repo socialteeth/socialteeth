@@ -12,6 +12,22 @@ form.standard {
     }
   }
 
+  input[type=submit] {
+    display: block;
+    width: 200px;
+    padding: 15px;
+    margin: auto;
+    font-size: 1.2em;
+    text-align: center;
+    border: 1px solid darken($lightGray, 20%);
+    cursor: pointer;
+    background: #333;
+    color: lighten($lightGray, 20%);
+    margin-bottom: 20px;
+    @include border-radius(3px);
+    @include user-select(none);
+  }
+
   .formField {
     width: 465px;
     margin: 15px 0px;

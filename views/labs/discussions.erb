@@ -1,13 +1,32 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/labs/discussions.css") %>
+  <%= @pinion.css_url("/assets/css/forms.css") %>
+  <%= @pinion.js_url("/assets/js/labs/discussions.js") %>
 <% end %>
 
 <div id="discussions">
   <div class="container">
     <h3>Start a discussion to brainstorm ideas.</h3>
-    <div class="newDiscussionInput">
-      <input type="text" />
-      <a href="" class="button">Start Discussion</a>
+    <% if current_user %>
+      <div class="discussionInput">
+        <form class="standard" method="post" action="/labs/discussions/create_discussion">
+          <input type="hidden" name="user_id" value="<%= current_user.public_id %>" />
+          <input type="text" name="title" />
+          <input type="submit" value="Start Discussion" />
+        </form>
+      </div>
+    <% else %>
+      <div class="discussionInputPlaceholder">
+        <p><a href="/signin?redirect=<%= request.path_info %>">Sign in</a> or <a href="/signup">create an account</a> to start a discussion.</p>
+      </div>
+    <% end %>
+    <div class="discussionList">
+      <% discussions.each do |discussion| %>
+        <a class="discussion" href="/labs/discussions/<%= discussion.public_id %>">
+          <span class="title"><%= discussion.title %></span>
+          <span class="commentNumber"><%= discussion.comments.size %> comments</span>
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
