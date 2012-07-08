@@ -131,9 +131,10 @@ nav {
 }
 
 #subheader {
+  $subheaderBackgroundColor: #CCC;
   height: 30px;
-  background: $yellow;
-  border-bottom: 1px solid darken($yellow, 10%);
+  background: $subheaderBackgroundColor;
+  border-bottom: 1px solid darken($subheaderBackgroundColor, 10%);
 
   .sublogo {
     display: inline-block;
