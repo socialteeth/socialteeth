@@ -1,1 +1,10 @@
-<%= discussion.title %>
+<% content_for :head do %>
+  <%= @pinion.css_url("/assets/css/labs/discussions.css") %>
+<% end %>
+
+<div id="discussionThread">
+  <div class="container">
+    <h2><%= discussion.title %></h2>
+    <%= erb :comment_thread, :locals => { :discussion => discussion } %>
+  </div>
+</div>
