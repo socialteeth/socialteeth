@@ -8,7 +8,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/labs/discussions" do
-    erb :"labs/discussions", :locals => { :discussions => Discussion.all }
+    erb :"labs/discussions", :locals => { :discussions => Discussion.order(:updated_at.desc) }
   end
 
   get "/labs/discussions/:public_id" do
@@ -30,6 +30,8 @@ class SocialTeeth < Sinatra::Base
     halt 400 unless discussion = Discussion.find(:public_id => params["discussion_public_id"])
     comment = Comment.create(:user_id => user.id, :text => params["text"])
     DiscussionComment.create(:discussion_id => discussion.id, :comment_id => comment.id)
+    discussion.updated_at = Time.now
+    discussion.save
     erb :comment, :layout => false, :locals => { :comment => comment }
   end
 end

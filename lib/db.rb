@@ -5,9 +5,16 @@ require "environment"
 
 class Sequel::Model
   def before_create
-    self.created_at ||= Time.now if self.columns.include?(:created_at)
+    now = Time.now
+    self.created_at ||= now if self.columns.include?(:created_at)
+    self.updated_at = now if self.columns.include?(:updated_at)
     self.public_id = UUIDTools::UUID.random_create.to_i.to_s(16) if self.columns.include?(:public_id)
     super
+  end
+
+  def after_save
+    super
+    self.updated_at = Time.now if self.columns.include?(:updated_at)
   end
 end
 
