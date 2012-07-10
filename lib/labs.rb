@@ -28,10 +28,7 @@ class SocialTeeth < Sinatra::Base
         params.include?("text")
     halt 400 unless user = User.find(:public_id => params["user_public_id"])
     halt 400 unless discussion = Discussion.find(:public_id => params["discussion_public_id"])
-    comment = Comment.create(:user_id => user.id, :text => params["text"])
-    DiscussionComment.create(:discussion_id => discussion.id, :comment_id => comment.id)
-    discussion.updated_at = Time.now
-    discussion.save
+    comment = discussion.add_new_comment(params["text"])
     erb :comment, :layout => false, :locals => { :comment => comment }
   end
 end
