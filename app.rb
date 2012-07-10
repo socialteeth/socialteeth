@@ -102,17 +102,6 @@ class SocialTeeth < Sinatra::Base
     erb :submit_complete
   end
 
-  get "/comment_test" do
-    erb :comment_test
-  end
-
-  post "/create_comment" do
-    halt 400 unless params.include?("user_public_id") && params.include?("text")
-    halt 400 unless user = User.find(:public_id => params["user_public_id"])
-    comment = Comment.create(:user_id => user.id, :text => params["text"])
-    erb :comment, :layout => false, :locals => { :comment => comment }
-  end
-
   def ensure_signed_in
     redirect "/signin?redirect=#{request.path_info}" if current_user.nil?
   end
