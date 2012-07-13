@@ -153,18 +153,34 @@
 
     .container { background: #EEEEEE; }
 
-    tr:nth-of-type(2) { td { padding-top: 0px; } }
+    table {
+      border-collapse: collapse;
 
-    td {
-      font-size: 1.2em;
-      padding: 20px;
-      width: $pageWidth / 2;
-      vertical-align: top;
-      text-align: justify;
+      margin: 20px 0px;
 
-      a { font-size: 1.1em; }
+      td:nth-of-type(1) { border-right: 1px solid #555; }
+
+      td {
+        font-size: 1.2em;
+        padding: 0px 20px;
+        width: $pageWidth / 2;
+        vertical-align: top;
+        text-align: justify;
+
+        a {
+          font-size: 1.1em;
+          margin-bottom: 0px;
+        }
+
+        &.button { padding-top: 20px; }
+
+        &:nth-of-type(1) {
+          //background: #FFF;
+          &.text { border-bottom: none; }
+          &.button { border-top: none; }
+        }
+      }
     }
-
   }
 
   #contestPoster {
