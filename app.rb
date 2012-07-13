@@ -111,5 +111,7 @@ class SocialTeeth < Sinatra::Base
     empty_fields.empty? ? [] : ["All fields are required."]
   end
 
-  def in_labs?() request.path.match(/^\/labs/) end
+  def in_labs?
+    request.path.match(/^\/labs/) && ENV["RACK_ENV"] != "production"
+  end
 end

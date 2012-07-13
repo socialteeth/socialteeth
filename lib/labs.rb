@@ -1,4 +1,9 @@
 class SocialTeeth < Sinatra::Base
+
+  before "/labs*" do
+    request.path_info = "/labs/placeholder" if ENV["RACK_ENV"] == "production"
+  end
+
   get "/labs" do
     redirect "/labs/resources"
   end
@@ -30,5 +35,9 @@ class SocialTeeth < Sinatra::Base
     halt 400 unless discussion = Discussion.find(:public_id => params["discussion_public_id"])
     comment = discussion.add_new_comment(params["text"])
     erb :comment, :layout => false, :locals => { :comment => comment }
+  end
+
+  get "/labs/placeholder" do
+    erb :"labs/placeholder"
   end
 end
