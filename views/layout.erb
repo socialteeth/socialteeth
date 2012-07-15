@@ -17,7 +17,7 @@
             <li><a href="/submit">Submit Ad</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/press">Press</a></li>
-            <li><a href="/labs">Labs</a></li>
+            <% if ENV["RACK_ENV"] != "production" %><li><a href="/labs">Labs</a></li><% end %>
           </ul>
         </nav>
         <div id="signin">

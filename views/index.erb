@@ -15,7 +15,11 @@
         </tr>
         <tr>
           <td class="button"><a class="button" href="/submit">Launch Your Message</a></td>
-          <td class="button"><a class="button" href="/labs/resources">Create an Ad</a></td>
+          <% if ENV["RACK_ENV"] == "production" %>
+            <td class="button"><h2>Coming Soon</h2></td>
+          <% else %>
+            <td class="button"><a class="button" href="/labs/resources">Create an Ad</a></td>
+          <% end %>
         </tr>
       </table>
     </div>

@@ -172,7 +172,10 @@
           margin-bottom: 0px;
         }
 
-        &.button { padding-top: 20px; }
+        &.button {
+          padding-top: 20px;
+          text-align: center;
+        }
 
         &:nth-of-type(1) {
           //background: #FFF;
