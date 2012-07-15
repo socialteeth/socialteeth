@@ -6,6 +6,12 @@ require "yaml"
 require "lib/db"
 require "lib/uploader"
 
+admin_user = User.find(:email => "admin@socialteeth.org")
+if admin_user.nil?
+  admin_user = User.create(:name => "Admin User", :email => "admin@socialteeth.org", :password => "admin",
+      :permission => "admin")
+end
+
 demo_user = User.find(:email => "demo@socialteeth.org")
 if demo_user.nil?
   demo_user = User.create(:name => "Demo User", :email => "demo@socialteeth.org", :password => "demo")
