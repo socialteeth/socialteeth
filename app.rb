@@ -42,7 +42,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/browse" do
-    halt 404
+    halt 404 unless current_user && current_user.admin?
     ads = Ad.order_by(:id.desc).all
     erb :browse, :locals => { :ads => ads }
   end

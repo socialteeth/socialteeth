@@ -15,9 +15,14 @@
         <nav>
           <ul>
             <li><a href="/submit">Submit Ad</a></li>
+            <% if current_user && current_user.admin? %>
+              <li><a href="/browse">Browse</a></li>
+            <% end %>
             <li><a href="/about">About</a></li>
             <li><a href="/press">Press</a></li>
-            <% if !production? %><li><a href="/labs">Labs</a></li><% end %>
+            <% if !production? %>
+              <li><a href="/labs">Labs</a></li>
+            <% end %>
           </ul>
         </nav>
         <div id="signin">
