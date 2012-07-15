@@ -73,6 +73,12 @@ class SocialTeeth < Sinatra::Base
     errors << "Description is too long." unless params[:description].size < 4096
     errors << "Submitter description is too long." unless params[:about_submitter].size < 4096
 
+    begin
+      URI.parse(params[:url])
+    rescue URI::InvalidURIError
+      errors << "Invalid URL."
+    end
+
     if errors.empty?
       ad = Ad.create(:title => params[:title], :description => params[:description],
           :goal => 0, :ad_type => "video", :url => params[:url], :about_submitter => params[:about_submitter],

@@ -14,7 +14,12 @@ class Ad < Sequel::Model
   end
 
   def video_embed_url
-    movie = OpenGraph.fetch(self.url)
+    begin
+      movie = OpenGraph.fetch(self.url)
+    rescue URI::InvalidURIError
+      return ""
+    end
+
     return "" unless movie
 
     url = URI.parse(movie.url)
