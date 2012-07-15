@@ -112,6 +112,8 @@ class SocialTeeth < Sinatra::Base
   end
 
   def in_labs?
-    request.path.match(/^\/labs/) && ENV["RACK_ENV"] != "production"
+    request.path.match(/^\/labs/) && !production?
   end
+
+  def production?() ENV["RACK_ENV"] == "production" end
 end

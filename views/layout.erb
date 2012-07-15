@@ -6,7 +6,7 @@
     <%= @pinion.js_url("/js/lib/jquery-1.7.2.min.js") %>
     <%= @pinion.js_url("/js/lib/modernizr.custom.66811.js") %>
     <%= yield_content :head %>
-    <%= erb :google_analytics if RACK_ENV == "production" %>
+    <%= erb :google_analytics if production? %>
   </head>
   <body>
     <div id="header">
@@ -17,7 +17,7 @@
             <li><a href="/submit">Submit Ad</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/press">Press</a></li>
-            <% if ENV["RACK_ENV"] != "production" %><li><a href="/labs">Labs</a></li><% end %>
+            <% if !production? %><li><a href="/labs">Labs</a></li><% end %>
           </ul>
         </nav>
         <div id="signin">
