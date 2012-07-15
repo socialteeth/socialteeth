@@ -14,6 +14,15 @@
       width: 550px;
       padding-right: 80px;
       h1 { margin-bottom: 30px; }
+      background: #EEE;
+
+      #submitterDetails {
+        h3 {
+          margin-top: 40px;
+          margin-bottom: 10px;
+          color: #999;
+        }
+      }
     }
 
     #detailsGutter {
