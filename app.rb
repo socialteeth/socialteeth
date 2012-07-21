@@ -48,6 +48,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/ads/:id" do
+    halt 404 unless current_user && current_user.admin?
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     erb :details, :locals => { :ad => ad }
   end
