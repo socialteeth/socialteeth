@@ -25,25 +25,19 @@
         </div>
       </div>
       <div id="detailsGutter">
-        <div class="goal">
-          <p>$<%= ad.goal %> Goal</p>
+        <div class="votes">
+          <p class="numVotes"><%= ad.votes %></p>
+          <p>Votes</p>
         </div>
         <div class="summary">
-          <p>We need $<%= ad.goal / 4 %> to run this ad for four weeks on Hulu.</p>
-          <p>We need $<%= ad.goal %> to run this ad for three weeks on California local television.</p>
+          <% if current_user %>
+            <p>You have <%= current_user.votes %> votes remaining. Vote for this ad if you want to see it aired on television!</p>
+            <a class="button">Vote for this ad</a>
+          <% else %>
+            <p>Sign in to vote for ads you want to see aired on television!</p>
+            <a class="button" href="/signin?redirect=<%= request.path_info %>">Sign in</a>
+          <% end %>
         </div>
-        <div class="thermometer">
-          <div class="thermometerProgress"></div>
-          <div class="milestone milestone1"></div>
-          <div class="milestone milestone2"></div>
-          <div class="digitalMilestone">Digital milestone</div>
-          <div class="televisionMilestone">Television milestone</div>
-        </div>
-        <form class="standard">
-          <div class="formField">
-            <button>Sponsor this ad</button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
