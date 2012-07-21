@@ -9,12 +9,13 @@ require "lib/uploader"
 admin_user = User.find(:email => "admin@socialteeth.org")
 if admin_user.nil?
   admin_user = User.create(:name => "Admin User", :email => "admin@socialteeth.org", :password => "admin",
-      :permission => "admin")
+                           :permission => "admin", :votes => 100)
 end
 
 demo_user = User.find(:email => "demo@socialteeth.org")
 if demo_user.nil?
-  demo_user = User.create(:name => "Demo User", :email => "demo@socialteeth.org", :password => "demo")
+  demo_user = User.create(:name => "Demo User", :email => "demo@socialteeth.org", :password => "demo",
+                          :votes => 100)
 end
 
 if demo_user.ads.empty?

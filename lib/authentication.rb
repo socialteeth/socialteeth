@@ -19,7 +19,8 @@ class SocialTeeth < Sinatra::Base
 
     if errors.empty?
       self.current_user =
-          User.create(:name => params[:name], :email => params[:email], :password => params[:password])
+          User.create(:name => params[:name], :email => params[:email], :password => params[:password],
+                      :votes => 100)
       redirect "/"
     else
       flash[:errors] = errors
