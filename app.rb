@@ -53,6 +53,19 @@ class SocialTeeth < Sinatra::Base
     erb :details, :locals => { :ad => ad }
   end
 
+  post "/vote/:id" do
+    halt 401 unless current_user
+    halt 403 unless current_user.votes > 0
+    halt 404 unless ad = Ad.find(:public_id => params[:id])
+    DB.transaction do
+      ad.votes = ad.votes + 1
+      current_user.votes = current_user.votes - 1
+      ad.save
+      current_user.save
+    end
+    nil
+  end
+
   get "/about" do
     erb :about
   end

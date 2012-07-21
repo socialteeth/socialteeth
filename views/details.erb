@@ -4,8 +4,9 @@
 %>
 
 <% content_for :head do %>
-  <%= @pinion.css_url("/css/details.css") %>
-  <%= @pinion.css_url("/css/forms.css") %>
+  <%= @pinion.css_url("/assets/css/details.css") %>
+  <%= @pinion.css_url("/assets/css/forms.css") %>
+  <%= @pinion.js_url("/assets/js/details.js") %>
 <% end %>
 
 <div id="details">
@@ -32,7 +33,8 @@
         <div class="summary">
           <% if current_user %>
             <p>You have <%= current_user.votes %> votes remaining. Vote for this ad if you want to see it aired on television!</p>
-            <a class="button">Vote for this ad</a>
+            <input type="hidden" name="ad_id" value="<%= ad.public_id %>"/>
+            <a id="voteButton" class="button">Vote for this ad</a>
           <% else %>
             <p>Sign in to vote for ads you want to see aired on television!</p>
             <a class="button" href="/signin?redirect=<%= request.path_info %>">Sign in</a>
