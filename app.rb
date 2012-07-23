@@ -125,9 +125,20 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/submit_questionnaire" do
+    erb :submit_questionnaire
+  end
+
+  post "/submit_questionnaire" do
     ensure_signed_in
     fields = [:who, :what, :when, :where, :how, :goal]
     errors = enforce_required_params(fields)
+    errors << "Submitter description is too long." unless params[:who].size < 4096
+    errors << "Submitter description is too long." unless params[:what].size < 4096
+    errors << "Submitter description is too long." unless params[:when].size < 4096
+    errors << "Submitter description is too long." unless params[:where].size < 4096
+    errors << "Submitter description is too long." unless params[:how].size < 4096
+    errors << "Submitter description is too long." unless params[:goal].size < 4096
+    #TODO enforce lengths on questionnaire fields
 
     if errors.empty?
       Ad[session[:created_ad_id]].ad_metadata.update( :who => params[:who],
@@ -136,17 +147,11 @@ class SocialTeeth < Sinatra::Base
                                                       :where => params[:where],
                                                       :how => params[:how],
                                                       :goal => params[:goal])
-      redirect "submit_complete"
+      redirect "/submit_complete"
     else
       flash[:errors] = errors
       redirect "/submit_questionnaire"
     end
-
-    erb :submit_questionnaire
-  end
-
-  post "/submit_questionnaire" do
-
   end
 
   get "/submit_complete" do
