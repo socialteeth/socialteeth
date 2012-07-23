@@ -7,8 +7,8 @@
 <div class="container">
   <div id="submitAd">
     <h3>Launch Your Message</h3>
-    <h4>Ad Info</h4>
-    <form class="standard hints" action="/submit" method="post" enctype="multipart/form-data">
+    <h4>Contact Info</h4>
+    <form class="standard hints" action="/submit_contact" method="post" enctype="multipart/form-data">
       <div class="flashErrors">
         <% if flash[:errors] && flash[:errors].is_a?(Array) %>
           <ul>
@@ -19,13 +19,13 @@
         <% end %>
       </div>
       <div class="formField">
-        <input type="text" name="title" placeholder='Title (e.g., "Eat Real Food")' value="<%= flash[:title] %>"/>
+        <input type="text" name="email" placeholder='Email' value="<%= flash[:email] %>"/>
       </div>
       <div class="formField">
-        <textarea name="description" placeholder='Describe Your Ad (e.g., "This is an ad about healthy eating, aimed at teenagers. It is in the style of the famous "the truth" anti-smoking campaign.")'><%= flash[:description] %></textarea>
+        <input type="text" name="phone" placeholder='Phone' value="<%= flash[:phone] %>"/>
       </div>
       <div class="formField">
-        <input type="text" name="url" placeholder="YouTube or Vimeo URL" value="<%= flash[:url] %>" />
+        <textarea name="about_submitter" placeholder='About the Submitter (e.g., "This ad was created by "Eat Real Food", a community-led initiative that hails from South Bend, Indiana. For more from us, including healthy eating posters created by local youth, please visit our website at eatrealsouthbend.com.")'><%= flash[:about_submitter] %></textarea>
       </div>
       <div class="formField">
         <button>Next</button>

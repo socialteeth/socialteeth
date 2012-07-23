@@ -1,0 +1,44 @@
+<% content_for :head do %>
+  <%= @pinion.css_url("/css/forms.css") %>
+  <%= @pinion.css_url("/css/submit.css") %>
+  <%= @pinion.js_url("/js/form_hints.js") %>
+<% end %>
+
+<div class="container">
+  <div id="submitAd">
+    <h3>Launch Your Message</h3>
+    <h4>Contact Info</h4>
+    <form class="standard hints" action="/submit_questionnaire" method="post" enctype="multipart/form-data">
+      <div class="flashErrors">
+        <% if flash[:errors] && flash[:errors].is_a?(Array) %>
+          <ul>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <div class="formField">
+        <input type="text" name="who" placeholder='Who are you hoping to reach?' value="<%= flash[:who] %>"/>
+      </div>
+      <div class="formField">
+        <input type="text" name="what" placeholder='What are you askimg them to do?' value="<%= flash[:what] %>"/>
+      </div>
+      <div class="formField">
+        <input type="text" name="where" placeholder='Where are these people or the message located?' value="<%= flash[:where] %>"/>
+      </div>
+      <div class="formField">
+        <input type="text" name="when" placeholder='When do you need to reach them?' value="<%= flash[:when] %>"/>
+      </div>
+      <div class="formField">
+        <input type="text" name="how" placeholder='What type of creative units will be available?' value="<%= flash[:how] %>"/>
+      </div>
+      <div class="formField">
+        <textarea name="goal" placeholder='What are you trying to achieve?'><%= flash[:goal] %></textarea>
+      </div>
+      <div class="formField">
+        <button>Done!</button>
+      </div>
+    </form>
+  </div>
+</div>

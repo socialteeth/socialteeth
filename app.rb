@@ -67,16 +67,18 @@ class SocialTeeth < Sinatra::Base
 
   post "/submit" do
     ensure_signed_in
-    fields = [:title, :description, :about_submitter, :url]
+    fields = [:title, :description, :url]
     fields.each { |field| flash[field] = params[field] }
     errors = enforce_required_params(fields)
     errors << "Description is too long." unless params[:description].size < 4096
-    errors << "Submitter description is too long." unless params[:about_submitter].size < 4096
+    
 
     if errors.empty?
       ad = Ad.create(:title => params[:title], :description => params[:description],
-          :goal => 0, :ad_type => "video", :url => params[:url], :about_submitter => params[:about_submitter],
+          :goal => 0, :ad_type => "video", :url => params[:url],
           :user_id => current_user.id, :deadline => Time.now + 60 * 60 * 24 * 30)
+
+      session[:created_ad_id] = ad[:id]
 
       # Use thumbnail from YouTube or Vimeo
       if opengraph_video = OpenGraph.fetch(ad.url)
@@ -91,11 +93,60 @@ class SocialTeeth < Sinatra::Base
         redirect "/submit"
       end
 
-      redirect "/submit_complete"
+      redirect "/submit_contact"
     else
       flash[:errors] = errors
       redirect "/submit"
     end
+  end
+
+  get "/submit_contact" do
+    ensure_signed_in
+    erb :submit_contact
+  end
+
+  post "/submit_contact" do
+    ensure_signed_in
+    fields = [:email, :phone, :about_submitter]
+    errors = enforce_required_params(fields)
+    errors << "Submitter description is too long." unless params[:about_submitter].size < 4096
+    #TODO validate phone and email fields
+
+    if errors.empty?
+      Ad[session[:created_ad_id]].ad_metadata.update(:email => params[:email],
+                                                     :phone => params[:phone],
+                                                     :about_submitter => params[:about_submitter]) 
+      redirect "/submit_questionnaire"
+    else
+      flash[:errors] = errors
+      redirect "/submit_contact"
+    end
+
+  end
+
+  get "/submit_questionnaire" do
+    ensure_signed_in
+    fields = [:who, :what, :when, :where, :how, :goal]
+    errors = enforce_required_params(fields)
+
+    if errors.empty?
+      Ad[session[:created_ad_id]].ad_metadata.update( :who => params[:who],
+                                                      :what => params[:what],
+                                                      :when => params[:when],
+                                                      :where => params[:where],
+                                                      :how => params[:how],
+                                                      :goal => params[:goal])
+      redirect "submit_complete"
+    else
+      flash[:errors] = errors
+      redirect "/submit_questionnaire"
+    end
+
+    erb :submit_questionnaire
+  end
+
+  post "/submit_questionnaire" do
+
   end
 
   get "/submit_complete" do
