@@ -140,7 +140,6 @@ class SocialTeeth < Sinatra::Base
     errors << "Submitter description is too long." unless params[:where].size < 4096
     errors << "Submitter description is too long." unless params[:how].size < 4096
     errors << "Submitter description is too long." unless params[:goal].size < 4096
-    #TODO enforce lengths on questionnaire fields
 
     if errors.empty?
       Ad[session[:created_ad_id]].ad_metadata.update( :who => params[:who],

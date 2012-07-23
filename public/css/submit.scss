@@ -6,8 +6,24 @@
 }
 
 #submitAd { width: 470px; }
+
 #submitComplete {
   width: 550px;
   p { font-size: 1.4em; }
   a.button { margin-top: 20px; }
+}
+
+#breadcrumbs {
+	margin-top: 15px;
+	ul {
+		list-style: none;
+	}
+	li {
+		display: inline;
+		margin-right: 15px;
+		color: grey;
+	}
+	li.active {
+		color: black;
+	}
 }

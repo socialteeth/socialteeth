@@ -7,7 +7,14 @@
 <div class="container">
   <div id="submitAd">
     <h3>Launch Your Message</h3>
-    <h4>Ad Info</h4>
+    <!-- <h4 id="breadcrumbs">1. Ad Info&nbsp;&nbsp;<span class="grey">2. Contact Info&nbsp;&nbsp;3. Ad Goals</span></h4> -->
+    <h4 id="breadcrumbs">
+      <ul>
+        <li class="active">1. Ad Info</li>
+        <li>2. Contact Info</li>
+        <li>3. Ad Goals</li>
+      </ul>
+    </h4>
     <form class="standard hints" action="/submit" method="post" enctype="multipart/form-data">
       <div class="flashErrors">
         <% if flash[:errors] && flash[:errors].is_a?(Array) %>
