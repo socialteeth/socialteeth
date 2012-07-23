@@ -108,6 +108,7 @@ class SocialTeeth < Sinatra::Base
   post "/submit_contact" do
     ensure_signed_in
     fields = [:email, :phone, :about_submitter]
+    fields.each { |field| flash[field] = params[field] }
     errors = enforce_required_params(fields)
     errors << "Submitter description is too long." unless params[:about_submitter].size < 4096
     #TODO validate phone and email fields
@@ -131,6 +132,7 @@ class SocialTeeth < Sinatra::Base
   post "/submit_questionnaire" do
     ensure_signed_in
     fields = [:who, :what, :when, :where, :how, :goal]
+    fields.each { |field| flash[field] = params[field] }
     errors = enforce_required_params(fields)
     errors << "Submitter description is too long." unless params[:who].size < 4096
     errors << "Submitter description is too long." unless params[:what].size < 4096
