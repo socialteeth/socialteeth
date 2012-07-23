@@ -112,6 +112,7 @@ class SocialTeeth < Sinatra::Base
     errors = enforce_required_params(fields)
     errors << "Submitter description is too long." unless params[:about_submitter].size < 4096
     #TODO validate phone and email fields
+    #errors << "Invalid phone number." unless Phoner::Phone.valid? params[:phone]
 
     if errors.empty?
       Ad[session[:created_ad_id]].ad_metadata.update(:email => params[:email],
