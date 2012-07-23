@@ -23,7 +23,7 @@ if demo_user.ads.empty?
   ads_data.each do |ad_data|
     ad = Ad.create(:title => ad_data["title"], :description => ad_data["description"],
         :user_id => demo_user.id, :goal => ad_data["goal"], :ad_type => ad_data["ad_type"],
-        :about_submitter => ad_data["about_submitter"], :url => ad_data["url"],
+        :url => ad_data["url"],
         :deadline => Time.now + 60 * 60 * 24 * 30)
     File.open(ad_data["thumbnail_file"], "r") do |thumbnail|
       ad.thumbnail_url_base = Uploader.new.upload_ad_thumbnail(ad, thumbnail)

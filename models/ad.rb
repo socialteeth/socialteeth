@@ -2,6 +2,13 @@ require "opengraph"
 
 class Ad < Sequel::Model
   many_to_one :user
+  many_to_one :ad_metadata
+
+  def after_create
+    super
+    self.ad_metadata_id = AdMetadata.create()[:id]
+    self.save
+  end
 
   def thumbnail_url(options)
     # TODO: This should be a nicer default image, possibly with the socialteeth logo.

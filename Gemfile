@@ -23,6 +23,9 @@ gem "aws-s3"
 # For parsing and normalizing video urls
 gem "opengraph"
 
+# For field validation
+#gem "phone"
+
 group :development do
   gem "foreman"
   gem "sinatra-reloader"
