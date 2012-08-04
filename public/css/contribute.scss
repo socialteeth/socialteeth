@@ -1,0 +1,39 @@
+@import "css/mixins";
+
+#contribute {
+  form.standard {
+    margin: auto;
+
+    .contributionAmount {
+      width: 435px;
+    }
+
+    .cardNumber {
+      display: inline-block;
+      width: 70%;
+    }
+
+    .cardCvc {
+      display: inline-block;
+      width: 20%;
+    }
+
+    .cardExpiryMonth {
+      display: inline-block;
+      width: auto;
+    }
+
+    .cardExpiryYear {
+      display: inline-block;
+      width: auto;
+    }
+
+    .paymentErrors {
+      margin: 10px 0px;
+      padding: 3px 0px;
+      color: $highlight;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  }
+}

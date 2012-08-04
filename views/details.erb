@@ -23,28 +23,12 @@
         </div>
       </div>
       <div id="detailsGutter">
-        <div class="votes">
-          <p class="numVotes"><%= ad.votes %></p>
-          <p>Votes</p>
-        </div>
         <div class="summary">
           <% if current_user %>
-            <% if current_user.votes > 0 %>
-              <p>You have <%= current_user.votes %> votes remaining. Vote for this ad if you want to see it aired on television!</p>
-              <div class="multivote">
-                <input type="hidden" name="ad_id" value="<%= ad.public_id %>"/>
-                <form method="post" class="standard" action="/vote/<%= ad.public_id %>">
-                  <input type="text" size="2" name="num_votes" value="1" />
-                  <span class="timesX">X</span>
-                  <input type="submit" id="voteButton" value="Vote for this ad" />
-                </form>
-              </div>
-            <% else %>
-              <p>You have <%= current_user.votes %> votes remaining. Check back soon to contribute to the winning ads!</p>
-            <% end %>
+            <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
           <% else %>
-            <p>Sign up to vote for ads you want to see aired on television!</p>
-            <a class="button" href="/signup">Sign up</a>
+            <p>Sign in to contribute to ads you want to see aired on television!</p>
+            <a class="button" href="/signin?redirect=<%= request.path_info %>">Sign in</a>
           <% end %>
           <div class="socialSharing">
             <table>

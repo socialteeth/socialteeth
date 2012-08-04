@@ -12,6 +12,7 @@ require "lib/currency"
 require "lib/authentication"
 require "lib/uploader"
 require "lib/labs"
+require "lib/contribute"
 
 class SocialTeeth < Sinatra::Base
   enable :sessions
