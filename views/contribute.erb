@@ -7,7 +7,7 @@
 <% end %>
 
 <div id="contribute">
-  <form action="/ads/<%= ad.public_id %>/contribute" method="post" id="paymentForm" class="standard">
+  <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
     <div class="paymentErrors"></div>
     <div class="flashErrors">
       <% if flash[:errors] && flash[:errors].is_a?(Array) %>
@@ -42,7 +42,7 @@
           maxlength="4" />
     </div>
     <div class="formField">
-      <button type="submit" class="submitButton">Submit Payment</button>
+      <button type="submit" class="submitButton">Proceed to Confirmation</button>
     </div>
   </form>
 </div>

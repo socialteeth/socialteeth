@@ -9,6 +9,10 @@
         font-weight: bold;
         font-size: 1.2em;
       }
+
+      button {
+        width: auto;
+      }
     }
 
     .dollarAmount {
@@ -56,4 +60,50 @@
   font-size: 1.2em;
   h2 { margin: 20px; }
   p { margin: 20px; }
+}
+
+#contributeConfirm {
+  text-align: center;
+
+  h2 {
+    text-align: center;
+    margin: 20px;
+  }
+
+  table {
+    margin: auto;
+    text-align: left;
+    font-size: 1.4em;
+    border-collapse: collapse;
+    td {
+      border: 1px solid $lightGray;
+      background-color: #FFFFFF;
+      padding: 10px;
+
+      &:nth-of-type(1) {
+        text-align: right;
+        font-weight: bold;
+      }
+
+      &:nth-of-type(2) {
+        min-width: 250px;
+      }
+    }
+  }
+
+  form.standard {
+     margin: auto;
+
+    .formField {
+      margin-top: 20px;
+      a {
+        margin-right: 20px;
+      }
+
+      button {
+        display: inline-block;
+        width: auto;
+      }
+    }
+  }
 }

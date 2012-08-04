@@ -5,13 +5,15 @@ class SocialTeeth < Sinatra::Base
     erb :contribute, :locals => { :ad => ad }
   end
 
-  get "/ads/:id/contribute_success" do
+  get "/ads/:id/contribute_confirm" do
     ensure_signed_in
     halt 404 unless ad = Ad.find(:public_id => params[:id])
-    erb :contribute_success, :locals => { :ad => ad }
+    halt 400 unless params[:amount] && params[:token]
+
+    erb :contribute_confirm, :locals => { :ad => ad, :amount => params[:amount], :token => params[:token] }
   end
 
-  post "/ads/:id/contribute" do
+  post "/ads/:id/contribute_confirm" do
     ensure_signed_in
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     errors = enforce_required_params([:dollar_amount, :cent_amount, :stripe_token])
@@ -26,23 +28,37 @@ class SocialTeeth < Sinatra::Base
     end
 
     if errors.empty?
-      Stripe.api_key = STRIPE_TEST_SECRET_KEY
-
-      token = params[:stripe_token]
       amount_in_cents = dollars * 100 + cents
-
-      # Create the charge on Stripe's servers - this will charge the user's card
-      charge = Stripe::Charge.create(
-        :amount => amount_in_cents,
-        :currency => "usd",
-        :card => token,
-        :description => "#{current_user.email} -- #{ad.title} -- $#{dollars}.#{cents}"
-      )
-
-      redirect "/ads/#{ad.public_id}/contribute_success"
+      token = params[:stripe_token]
+      redirect "/ads/#{ad.public_id}/contribute_confirm?amount=#{amount_in_cents}&token=#{token}"
     else
       flash[:errors] = errors
       redirect "/ads/#{ad.public_id}/contribute"
     end
+  end
+
+  get "/ads/:id/contribute_success" do
+    ensure_signed_in
+    halt 404 unless ad = Ad.find(:public_id => params[:id])
+    erb :contribute_success, :locals => { :ad => ad }
+  end
+
+  post "/ads/:id/contribute_submit" do
+    ensure_signed_in
+    halt 404 unless ad = Ad.find(:public_id => params[:id])
+    halt 400 unless params[:amount] && params[:token]
+    halt 400 unless params[:amount].to_i.to_s == params[:amount].to_s
+
+    Stripe.api_key = STRIPE_TEST_SECRET_KEY
+
+    # Create the charge on Stripe's servers - this will charge the user's card
+    charge = Stripe::Charge.create(
+      :amount => params[:amount],
+      :currency => "usd",
+      :card => params[:token],
+      :description => "#{current_user.email} -- #{ad.title}"
+    )
+
+    redirect "/ads/#{ad.public_id}/contribute_success"
   end
 end

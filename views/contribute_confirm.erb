@@ -1,0 +1,35 @@
+<% content_for :head do %>
+  <%= @pinion.css_url("/assets/css/contribute.css") %>
+  <%= @pinion.css_url("/assets/css/forms.css") %>
+<% end %>
+
+<% amount = amount.to_i %>
+<div class="container">
+  <div id="contributeConfirm">
+    <h2>Confirm Your Contribution</h2>
+    <% dollars = amount / 100 %>
+    <%
+      cents = amount % 100
+      cents = "#{cents}0" if cents.to_s.size == 1
+    %>
+    <table>
+      <tr>
+        <td>Amount</td>
+        <td>$<%= dollars %>.<%= cents %></td>
+      </tr>
+      <tr>
+        <td>Ad</td>
+        <td><%= ad.title %></p></td>
+      </tr>
+    </table>
+    <form class="standard" method="post" action="/ads/<%= ad.public_id %>/contribute_submit">
+      <input type="hidden" name="amount" value="<%= amount %>" />
+      <input type="hidden" name="token" value="<%= token %>" />
+      <div class="formField">
+        <a href="/ads/<%= ad.public_id %>/contribute">&lt;&lt; Back to contribution details</a>
+        <button type="submit">Confirm and Submit Payment</button>
+      </div>
+    </form>
+  </div>
+</div>
+
