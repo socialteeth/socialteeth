@@ -4,8 +4,21 @@
   form.standard {
     margin: auto;
 
-    .contributionAmount {
-      width: 435px;
+    .formField {
+      span {
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+    }
+
+    .dollarAmount {
+      display: inline-block;
+      width: auto;
+    }
+
+    .centAmount {
+      display: inline-block;
+      width: auto;
     }
 
     .cardNumber {
@@ -36,4 +49,11 @@
       font-size: 1.2em;
     }
   }
+}
+
+#contributeSuccess {
+  text-align: center;
+  font-size: 1.2em;
+  h2 { margin: 20px; }
+  p { margin: 20px; }
 }

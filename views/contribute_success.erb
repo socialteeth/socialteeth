@@ -1,0 +1,12 @@
+<% content_for :head do %>
+  <%= @pinion.css_url("/assets/css/contribute.css") %>
+<% end %>
+
+<div class="container">
+  <div id="contributeSuccess">
+    <h2>Contribution Complete</h2>
+    <p>Thank you for contributing to "<%= ad.title %>"!</p>
+    <a class="button" href="/ads/<%= ad.public_id %>">Return to ad</a>
+  </div>
+</div>
+

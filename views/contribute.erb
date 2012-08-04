@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/contribute.css") %>
   <%= @pinion.css_url("/assets/css/forms.css") %>
-  <%= @pinion.css_url("/assets/js/form_hints.js") %>
+  <%= @pinion.js_url("/assets/js/form_hints.js") %>
   <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
   <%= @pinion.js_url("/assets/js/contribute.js") %>
 <% end %>
@@ -19,20 +19,27 @@
       <% end %>
     </div>
     <div class="formField">
-      <input type="text" class="contributionAmount" name="contribution_amount"
-          placeholder="Contribution Amount (USD)" />
+      <label>Contribution Amount (USD)</label>
+      <span>$</span>
+      <input type="text" class="dollarAmount" name="dollar_amount"
+          placeholder="10" size="4" />
+      <span>.</span>
+      <input type="text" class="centAmount" name="cent_amount"
+          placeholder="00" size="2" maxlength="2" />
     </div>
     <div class="formField">
+      <label>Credit Card Number</label>
       <input type="text" size="20" autocomplete="off" class="cardNumber"
           placeholder="Card Number" />
       <input type="text" size="4" autocomplete="off" class="cardCvc"
           placeholder="CVC" />
     </div>
     <div class="formField">
-      <label>Expiration</label>
-      <input type="text" size="2" class="cardExpiryMonth month" placeholder="MM" />
+      <label>Credit Card Expiration</label>
+      <input type="text" size="2" maxlength="2" class="cardExpiryMonth month" placeholder="MM" />
       <span> / </span>
-      <input type="text" size="4" class="cardExpiryYear" placeholder="YYYY"/>
+      <input type="text" size="4" class="cardExpiryYear" placeholder="YYYY"
+          maxlength="4" />
     </div>
     <div class="formField">
       <button type="submit" class="submitButton">Submit Payment</button>
