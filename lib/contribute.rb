@@ -59,6 +59,9 @@ class SocialTeeth < Sinatra::Base
       :description => "#{current_user.email} -- #{ad.title}"
     )
 
+    # TODO(dmac): Validate the payment actually went through.
+    Payment.create(:ad_id => ad.id, :user_id => current_user.id, :amount => params[:amount])
+
     redirect "/ads/#{ad.public_id}/contribute_success"
   end
 end
