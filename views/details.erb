@@ -24,6 +24,11 @@
       </div>
       <div id="detailsGutter">
         <div class="summary">
+          <div class="goalProgress">
+            <span class="progress"><%= ad.payment_progress.to_currency %></span>
+            <span class="of">of</span>
+            <span class="goal"><%= ad.goal.to_currency %></span>
+          </div>
           <% if current_user %>
             <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
           <% else %>

@@ -7,15 +7,10 @@
 <div class="container">
   <div id="contributeConfirm">
     <h2>Confirm Your Contribution</h2>
-    <% dollars = amount / 100 %>
-    <%
-      cents = amount % 100
-      cents = "#{cents}0" if cents.to_s.size == 1
-    %>
     <table>
       <tr>
         <td>Amount</td>
-        <td>$<%= dollars %>.<%= cents %></td>
+        <td><%= amount.to_currency %></td>
       </tr>
       <tr>
         <td>Ad</td>

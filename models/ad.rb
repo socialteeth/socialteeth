@@ -37,4 +37,8 @@ class Ad < Sequel::Model
   def short_description
     description.match(/^([^\.]*\.)/) rescue ""
   end
+
+  def payment_progress
+    payments_dataset.filter(:refunded => false).map(&:amount).inject(:+)
+  end
 end
