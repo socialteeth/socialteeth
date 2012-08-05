@@ -4,6 +4,7 @@ class User < Sequel::Model
   one_to_many :ads
   one_to_many :comments
   one_to_many :discussions
+  one_to_many :payments
 
   def password
     BCrypt::Password.new(password_hash)

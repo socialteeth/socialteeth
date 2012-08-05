@@ -2,6 +2,7 @@ require "opengraph"
 
 class Ad < Sequel::Model
   many_to_one :user
+  one_to_many :payments
 
   def thumbnail_url(options)
     # TODO: This should be a nicer default image, possibly with the socialteeth logo.
