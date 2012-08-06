@@ -99,12 +99,19 @@ class SocialTeeth < Sinatra::Base
           :user_id => current_user.id, :deadline => Time.now + 60 * 60 * 24 * 30)
 
       # Use thumbnail from YouTube or Vimeo
-      if opengraph_video = OpenGraph.fetch(ad.url)
-        open(opengraph_video.image) do |image|
-          ad.thumbnail_url_base = Uploader.new.upload_ad_thumbnail(ad, image)
-          ad.save
+      begin
+        if opengraph_video = OpenGraph.fetch(ad.url)
+          open(opengraph_video.image) do |image|
+            ad.thumbnail_url_base = Uploader.new.upload_ad_thumbnail(ad, image)
+            ad.save
+          end
+        else
+          ad.destroy
+          errors << "Unable to parse video URL."
+          flash[:errors] = errors
+          redirect "/submit"
         end
-      else
+      rescue Errno::ECONNREFUSED => error
         ad.destroy
         errors << "Unable to parse video URL."
         flash[:errors] = errors
