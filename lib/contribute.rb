@@ -52,12 +52,17 @@ class SocialTeeth < Sinatra::Base
     Stripe.api_key = STRIPE_TEST_SECRET_KEY
 
     # Create the charge on Stripe's servers - this will charge the user's card
-    charge = Stripe::Charge.create(
-      :amount => params[:amount],
-      :currency => "usd",
-      :card => params[:token],
-      :description => "#{current_user.email} -- #{ad.title}"
-    )
+    begin
+      charge = Stripe::Charge.create(
+        :amount => params[:amount],
+        :currency => "usd",
+        :card => params[:token],
+        :description => "#{current_user.email} -- #{ad.title}"
+      )
+    rescue Stripe::CardError
+      flash[:errors] = ["There was an error processing your payment. Please use a different card."]
+      redirect "/ads/#{ad.public_id}/contribute"
+    end
 
     # TODO(dmac): Validate the payment actually went through.
     Payment.create(:ad_id => ad.id, :user_id => current_user.id, :amount => params[:amount])
