@@ -59,6 +59,9 @@ class SocialTeeth < Sinatra::Base
         :card => params[:token],
         :description => "#{current_user.email} -- #{ad.title}"
       )
+    rescue Stripe::InvalidRequestError => error
+      flash[:errors] = [error.message]
+      redirect "/ads/#{ad.public_id}/contribute"
     rescue Stripe::CardError
       flash[:errors] = ["There was an error processing your payment. Please use a different card."]
       redirect "/ads/#{ad.public_id}/contribute"
