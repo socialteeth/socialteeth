@@ -33,4 +33,8 @@ class Ad < Sequel::Model
     else ""
     end
   end
+
+  def short_description
+    description.match(/^([^\.]*\.)/) rescue ""
+  end
 end

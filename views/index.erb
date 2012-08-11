@@ -15,5 +15,21 @@
     <h2>Voting opens midnight August 14 PST</h2>
   </div>
   <div id="adGrid">
+    <table>
+      <% ads.each_slice(2) do |slice| %>
+        <tr>
+          <% slice.each do |ad| %>
+            <td>
+              <a href="/ads/<%= ad.public_id %>">
+                <img src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" />
+              </a>
+              <h3><a href="/ads/<%= ad.public_id %>"><%= ad.title %></a></h3>
+              <p class="votes"><%= ad.votes %> votes</p>
+              <p class="description"><%= ad.short_description %></p>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>

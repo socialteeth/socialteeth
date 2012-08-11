@@ -25,7 +25,40 @@
   #contestVoting {
     padding: 20px;
     text-align: center;
-    color: $highlight;
+  }
+
+  #adGrid {
+    table {
+      width: $pageWidth;
+      margin: auto;
+      table-layout: fixed;
+      border-collapse: collapse;
+
+      td {
+        padding: 20px;
+        background: #EEEEEE;
+
+        img {
+          float: left;
+          margin-right: 10px;
+        }
+        vertical-align: top;
+
+        h3 a {
+          color: #333;
+          &:hover { color: $highlight; }
+        }
+
+        p {
+          padding: 5px 0px;
+        }
+
+        .votes {
+          font-size: 1.2em;
+          color: $highlight;
+        }
+      }
+    }
   }
 
   #banner {

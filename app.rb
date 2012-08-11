@@ -38,7 +38,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/" do
-    erb :index
+    erb :index, :locals => { :ads => Ad.filter(:is_published => true).order(:votes.desc, :title).all }
   end
 
   get "/browse" do
