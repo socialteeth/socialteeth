@@ -7,6 +7,7 @@
 <% end %>
 
 <div id="contribute">
+  <input type="hidden" id="stripePublicKey" value="<%= STRIPE_PUBLIC_KEY %>" />
   <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
     <div class="paymentErrors"></div>
     <div class="flashErrors">

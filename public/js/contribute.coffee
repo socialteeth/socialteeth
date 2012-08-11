@@ -1,7 +1,5 @@
-TEST_PUBLIC_KEY = "pk_07TbuhFuw8acE6VvT8VOlyiPkiLem"
-Stripe.setPublishableKey(TEST_PUBLIC_KEY)
-
 $(document).ready ->
+  Stripe.setPublishableKey($("#stripePublicKey").val())
   stripeResponseHandler = (status, response) ->
     if (response.error)
       # Show the errors on the form

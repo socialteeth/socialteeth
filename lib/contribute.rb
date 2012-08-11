@@ -49,7 +49,7 @@ class SocialTeeth < Sinatra::Base
     halt 400 unless params[:amount] && params[:token]
     halt 400 unless params[:amount].to_i.to_s == params[:amount].to_s
 
-    Stripe.api_key = STRIPE_TEST_SECRET_KEY
+    Stripe.api_key = STRIPE_SECRET_KEY
 
     # Create the charge on Stripe's servers - this will charge the user's card
     begin
