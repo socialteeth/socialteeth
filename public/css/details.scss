@@ -54,6 +54,25 @@
         }
 
         a { font-weight: normal; }
+
+        .multivote {
+
+          input[name=num_votes] {
+            display: inline-block;
+            padding: 6px;
+            font-size: 1.2em;
+          }
+
+          .timesX {
+            display: inline-block;
+            font-size: 1.2em;
+            padding: 0px 5px;
+          }
+
+          #voteButton {
+            display: inline-block;
+          }
+        }
       }
     }
   }

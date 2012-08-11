@@ -57,11 +57,14 @@ class SocialTeeth < Sinatra::Base
     halt 401 unless current_user
     halt 403 unless current_user.votes > 0
     halt 404 unless ad = Ad.find(:public_id => params[:id])
-    DB.transaction do
-      ad.votes = ad.votes + 1
-      current_user.votes = current_user.votes - 1
-      ad.save
-      current_user.save
+    num_votes = params[:num_votes].to_i
+    if num_votes && num_votes > 0 && num_votes <= current_user.votes
+      DB.transaction do
+        ad.votes = ad.votes + num_votes
+        current_user.votes = current_user.votes - num_votes
+        ad.save
+        current_user.save
+      end
     end
     nil
   end
