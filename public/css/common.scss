@@ -171,24 +171,24 @@ nav {
   position: absolute;
   height: 20px;
   width: 100%;
-  @include linear-gradient(#AAAAAA, #999999);
+  @include linear-gradient(#777777, #333333);
   bottom: 0px;
   border-top: 1px solid #555;
   text-align: center;
   padding: 20px 0px;
   font-size: 1.1em;
+  color: #FEFEFE;
 
   .copyright {
     display: inline-block;
     margin-right: 20px;
-    font-weight: bold;
   }
 
   a {
     font-weight: normal;
-    color: #333;
+    color: #FEFEFE;
     &:hover {
-      color: $highlight;
+      color: lighten($highlight, 10%);
     }
   }
 }
