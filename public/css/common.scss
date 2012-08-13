@@ -5,6 +5,8 @@
   padding: 0px;
 }
 
+html, body { height: 100%; }
+
 body {
   font-size: 13px;
   font-family: "Helvetica Neue", Helvetica, "Lucida Sans", Arial, Verdana, sans-serif;
@@ -156,6 +158,38 @@ nav {
 
 #content {
   overflow-x: hidden;
+  padding-bottom: 100px;
+}
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+#footer {
+  position: absolute;
+  height: 20px;
+  width: 100%;
+  background: #AAA;
+  bottom: 0px;
+  border-top: 1px solid #555;
+  text-align: center;
+  padding: 20px 0px;
+  font-size: 1.1em;
+
+  .copyright {
+    display: inline-block;
+    margin-right: 20px;
+    font-weight: bold;
+  }
+
+  a {
+    font-weight: normal;
+    color: #333;
+    &:hover {
+      color: $highlight;
+    }
+  }
 }
 
 #letterbox {

@@ -9,49 +9,58 @@
     <%= erb :google_analytics if production? %>
   </head>
   <body>
-    <div id="header">
-      <div class="container">
-        <a id="logo" href="/">SocialTeeth</a>
-        <nav>
-          <ul>
-            <li><a href="/submit">Submit Ad</a></li>
-            <% if current_user && current_user.admin? %>
-              <li><a href="/browse">Browse</a></li>
-            <% end %>
-            <% if !production? %>
-              <li><a href="/labs">Labs</a></li>
-            <% end %>
-            <li><a href="/about">About</a></li>
-            <li><a href="/press">Press</a></li>
-          </ul>
-        </nav>
-        <div id="signin">
-          <% if current_user %>
-            <span class="username"><%= current_user.name %></span> |
-            <a href="/signout">Sign Out</a>
-          <% else %>
-            <a href="/signup">Sign Up</a> |
-            <a href="/signin?redirect=<%= request.path_info %>">Sign In</a>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <% if in_labs? %>
-      <div id="subheader" class="labs">
+    <div id="wrapper">
+      <div id="header">
         <div class="container">
-          <h2 class="sublogo">Labs</h2>
+          <a id="logo" href="/">SocialTeeth</a>
           <nav>
             <ul>
-              <li><a href="/labs/resources">Resources</a></li>
-              <li><a href="/labs/discussions">Discussions</a></li>
+              <li><a href="/submit">Submit Ad</a></li>
+              <% if current_user && current_user.admin? %>
+                <li><a href="/browse">Browse</a></li>
+              <% end %>
+              <% if !production? %>
+                <li><a href="/labs">Labs</a></li>
+              <% end %>
+              <li><a href="/about">About</a></li>
+              <li><a href="/press">Press</a></li>
             </ul>
           </nav>
+          <div id="signin">
+            <% if current_user %>
+              <span class="username"><%= current_user.name %></span> |
+              <a href="/signout">Sign Out</a>
+            <% else %>
+              <a href="/signup">Sign Up</a> |
+              <a href="/signin?redirect=<%= request.path_info %>">Sign In</a>
+            <% end %>
+          </div>
         </div>
       </div>
-      <div class="clearfix"></div>
-    <% end %>
-    <div id="content">
-      <%= yield %>
+      <% if in_labs? %>
+        <div id="subheader" class="labs">
+          <div class="container">
+            <h2 class="sublogo">Labs</h2>
+            <nav>
+              <ul>
+                <li><a href="/labs/resources">Resources</a></li>
+                <li><a href="/labs/discussions">Discussions</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      <% end %>
+      <div id="content">
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <div class="container">
+          <span class="copyright">&copy; Social Teeth</span>
+          <a href="/terms-of-use">Terms of Use</a> |
+          <a href="/privacy-policy">Privacy Policy</a>
+        </div>
+      </div>
     </div>
   </body>
 </html>

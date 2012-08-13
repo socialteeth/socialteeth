@@ -131,6 +131,14 @@ class SocialTeeth < Sinatra::Base
     erb :submit_complete
   end
 
+  get "/terms-of-use" do
+    erb :terms_of_use
+  end
+
+  get "/privacy-policy" do
+    erb :privacy_policy
+  end
+
   def ensure_signed_in
     redirect "/signin?redirect=#{request.path_info}" if current_user.nil?
   end
