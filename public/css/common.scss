@@ -170,7 +170,7 @@ nav {
   position: absolute;
   height: 20px;
   width: 100%;
-  background: #AAA;
+  @include linear-gradient(#AAAAAA, #999999);
   bottom: 0px;
   border-top: 1px solid #555;
   text-align: center;
