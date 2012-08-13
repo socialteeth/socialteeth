@@ -106,7 +106,7 @@ nav {
     float: left;
     margin-left: 30px;
 
-    $paddingTop: $headerHeight / 2 - 8;
+    $paddingTop: $headerHeight / 2 - 9;
 
     li {
       a {
@@ -114,6 +114,7 @@ nav {
         height: $headerHeight - $paddingTop;
         padding: 0px 20px;
         padding-top: $paddingTop;
+        font-size: 1.1em;
       }
     }
   }
