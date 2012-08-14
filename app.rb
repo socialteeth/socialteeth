@@ -80,6 +80,10 @@ class SocialTeeth < Sinatra::Base
     erb :launch_contest_press_release
   end
 
+  get "/launch-contest" do
+    erb :launch_contest
+  end
+
   get "/submit" do
     ensure_signed_in
     erb :submit
