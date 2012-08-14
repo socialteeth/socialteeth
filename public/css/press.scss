@@ -12,3 +12,29 @@
     font-size: 1.2em;
   }
 }
+
+.pressRelease {
+  h2 {
+    margin: 20px 0px 5px 0px;
+  }
+
+  p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    &.date {
+      margin: 10px 0px;
+      color: #999;
+      font-size: 1.1em;
+    }
+
+    &:first {
+      margin-top: 5px;
+    }
+  }
+
+  ul {
+    margin-left: 50px;
+    li { margin: 10px 0px; }
+  }
+}
