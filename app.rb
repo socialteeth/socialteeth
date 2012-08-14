@@ -65,7 +65,7 @@ class SocialTeeth < Sinatra::Base
         current_user.save
       end
     end
-    nil
+    redirect "/ads/#{ad.public_id}"
   end
 
   get "/about" do

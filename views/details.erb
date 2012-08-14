@@ -6,7 +6,6 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/details.css") %>
   <%= @pinion.css_url("/assets/css/forms.css") %>
-  <%= @pinion.js_url("/assets/js/details.js") %>
 <% end %>
 
 <div id="details">
@@ -34,9 +33,11 @@
               <p>You have <%= current_user.votes %> votes remaining. Vote for this ad if you want to see it aired on television!</p>
               <div class="multivote">
                 <input type="hidden" name="ad_id" value="<%= ad.public_id %>"/>
-                <input type="text" size="2" name="num_votes" value="1" />
-                <span class="timesX">X</span>
-                <a id="voteButton" class="button">Vote for this ad</a>
+                <form method="post" class="standard" action="/vote/<%= ad.public_id %>">
+                  <input type="text" size="2" name="num_votes" value="1" />
+                  <span class="timesX">X</span>
+                  <input type="submit" id="voteButton" value="Vote for this ad" />
+                </form>
               </div>
             <% else %>
               <p>You have <%= current_user.votes %> votes remaining. Check back soon to contribute to the winning ads!</p>
