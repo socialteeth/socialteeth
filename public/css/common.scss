@@ -36,8 +36,7 @@ a {
   h6 { color: #333333; &:hover { color: $highlight; } }
 
   img {
-    border: 2px solid $highlight;
-    &:hover { border: 2px solid lighten($highlight, 20%); }
+    border: none;
   }
 
   &.button {
