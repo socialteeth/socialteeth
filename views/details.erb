@@ -33,14 +33,10 @@
             <% if current_user.votes > 0 %>
               <p>You have <%= current_user.votes %> votes remaining. Vote for this ad if you want to see it aired on television!</p>
               <div class="multivote">
-                <% if production? %>
-                  <p>Voting opens midnight August 14 PST. Come back then to vote for your favorite ads!</p>
-                <% else %>
-                  <input type="hidden" name="ad_id" value="<%= ad.public_id %>"/>
-                  <input type="text" size="2" name="num_votes" value="1" />
-                  <span class="timesX">X</span>
-                  <a id="voteButton" class="button">Vote for this ad</a>
-                <% end %>
+                <input type="hidden" name="ad_id" value="<%= ad.public_id %>"/>
+                <input type="text" size="2" name="num_votes" value="1" />
+                <span class="timesX">X</span>
+                <a id="voteButton" class="button">Vote for this ad</a>
               </div>
             <% else %>
               <p>You have <%= current_user.votes %> votes remaining. Check back soon to contribute to the winning ads!</p>
