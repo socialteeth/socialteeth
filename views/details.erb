@@ -42,8 +42,8 @@
               <p>You have <%= current_user.votes %> votes remaining. Check back soon to contribute to the winning ads!</p>
             <% end %>
           <% else %>
-            <p>Sign in to vote for ads you want to see aired on television!</p>
-            <a class="button" href="/signin?redirect=<%= request.path_info %>">Sign in</a>
+            <p>Sign up to vote for ads you want to see aired on television!</p>
+            <a class="button" href="/signup">Sign up</a>
           <% end %>
           <div class="socialSharing">
             <table>
