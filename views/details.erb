@@ -42,17 +42,6 @@
                   <a id="voteButton" class="button">Vote for this ad</a>
                 <% end %>
               </div>
-              <div class="socialSharing">
-                <table>
-                  <tr>
-                    <td><%= erb :"social/twitter_vote_ad" %></td>
-                    <td>
-                      <% fb_url = "#{request.scheme}://#{request.host_with_port}#{request.path_info}" %>
-                      <%= erb :"social/facebook_like_ad", :locals => { :url => fb_url } %>
-                    </td>
-                  </tr>
-                </table>
-              </div>
             <% else %>
               <p>You have <%= current_user.votes %> votes remaining. Check back soon to contribute to the winning ads!</p>
             <% end %>
@@ -60,6 +49,17 @@
             <p>Sign in to vote for ads you want to see aired on television!</p>
             <a class="button" href="/signin?redirect=<%= request.path_info %>">Sign in</a>
           <% end %>
+          <div class="socialSharing">
+            <table>
+              <tr>
+                <td><%= erb :"social/twitter_vote_ad" %></td>
+                <td>
+                  <% fb_url = "#{request.scheme}://#{request.host_with_port}#{request.path_info}" %>
+                  <%= erb :"social/facebook_like_ad", :locals => { :url => fb_url } %>
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </div>
