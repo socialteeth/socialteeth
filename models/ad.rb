@@ -26,10 +26,10 @@ class Ad < Sequel::Model
     url = URI.parse(movie.url)
     if url.host.include?("youtube")
       # http://www.youtube.com/watch?v=a1b2c3
-      "http://www.youtube.com/embed/#{url.query.split("=")[1]}"
+      "https://www.youtube.com/embed/#{url.query.split("=")[1]}"
     elsif url.host.include?("vimeo")
       # http://vimeo.com/123456
-      "http://player.vimeo.com/video/#{url.path.gsub("/", "")}"
+      "https://player.vimeo.com/video/#{url.path.gsub("/", "")}"
     else ""
     end
   end
