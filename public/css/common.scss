@@ -182,16 +182,15 @@ p { line-height: 1.5em }
 
     &.twitter {
       position: absolute;
-      right: 500px;
       top: 5px;
       margin-right: 20px;
-      width: 50px;
+      width: 80px;
       height: 45px;
       float: right;
       cursor: pointer;
-      background: url(/images/twitter_bird_white.png);
+      background: url(/images/twitter_bird_white.png) 30px 0px no-repeat;
 
-      &:hover { background: url(/images/twitter_bird_gray.png); }
+      &:hover { background: url(/images/twitter_bird_gray.png) 30px 0px no-repeat; }
     }
   }
 }
