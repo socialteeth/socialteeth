@@ -10,3 +10,19 @@ $red: #EA362A;
 $yellow: #FFDC8E;
 $darkGreen: #007C00;
 $highlight: $red;
+
+@mixin black-button {
+  display: inline-block;
+  padding: 15px 0px;
+  font-size: 1.2em;
+  text-align: center;
+  border: 1px solid darken($lightGray, 20%);
+  cursor: pointer;
+  background: #333333;
+  width: 200px;
+  color: lighten($lightGray, 20%);
+  @include border-radius(3px);
+  @include user-select(none);
+
+  &:hover { @include box-shadow(0px 0px 10px #555); }
+}

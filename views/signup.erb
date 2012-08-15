@@ -1,36 +1,33 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/forms.css") %>
   <%= @pinion.css_url("/assets/css/authentication.css") %>
-  <%= @pinion.js_url("/assets/js/form_hints.js") %>
 <% end %>
 
 <div class="container">
   <div class="authenticationForm">
-    <h3>Create an account to vote for your favorite ads.</h3>
-    <form class="standard hints" action="/signup" method="post">
-      <div class="flashErrors">
-        <% if flash[:errors] && flash[:errors].is_a?(Array) %>
-          <ul>
-          <% flash[:errors].each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-          </ul>
-        <% end %>
-      </div>
-      <div class="formField">
-        <input type="text" name="name" placeholder="Name" value="<%= flash[:name] %>" />
-      </div>
-      <div class="formField">
-        <input type="text" name="email" placeholder="Email" value="<%= flash[:email] %>" />
-      </div>
-      <div class="formField">
-        <input type="password" name="password" placeholder="Password" />
-      </div>
-      <div class="formField">
-        <input type="password" name="confirm_password" placeholder="Confirm password"/>
-      </div>
-      <div class="formField">
-        <button>Sign up</button>
+    <h3>Create an account and contribute to ads.</h3>
+    <form class="standard" action="/signup" method="post">
+      <table>
+        <tr>
+          <td></td>
+          <td><%= erb :_flash_errors %></td>
+        </tr>
+          <td class="label">Full name</td>
+          <td class="field"><input type="text" name="name" value="<%= flash[:name] %>"/></td>
+        </tr>
+        <tr>
+          <td class="label">Email</td>
+          <td class="field"><input type="text" name="email" value="<%= flash[:email] %>"/></td>
+        </tr>
+        <tr>
+          <td class="label">Password</td>
+          <td class="field"><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="field"><input type="submit" value="Sign up" /></td>
+        </tr>
+      </table>
       </div>
     </form>
   </div>

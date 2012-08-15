@@ -6,7 +6,7 @@ class SocialTeeth < Sinatra::Base
   post "/signup" do
     flash[:name] = params[:name]
     flash[:email] = params[:email]
-    errors = enforce_required_params([:name, :email, :password, :confirm_password])
+    errors = enforce_required_params([:name, :email, :password])
 
     if params[:email] && params[:email].match(/[^@]+@[^@]+/)
       existing_user = User.find(:email => params[:email])
@@ -14,8 +14,6 @@ class SocialTeeth < Sinatra::Base
     else
       errors << "Invalid email."
     end
-
-    errors << "Passwords must match." unless params[:password] == params[:confirm_password]
 
     if errors.empty?
       self.current_user =
