@@ -15,6 +15,7 @@ end
 class Integer
   def to_currency
     dollars = self / 100
+    dollars = dollars.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse # Add commas
     "$#{dollars}"
   end
 end
