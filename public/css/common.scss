@@ -173,10 +173,25 @@ nav {
   }
 
   a {
+    display: inline-block;
     font-weight: normal;
     color: #FEFEFE;
     &:hover {
       color: lighten($highlight, 10%);
+    }
+
+    &.twitter {
+      position: absolute;
+      right: 500px;
+      top: 5px;
+      margin-right: 20px;
+      width: 50px;
+      height: 45px;
+      float: right;
+      cursor: pointer;
+      background: url(/images/twitter_bird_white.png);
+
+      &:hover { background: url(/images/twitter_bird_gray.png); }
     }
   }
 }
