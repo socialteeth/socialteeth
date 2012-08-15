@@ -3,7 +3,6 @@
 #home {
   #letterbox.faces {
     background-image: url(/images/face_banner_light_980x300.png);
-    margin: -20px;
 
     padding-top: 65px;
     height: 235px;
@@ -23,8 +22,8 @@
     }
   }
 
-  #contestVoting {
-    padding: 20px;
+  #announcement {
+    margin-top: 40px;
     text-align: center;
   }
 
@@ -64,192 +63,6 @@
           }
         }
       }
-    }
-  }
-
-  #banner {
-    height: 60px;
-    background: #222222;
-    text-align: center;
-    font-size: 3.0em;
-    padding-top: 10px;
-    font-weight: bold;
-    border-bottom: 1px solid darken($lightGray, 20%);
-    color: $lightGray;
-  }
-
-  #categories {
-    .category {
-      margin-bottom: 100px;
-
-      .smallAd {
-        display: inline-block;
-        width: 200px;
-        height: 240px;
-        margin-right: 35px;
-        margin-top: 50px;
-        float: left;
-        overflow: hidden;
-        padding: 5px;
-        color: $lightGray;
-        background-color:rgba(10,10,10,0.20);
-        @include box-shadow(0px 0px 5px 5px rgba(10,10,10,0.20));
-
-        .thumbnail {
-          height: 200px;
-          width: 200px;
-          background: #555555;
-          &:hover { opacity: 0.8; }
-
-          img {
-            display: block;
-            margin: auto;
-          }
-        }
-
-        .thermometer {
-          width: 198px;
-          border-top: none;
-
-          .thermometerProgress {
-            height: 5px;
-            background: $green;
-          }
-        }
-
-        .title {
-          padding: 3px 0px;
-        }
-
-        .description {
-          line-height: 1.5em;
-        }
-
-        &:nth-of-type(1) .thermometerProgress { width: 75%; }
-        &:nth-of-type(2) .thermometerProgress { width: 20%; }
-        &:nth-of-type(3) .thermometerProgress { width: 40%; }
-        &:nth-of-type(4) .thermometerProgress { width: 10%; }
-        &:nth-of-type(5) .thermometerProgress { width: 95%; }
-        &:nth-of-type(6) .thermometerProgress { width: 70%; }
-        &:nth-of-type(7) .thermometerProgress { width: 80%; }
-        &:nth-of-type(8) .thermometerProgress { width: 60%; }
-      }
-    }
-  }
-
-  #contestAnnouncement {
-    font-weight: bold;
-    width: 580px;
-    margin: auto;
-    font-size: 1.6em;
-    text-align: justify;
-    margin-top: 30px;
-    background: #EEEEEE;
-
-    p { line-height: 2.0em; }
-
-    .block {
-      display: inline-block;
-      height: 18px;
-      color: #333;
-      background-color: #333;
-      border: none;
-
-      &.first {
-        width: 70px;
-        margin-right: 10px;
-      }
-
-      &.second {
-        width: 60px;
-        margin-right: 10px;
-      }
-    }
-
-    em {
-      text-transform: uppercase;
-      color: $red;
-      font-size: 1.1em;
-      font-weight: bold;
-      font-style: normal;
-    }
-
-    strong {
-      display: inline-block;
-      text-transform: uppercase;
-      border-top: 10px solid #333;
-      border-bottom: 10px solid #333;
-      font-size: 2.0em;
-      float: right;
-      padding: 15px 0px;
-      margin-top: 7px;
-    }
-
-    a.button {
-      margin: auto;
-      margin: 20px auto;
-      font-size: 0.8em;
-      font-weight: normal;
-    }
-  }
-
-  #siteIntro {
-    padding-top: 20px;
-
-    .container { background: #EEEEEE; }
-
-    h4 {
-      margin: 30px;
-      text-align: center;
-    }
-
-    table {
-      border-collapse: collapse;
-
-      margin: 20px 0px;
-
-      td:nth-of-type(1) { border-right: 1px solid #555; }
-
-      td {
-        font-size: 1.2em;
-        padding: 0px 20px;
-        width: $pageWidth / 2;
-        vertical-align: top;
-        text-align: justify;
-
-        a {
-          font-size: 1.1em;
-          margin-bottom: 0px;
-        }
-
-        &.button {
-          padding-top: 20px;
-          text-align: center;
-        }
-
-        &:nth-of-type(1) {
-          //background: #FFF;
-          &.text { border-bottom: none; }
-          &.button { border-top: none; }
-        }
-      }
-    }
-  }
-
-  #contestPoster {
-    background: url(/images/posteraugust.jpg) center no-repeat;
-    @include box-shadow(inset 0px 0px 20px #000000);
-    width: 2000;
-    height: 1000px;
-    margin: auto;
-    position: relative;
-
-    a {
-      display: block;
-      position: absolute;
-      top: 730px;
-      width: 100%;
-      height: 250px;
     }
   }
 }
