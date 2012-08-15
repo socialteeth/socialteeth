@@ -34,7 +34,7 @@
       background-color: #CCC;
       @include box-shadow(0px 0px 5px 5px #BBB);
       height: 500px;
-      padding: 10px;
+      padding: 20px 40px;
 
       .button { margin-top: 20px; }
 
@@ -76,6 +76,8 @@
         }
 
         .socialSharing {
+          margin-top: 20px;
+
           table {
             table-layout: fixed;
             border-collapse: collapse;
