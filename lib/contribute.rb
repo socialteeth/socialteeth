@@ -45,6 +45,7 @@ class SocialTeeth < Sinatra::Base
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     halt 400 unless params[:amount] && params[:token]
     halt 400 unless params[:amount].to_i.to_s == params[:amount].to_s
+    halt 400 if production? && ad.id == 52 # Gary Johnson
 
     Stripe.api_key = STRIPE_SECRET_KEY
 
