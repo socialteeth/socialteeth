@@ -33,7 +33,7 @@
             <p>Contributions will be accepted until September 10, 2012.</p>
           </div>
           <% if current_user %>
-            <% if production? && ad.id = 52 # Gary Johnson %>
+            <% if production? && ad.id == 52 # Gary Johnson %>
               <p>This ad is not currently open for contributions because it is subject to certain campaign restrictions. It will become available in a few days.</p>
             <% else %>
               <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
