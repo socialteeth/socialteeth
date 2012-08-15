@@ -30,6 +30,7 @@
             <p class="of">of a</p>
             <p class="goal"><%= ad.goal.to_currency %></p>
             <p class="of">goal.</p>
+            <p>Contributions will be accepted until September 10, 2012.</p>
           </div>
           <% if current_user %>
             <% if production? && ad.id = 52 # Gary Johnson %>
@@ -38,7 +39,7 @@
               <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
             <% end %>
           <% else %>
-            <p>Sign in to contribute to ads you want to see aired on television!</p>
+            <p>Sign in to help air this ad on television!</p>
             <a id="signInButton" class="button" href="/signin?redirect=<%= request.path_info %>">Sign in</a>
           <% end %>
           <div class="socialSharing">
