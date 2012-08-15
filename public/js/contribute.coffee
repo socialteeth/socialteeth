@@ -5,7 +5,7 @@ $(document).ready ->
       # Show the errors on the form
       $(".paymentErrors").text(response.error.message)
       $(".submitButton").removeAttr("disabled")
-      $(".submitButton").text("Proceed to Confirmation")
+      $(".submitButton").val("Proceed to Confirmation")
     else
       $form = $("#paymentForm")
       # token contains id, last4, and card type
@@ -17,7 +17,7 @@ $(document).ready ->
   $("#paymentForm").submit (event) ->
     # Disable the submit button to prevent repeated clicks
     $('.submitButton').attr("disabled", "disabled")
-    $('.submitButton').text("Validating...")
+    $('.submitButton').val("Validating...")
 
     Stripe.createToken
         number: $('.cardNumber').val()

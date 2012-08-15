@@ -1,7 +1,6 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/contribute.css") %>
   <%= @pinion.css_url("/assets/css/forms.css") %>
-  <%= @pinion.js_url("/assets/js/form_hints.js") %>
   <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
   <%= @pinion.js_url("/assets/js/contribute.js") %>
 <% end %>
@@ -9,41 +8,41 @@
 <div id="contribute">
   <input type="hidden" id="stripePublicKey" value="<%= STRIPE_PUBLIC_KEY %>" />
   <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
-    <div class="paymentErrors"></div>
-    <div class="flashErrors">
-      <% if flash[:errors] && flash[:errors].is_a?(Array) %>
-        <ul>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-        </ul>
-      <% end %>
-    </div>
-    <div class="formField">
-      <label>Contribution Amount (USD)</label>
-      <span>$</span>
-      <input type="text" class="dollarAmount" name="dollar_amount"
-          placeholder="10" size="4" />
-      <span>.</span>
-      <input type="text" class="centAmount" name="cent_amount"
-          placeholder="00" size="2" maxlength="2" />
-    </div>
-    <div class="formField">
-      <label>Credit Card Number</label>
-      <input type="text" size="20" autocomplete="off" class="cardNumber"
-          placeholder="Card Number" />
-      <input type="text" size="4" autocomplete="off" class="cardCvc"
-          placeholder="CVC" />
-    </div>
-    <div class="formField">
-      <label>Credit Card Expiration</label>
-      <input type="text" size="2" maxlength="2" class="cardExpiryMonth month" placeholder="MM" />
-      <span> / </span>
-      <input type="text" size="4" class="cardExpiryYear" placeholder="YYYY"
-          maxlength="4" />
-    </div>
-    <div class="formField">
-      <button type="submit" class="submitButton">Proceed to Confirmation</button>
-    </div>
+    <table>
+      <tr>
+        <td></td>
+        <td><div class="paymentErrors"></div></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= erb :_flash_errors %></td>
+      </tr>
+      <tr>
+        <td class="label">Contribution Amount <span class="hint">(USD)</span></td>
+        <td class="field">
+          <input type="text" class="dollarAmount" name="amount" size="4" />
+        </td>
+      </tr>
+      <tr>
+        <td class="label">Credit Card Number</td>
+        <td class="field"><input type="text" size="20" autocomplete="off" class="cardNumber" /></td>
+      </tr>
+      <tr>
+        <td class="label">Security Code</td>
+        <td class="field"><input type="text" size="4" autocomplete="off" class="cardCvc" /></td>
+      </tr>
+      <tr>
+        <td class="label">Credit Card Expiration <span class="hint">(MM/YYYY)</span></td>
+        <td class="field">
+          <input type="text" size="2" maxlength="2" class="cardExpiryMonth month" />
+          <span>/</span>
+          <input type="text" size="4" class="cardExpiryYear" maxlength="4" />
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" class="submitButton" value="Proceed to Confirmation" /></td>
+      </tr>
+    </table>
   </form>
 </div>

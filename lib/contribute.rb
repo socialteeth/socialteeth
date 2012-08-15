@@ -16,19 +16,16 @@ class SocialTeeth < Sinatra::Base
   post "/ads/:id/contribute_confirm" do
     ensure_signed_in
     halt 404 unless ad = Ad.find(:public_id => params[:id])
-    errors = enforce_required_params([:dollar_amount, :cent_amount, :stripe_token])
+    errors = enforce_required_params([:amount, :stripe_token])
+
     begin
-      dollars = Integer(params[:dollar_amount])
-      cents = Integer(params[:cent_amount])
-      if params[:cent_amount] && params[:cent_amount].size != 2
-        errors << "Invalid contribution amount: $#{dollars}.#{cents}"
-      end
-    rescue ArgumentError => error
+      dollars = params[:amount].to_dollars
+    rescue CurrencyError => error
       errors << "Invalid contribution amount"
     end
 
     if errors.empty?
-      amount_in_cents = dollars * 100 + cents
+      amount_in_cents = dollars * 100
       token = params[:stripe_token]
       redirect "/ads/#{ad.public_id}/contribute_confirm?amount=#{amount_in_cents}&token=#{token}"
     else
