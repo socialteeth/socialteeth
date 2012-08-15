@@ -1,19 +1,42 @@
 @import "css/mixins";
 
 #submitAd, #submitComplete {
-  margin: 20px auto;
-  background-color: #EEEEEE;
+  margin: auto;
+  width: 470px;
   h2 { margin-bottom: 20px; }
-  .flashErrors { margin-top: 10px; }
+  p { font-size: 1.2em; }
 }
 
 #submitAd {
-  width: 470px;
-  .terms { color: #666; }
+  #submitForm {
+    .hint {
+      display: block;
+      font-size: 1.0em;
+      color: $lightText;
+    }
+
+    .submitField { margin: 20px 0px; }
+
+    input[type=submit] {
+      display: block;
+      margin: 20px auto;
+    }
+
+    .terms {
+      font-size: 1.0em;
+      color: $lightText;
+    }
+  }
 }
 
 #submitComplete {
-  width: 550px;
-  p { font-size: 1.4em; }
-  a.button { margin-top: 20px; }
+  p {
+    font-size: 1.2em;
+    margin: 10px 0px;
+  }
+
+  a.button {
+    display: block;
+    margin: 20px auto;
+  }
 }

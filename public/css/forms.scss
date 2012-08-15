@@ -15,8 +15,6 @@ form.standard {
   table {
     width: 100%;
 
-    td { padding: 5px 0px; }
-
     .label {
       text-align: right;
       font-size: 1.2em;
@@ -26,20 +24,33 @@ form.standard {
     .field {
       width: 80%;
     }
+  }
 
-    input[type=text], input[type=password] {
-      display: block;
-      width: 100%;
-      height: 40px;
-      border: 1px solid $lightGray;
-      padding: 0px 5px;
-      font-size: 1.2em;
-    }
+  input[type=text], input[type=password] {
+    display: block;
+    width: 100%;
+    height: 40px;
+    border: 1px solid $lightGray;
+    padding: 0px 5px;
+    margin: 5px 0px;
+    font-size: 1.2em;
   }
 
   input[type=submit] {
     @include black-button;
     width: 200px;
+    margin: 5px 0px;
     font-family: "Helvetica Neue", Helvetica, "Lucida Sans", Arial, Verdana, sans-serif;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    border: 1px solid $lightGray;
+    padding: 5px;
+    font-size: 1.1em;
+    font-family: "Helvetica Neue", Helvetica, "Lucida Sans", Arial, Verdana, sans-serif;
+    letter-spacing: 0.05em;
   }
 }

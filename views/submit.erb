@@ -1,38 +1,35 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/css/forms.css") %>
   <%= @pinion.css_url("/css/submit.css") %>
-  <%= @pinion.js_url("/js/form_hints.js") %>
 <% end %>
 
 <div class="container">
   <div id="submitAd">
-    <h3>Launch Your Message</h3>
-    <form class="standard hints" action="/submit" method="post" enctype="multipart/form-data">
-      <div class="flashErrors">
-        <% if flash[:errors] && flash[:errors].is_a?(Array) %>
-          <ul>
-          <% flash[:errors].each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-          </ul>
-        <% end %>
+    <h2>Launch Your Message</h2>
+    <form id="submitForm" class="standard" action="/submit" method="post" enctype="multipart/form-data">
+      <div><%= erb :_flash_errors %></div>
+      <div class="submitField">
+        <p>Title</p>
+        <p class="hint">(e.g., "Eat Real Food")</p>
+        <input type="text" name="title" value="<%= flash[:title] %>">
       </div>
-      <div class="formField">
-        <input type="text" name="title" placeholder='Title (e.g., "Eat Real Food")' value="<%= flash[:title] %>"/>
+      <div class="submitField">
+        <p>Description</p>
+        <p class="hint">(e.g., "This is an ad about healthy eating, aimed at teenagers. It is in the style of the famous "the truth" anti-smoking campaign.")</p>
+        <textarea name="description"><%= flash[:description] %></textarea>
       </div>
-      <div class="formField">
-        <textarea name="description" placeholder='Describe Your Ad (e.g., "This is an ad about healthy eating, aimed at teenagers. It is in the style of the famous "the truth" anti-smoking campaign.")'><%= flash[:description] %></textarea>
+      <div class="submitField">
+        <p>About You</span>
+        <p class="hint">(e.g., "This ad was created by "Eat Real Food", a community-led initiative that hails from South Bend, Indiana. For more from us, including healthy eating posters created by local youth, please visit our website at eatrealsouthbend.com.")</p>
+        <textarea name="about_submitter"><%= flash[:about_submitter] %></textarea>
       </div>
-      <div class="formField">
-        <textarea name="about_submitter" placeholder='About the Submitter (e.g., "This ad was created by "Eat Real Food", a community-led initiative that hails from South Bend, Indiana. For more from us, including healthy eating posters created by local youth, please visit our website at eatrealsouthbend.com.")'><%= flash[:about_submitter] %></textarea>
-      </div>
-      <div class="formField">
-        <input type="text" name="url" placeholder="YouTube or Vimeo URL" value="<%= flash[:url] %>" />
+      <div class="submitField">
+        <p>YouTube or Vimeo URL</p>
+        <p class="hint">(e.g., http://www.youtube.com/watch?v=MHVOZkyI_1Q)</p>
+        <input type="text" name="url" value="<%= flash[:url] %>" />
       </div>
       <p class="terms">By clicking "Submit Ad" you certify that you have the right to distribute this video and that it does not violate Copyright Law.</p>
-      <div class="formField">
-        <button>Submit Ad</button>
-      </div>
+      <input type="submit" value="Submit Ad" />
     </form>
   </div>
 </div>
