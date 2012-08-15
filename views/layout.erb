@@ -12,7 +12,7 @@
       <div id="header">
         <div class="container">
           <a id="logo" href="/">SocialTeeth</a>
-          <nav>
+          <div class="nav">
             <ul>
               <li><a href="/submit">Submit Ad</a></li>
               <% if current_user && current_user.admin? %>
@@ -24,7 +24,7 @@
               <li><a href="/about">About</a></li>
               <li><a href="/press">Press</a></li>
             </ul>
-          </nav>
+          </div>
           <div id="signin">
             <% if current_user %>
               <span class="username"><%= current_user.name %></span> |
@@ -40,12 +40,12 @@
         <div id="subheader" class="labs">
           <div class="container">
             <h2 class="sublogo">Labs</h2>
-            <nav>
+            <div class="nav">
               <ul>
                 <li><a href="/labs/resources">Resources</a></li>
                 <li><a href="/labs/discussions">Discussions</a></li>
               </ul>
-            </nav>
+            </div>
           </div>
         </div>
         <div class="clearfix"></div>
