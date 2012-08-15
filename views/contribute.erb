@@ -2,7 +2,7 @@
   <%= @pinion.css_url("/assets/css/contribute.css") %>
   <%= @pinion.css_url("/assets/css/forms.css") %>
   <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
-  <%= @pinion.js_url("/assets/js/contribute.js") %>
+  <script type="text/javascript" src="<%= @pinion.asset_url("/js/contribute.js") %>"></script>
 <% end %>
 
 <div id="contribute">

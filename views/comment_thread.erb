@@ -1,7 +1,7 @@
 <% # Parameters: discussion %>
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/comments.css") %>
-  <%= @pinion.js_url("/assets/js/comments.js") %>
+  <script type="text/javascript" src="<%= @pinion.asset_url("/js/comments.js") %>"></script>
 <% end %>
 
 <div class="commentList">

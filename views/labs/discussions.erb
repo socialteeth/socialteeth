@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/labs/discussions.css") %>
   <%= @pinion.css_url("/assets/css/forms.css") %>
-  <%= @pinion.js_url("/assets/js/labs/discussions.js") %>
+  <script type="text/javascript" src="<%= @pinion.asset_url("/js/labs/discussions.js") %>"></script>
 <% end %>
 
 <div id="discussions">
