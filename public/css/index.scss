@@ -54,9 +54,12 @@
           padding: 5px 0px;
         }
 
-        .votes {
+        .amount {
           font-size: 1.2em;
-          color: $highlight;
+          .progress {
+            color: $highlight;
+            font-weight: bold;
+          }
         }
       }
     }
