@@ -93,6 +93,34 @@ $sidebarWidth: 300px;
     height: 40px;
     background: url(/images/logos/long240x40.png) no-repeat;
     text-indent: -9999px;
+
+    &.graffiti-blue {
+      background: url(/images/logos/graffiti_blue.png) no-repeat;
+      height: 175px;
+    }
+
+    &.graffiti-orange {
+      background: url(/images/logos/graffiti_orange.png) no-repeat;
+      height: 175px;
+    }
+
+    &.bright-cyan {
+      background: url(/images/logos/bright_cyan.png) no-repeat;
+      height: 180px;
+      margin-left: 30px;
+    }
+
+    &.bright-orange{
+      background: url(/images/logos/bright_orange.png) no-repeat;
+      height: 180px;
+      margin-left: 30px;
+    }
+
+    &.bright-indigo {
+      background: url(/images/logos/bright_indigo.png) no-repeat;
+      height: 180px;
+      margin-left: 30px;
+    }
   }
 
   .nav {
