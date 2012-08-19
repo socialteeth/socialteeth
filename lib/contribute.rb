@@ -20,18 +20,20 @@ class SocialTeeth < Sinatra::Base
     required_params += [:name, :address, :occupation, :employer] if ad.id == 52 # Gary Johnson
     errors = enforce_required_params(required_params)
 
+    begin
+      dollars = params[:amount].to_dollars
+    rescue CurrencyError => error
+      errors << "Invalid contribution amount"
+    end
+
     if ad.id == 52 # Gary Johnson
       current_user.name = params[:name] if params[:name]
       current_user.address = params[:address] if params[:address]
       current_user.occupation = params[:occupation] if params[:occupation]
       current_user.employer = params[:employer] if params[:employer]
       current_user.save
-    end
 
-    begin
-      dollars = params[:amount].to_dollars
-    rescue CurrencyError => error
-      errors << "Invalid contribution amount"
+      errors << "The maximum contribution amount for this ad is $2500." if dollars > 2500
     end
 
     if errors.empty?
