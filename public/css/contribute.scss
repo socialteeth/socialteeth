@@ -1,8 +1,17 @@
 @import "css/mixins";
 
 #contribute {
+  width: 800px;
+  margin-top: 40px;
+
   form.standard {
+    width: 600px;
     margin: auto;
+
+    h3 {
+      margin: 0px;
+      text-align: center;
+    }
 
     table {
       .field {
@@ -40,26 +49,19 @@
 }
 
 #contributeSuccess {
-  text-align: center;
-  font-size: 1.2em;
-  h2 { margin: 20px; }
-  p { margin: 20px; }
-  background-color: #EEEEEE;
+  width: 800px;
+  margin: 40px auto;
+  p { margin: 20px 0px; }
 }
 
 #contributeConfirm {
-  text-align: center;
-
-  h2 {
-    text-align: center;
-    margin: 20px;
-  }
+  margin: 40px auto;
+  width: 800px;
 
   table {
-    margin: auto;
     text-align: left;
-    font-size: 1.4em;
     border-collapse: collapse;
+
     td {
       border: 1px solid $lightGray;
       background-color: #FFFFFF;
@@ -72,13 +74,14 @@
 
       &:nth-of-type(2) {
         min-width: 250px;
+        color: $highlight;
+        font-weight: bold;
       }
     }
   }
 
   form.standard {
-     margin: auto;
-
+    width: 800px;
     .formField {
       margin-top: 20px;
       a {

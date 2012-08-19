@@ -8,6 +8,7 @@
 <div id="contribute">
   <input type="hidden" id="stripePublicKey" value="<%= STRIPE_PUBLIC_KEY %>" />
   <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
+    <h3>Contribute to "<%= ad.title %>"</h3>
     <table>
       <tr>
         <td></td>
