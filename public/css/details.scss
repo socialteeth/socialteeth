@@ -1,92 +1,78 @@
 @import "css/mixins";
 
 #details {
-  #letterbox {
-    .videoEmbed { width: 640px; }
-    height: 400px;
-  }
+  display: table;
+  width: $pageWidth;
 
-  #mainDetails {
-    display: table;
-    margin: 50px auto;
-    width: 800px;
+  #detailsLeft {
+    display: table-cell;
+    #mainDetails {
 
-    #detailsText {
-      display: table-cell;
-      width: 550px;
-      padding-right: 80px;
-      h1 { margin-bottom: 30px; }
-      background: #EEE;
-      font-size: 1.1em;
+      #detailsText {
+        width: 640px;
 
-      #submitterDetails {
-        h3 {
-          margin-top: 40px;
-          margin-bottom: 10px;
-          color: #999;
+        #submitterDetails {
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid $lightGray;
+          p { margin: 5px 0px; }
         }
-
-        p { margin: 5px 0px; }
       }
     }
+  }
 
-    #detailsGutter {
-      display: table-cell;
-      background-color: #CCC;
-      @include box-shadow(0px 0px 5px 5px #BBB);
-      height: 500px;
-      padding: 20px;
-      width: 33%;
+  #detailsGutter {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 40px;
 
-      #signInButton {
-        margin: 20px 0px;
+    #signInButton {
+      margin: 20px 0px;
+    }
+
+    .summary {
+      line-height: 1.0em;
+
+      a { font-weight: normal; }
+
+      .goalProgress {
+        .progress {
+          font-weight: bold;
+          display: block;
+          color: $highlight;
+          font-size: 2.5em;
+          padding-top: 20px;
+          line-height: 1.0em;
+        }
+
+        .of {
+          display: inline-block;
+          font-size: 1.4em;
+        }
+
+        .goal {
+          display: inline-block;
+          font-size: 2.0em;
+          padding: 0px 5px;
+          margin-bottom: 10px;
+        }
       }
 
-      .summary {
-        font-weight: bold;
-        line-height: 1.0em;
+      #payButton {
+        display: block;
+        margin: 20px auto;
+      }
 
-        a { font-weight: normal; }
+      .socialSharing {
+        margin: 20px 0px;
 
-        .goalProgress {
+        table {
+          table-layout: fixed;
+          border-collapse: collapse;
+          width: 100%;
 
-          .progress {
-            display: block;
-            color: $highlight;
-            font-size: 2.5em;
-            padding-top: 20px;
-            line-height: 1.0em;
-          }
-
-          .of {
-            display: inline-block;
-            font-size: 1.4em;
-          }
-
-          .goal {
-            display: inline-block;
-            font-size: 2.0em;
-            padding: 0px 5px;
-            margin-bottom: 10px;
-          }
-        }
-
-        #payButton {
-          display: block;
-          margin: 20px auto;
-        }
-
-        .socialSharing {
-          margin: 20px 0px;
-
-          table {
-            table-layout: fixed;
-            border-collapse: collapse;
-            width: 100%;
-
-            td:nth-of-type(1) {
-              text-align: right;
-            }
+          td:nth-of-type(1) {
+            text-align: right;
           }
         }
       }

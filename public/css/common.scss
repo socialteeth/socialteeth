@@ -20,6 +20,7 @@ h3 { font-size: 1.5em; }
 h4 { font-size: 1.2em; }
 h5 { font-size: 1.0em; }
 h6 { font-size: 0.8em; }
+h1, h2, h3, h4, h5, h6 { margin: 20px 0px; }
 
 p { line-height: 1.4em; }
 
@@ -56,6 +57,8 @@ a {
   clear: both;
   visibility: hidden;
 }
+
+.aside { color: $lightText; }
 
 $headerHeight: 40px;
 
@@ -133,7 +136,9 @@ $sidebarWidth: 300px;
   border-top: 1px solid #555;
   text-align: center;
   padding: 20px 0px;
-  color: #FEFEFE;
+  color: #FEFFFE;
+  font-size: 0.9em;
+  font-weight: 300;
 
   .copyright {
     display: inline-block;
@@ -142,8 +147,8 @@ $sidebarWidth: 300px;
 
   a {
     display: inline-block;
-    font-weight: normal;
-    color: #FEFEFE;
+    color: #FEFFFE;
+
     &:hover {
       color: lighten($highlight, 10%);
     }
@@ -160,16 +165,6 @@ $sidebarWidth: 300px;
 
       &:hover { background: url(/images/twitter_bird_gray.png) 30px 0px no-repeat; }
     }
-  }
-}
-
-#letterbox {
-  height: 300px;
-  background: #555555;
-  @include box-shadow(inset 0px 0px 20px #333333);
-  & > * {
-    display: block;
-    margin: auto;
   }
 }
 

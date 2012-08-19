@@ -9,54 +9,51 @@
 <% end %>
 
 <div id="details">
-  <div id="letterbox">
-    <%= erb :video_embed, :locals => { :ad => ad } %>
-  </div>
-  <div class="container">
+  <div id="detailsLeft">
+    <div class="videoWrapper"><%= erb :video_embed, :locals => { :ad => ad } %></div>
     <div id="mainDetails">
       <div id="detailsText">
-        <h1><%= ad.title %></h1>
+        <h2><%= ad.title %></h2>
         <p><%= ad.description %></p>
         <div id="submitterDetails">
-          <h3>About The Submitter</h3>
           <p><%= ad.about_submitter %></p>
         </div>
       </div>
-      <div id="detailsGutter">
-        <div class="summary">
-          <div class="goalProgress">
-            <p>This ad has raised</p>
-            <p class="progress"><%= ad.payment_progress.to_currency %></p>
-            <p class="of">of a</p>
-            <p class="goal"><%= ad.goal.to_currency %></p>
-            <p class="of">goal.</p>
-          </div>
-          <% if current_user %>
-            <% if production? && (ad.id == 52 || ad.id == 10) # Gary Johnson || Exhale %>
-              <p>This ad is not currently open for contributions because it is subject to certain donation restrictions. It will become available in a few days.</p>
-            <% else %>
-              <p>Contributions will be accepted until September 10, 2012.</p>
-              <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
-            <% end %>
-          <% else %>
-            <p>Sign in to help air this ad on television!</p>
-            <a id="signInButton" class="button" href="/signin?redirect=<%= request.path_info %>">Sign in</a>
-          <% end %>
-          <div id="goalDisclaimer">
-            <p>The current goals are estimates provided by our media partner. They may be refined as the media plan for this ad is finalized.</p>
-          </div>
-          <div class="socialSharing">
-            <table>
-              <tr>
-                <td><%= erb :"social/twitter_vote_ad" %></td>
-                <td>
-                  <% fb_url = "#{request.scheme}://#{request.host_with_port}#{request.path_info}" %>
-                  <%= erb :"social/facebook_like_ad", :locals => { :url => fb_url } %>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div id="detailsGutter">
+    <div class="summary">
+      <div class="goalProgress">
+        <p>This ad has raised</p>
+        <p class="progress"><%= ad.payment_progress.to_currency %></p>
+        <p class="of">of a</p>
+        <p class="goal"><%= ad.goal.to_currency %></p>
+        <p class="of">goal.</p>
+      </div>
+      <% if current_user %>
+        <% if production? && (ad.id == 52 || ad.id == 10) # Gary Johnson || Exhale %>
+          <p>This ad is not currently open for contributions because it is subject to certain donation restrictions. It will become available in a few days.</p>
+        <% else %>
+          <p>Contributions will be accepted until September 10, 2012.</p>
+          <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
+        <% end %>
+      <% else %>
+        <p>Sign in to help air this ad on television!</p>
+        <a id="signInButton" class="button" href="/signin?redirect=<%= request.path_info %>">Sign in</a>
+      <% end %>
+      <div id="goalDisclaimer">
+        <p class="aside">The current goals are estimates provided by our media partner. They may be refined as the media plan for this ad is finalized.</p>
+      </div>
+      <div class="socialSharing">
+        <table>
+          <tr>
+            <td><%= erb :"social/twitter_vote_ad" %></td>
+            <td>
+              <% fb_url = "#{request.scheme}://#{request.host_with_port}#{request.path_info}" %>
+              <%= erb :"social/facebook_like_ad", :locals => { :url => fb_url } %>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
