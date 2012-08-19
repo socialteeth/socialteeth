@@ -2,7 +2,7 @@
 
 #submitAd, #submitComplete {
   margin: auto;
-  width: 470px;
+  width: 800px;
   h2 { margin-bottom: 20px; }
   p { font-size: 1.2em; }
 }
@@ -11,7 +11,7 @@
   #submitForm {
     .hint {
       display: block;
-      font-size: 1.0em;
+      font-size: 0.9em;
       color: $lightText;
     }
 
@@ -22,21 +22,19 @@
       margin: 20px auto;
     }
 
-    .terms {
-      font-size: 1.0em;
-      color: $lightText;
+    .aside {
+      font-size: 0.9em;
     }
   }
 }
 
 #submitComplete {
   p {
-    font-size: 1.2em;
     margin: 10px 0px;
   }
 
   a.button {
     display: block;
-    margin: 20px auto;
+    margin-top: 30px;
   }
 }
