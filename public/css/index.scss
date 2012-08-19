@@ -41,9 +41,13 @@
         .adMetadata {
           margin-left: 210px;
 
-          h3 a {
-            color: #333;
-            &:hover { color: $highlight; }
+          h3 {
+            margin: 0px;
+
+            a {
+              color: #333;
+              &:hover { color: $highlight; }
+            }
           }
 
           p {

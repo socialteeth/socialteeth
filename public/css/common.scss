@@ -95,6 +95,8 @@ $sidebarWidth: 300px;
   }
 
   .nav {
+    font-weight: 300;
+
     li { list-style: none; }
     @include light-font;
     margin-top: 30px;

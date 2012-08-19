@@ -24,6 +24,7 @@ $darkGray: #464646;
   background: #333333;
   width: 200px;
   color: lighten($lightGray, 20%);
+  font-weight: 300;
   @include border-radius(3px);
   @include user-select(none);
 
@@ -31,5 +32,5 @@ $darkGray: #464646;
 }
 
 @mixin light-font {
-  font-weight: 300;
+  color: $lightGray;
 }

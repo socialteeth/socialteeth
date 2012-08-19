@@ -3,30 +3,28 @@
   <%= @pinion.css_url("/assets/css/authentication.css") %>
 <% end %>
 
-<div class="container">
-  <div class="authenticationForm">
-    <form class="standard" action="/signin?redirect=<%= params[:redirect] %>" method="post">
-      <table>
-        <tr>
-          <td></td>
-          <td><%= erb :_flash_errors %></td>
-        <tr>
-          <td class="label">Email</td>
-          <td class="field"><input type="text" name="email" value="<%= flash[:email] %>" /></td>
-        </tr>
-        <tr>
-          <td class="label">Password</td>
-          <td class="field"><input type="password" name="password" /></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td class="field"><input type="submit" value="Sign in" /></td>
-        </tr>
-        <tr class="or">
-          <td class="label">or</td>
-          <td class="field"><a class="button" href="/signup">Sign up</a></td>
-        </tr>
-      </table>
-    </form>
-  </div>
+<div class="authenticationForm">
+  <form class="standard" action="/signin?redirect=<%= params[:redirect] %>" method="post">
+    <table>
+      <tr>
+        <td></td>
+        <td><%= erb :_flash_errors %></td>
+      <tr>
+        <td class="label">Email</td>
+        <td class="field"><input type="text" name="email" value="<%= flash[:email] %>" /></td>
+      </tr>
+      <tr>
+        <td class="label">Password</td>
+        <td class="field"><input type="password" name="password" /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="field"><input type="submit" value="Sign in" /></td>
+      </tr>
+      <tr class="or">
+        <td class="label">or</td>
+        <td class="field"><a class="button" href="/signup">Sign up</a></td>
+      </tr>
+    </table>
+  </form>
 </div>
