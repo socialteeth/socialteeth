@@ -7,13 +7,31 @@
 <div id="contributeConfirm">
   <h3>Confirm Your Contribution</h3>
   <table>
+    <% if ad.id == 52 # Gary Johnson %>
+      <tr>
+        <td>Name</td>
+        <td><%= current_user.name %></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td><%= current_user.address %></td>
+      </tr>
+      <tr>
+        <td>Occupation</td>
+        <td><%= current_user.occupation %></td>
+      </tr>
+      <tr>
+        <td>Employer</td>
+        <td><%= current_user.employer %></td>
+      </tr>
+    <% end %>
     <tr>
       <td>Amount</td>
-      <td><%= amount.to_currency %></td>
+      <td class="highlight"><%= amount.to_currency %></td>
     </tr>
     <tr>
       <td>Ad</td>
-      <td><%= ad.title %></p></td>
+      <td class="highlight"><%= ad.title %></p></td>
     </tr>
   </table>
   <form class="standard" method="post" action="/ads/<%= ad.public_id %>/contribute_submit">

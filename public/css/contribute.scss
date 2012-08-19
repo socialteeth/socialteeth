@@ -83,6 +83,9 @@
 
       &:nth-of-type(2) {
         min-width: 250px;
+      }
+
+      &.highlight {
         color: $highlight;
         font-weight: bold;
       }
