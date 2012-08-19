@@ -11,18 +11,50 @@
     <h3>Contribute to "<%= ad.title %>"</h3>
     <table>
       <tr>
-        <td></td>
-        <td><div class="paymentErrors"></div></td>
+        <td class="label"></td>
+        <td class="field"><div class="paymentErrors"></div></td>
       </tr>
       <tr>
-        <td></td>
-        <td><%= erb :_flash_errors %></td>
+        <td class="label"></td>
+        <td class="field"><%= erb :_flash_errors %></td>
       </tr>
+    </table>
+    <% if ad.id == 52 # Gary Johnson %>
+      <table id="userInfo">
+        <tr>
+          <td></td>
+          <td class="hint">Due to the nature of this ad, contributors must supply some additional information required by campaign finance law.</td>
+        </tr>
+        <tr>
+          <td class="label">Name</td>
+          <td class="field">
+            <input type="text" autocomplete="off" name="name" value="<%= current_user.name %>"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Address <br/><span class="hint">(Street, City, State, Zip)</span></td>
+          <td class="field">
+            <input type="text" autocomplete="off" name="address" value="<%= current_user.address %>"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Occupation</td>
+          <td class="field">
+            <input type="text" autocomplete="off" name="occupation" value="<%= current_user.occupation %>"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Employer</td>
+          <td class="field">
+            <input type="text" autocomplete="off" name="employer" value="<%= current_user.employer %>"/>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+    <table id="paymentInfo">
       <tr>
-        <td class="label">Contribution Amount <span class="hint">(USD)</span></td>
-        <td class="field">
-          <input type="text" class="dollarAmount" name="amount" size="4" />
-        </td>
+        <td class="label">Contribution Amount<br/><span class="hint">(USD)</span></td>
+        <td class="field"><input type="text" class="dollarAmount" name="amount" size="4" /></td>
       </tr>
       <tr>
         <td class="label">Credit Card Number</td>
@@ -33,7 +65,7 @@
         <td class="field"><input type="text" size="4" autocomplete="off" class="cardCvc" /></td>
       </tr>
       <tr>
-        <td class="label">Credit Card Expiration <span class="hint">(MM/YYYY)</span></td>
+        <td class="label">Credit Card Expiration<br/><span class="hint">(MM/YYYY)</span></td>
         <td class="field">
           <input type="text" size="2" maxlength="2" class="cardExpiryMonth month" />
           <span>/</span>

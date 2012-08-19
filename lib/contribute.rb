@@ -16,7 +16,17 @@ class SocialTeeth < Sinatra::Base
   post "/ads/:id/contribute_confirm" do
     ensure_signed_in
     halt 404 unless ad = Ad.find(:public_id => params[:id])
-    errors = enforce_required_params([:amount, :stripe_token])
+    required_params = [:amount, :stripe_token]
+    required_params += [:name, :address, :occupation, :employer] if ad.id == 52 # Gary Johnson
+    errors = enforce_required_params(required_params)
+
+    if ad.id == 52 # Gary Johnson
+      current_user.name = params[:name] if params[:name]
+      current_user.address = params[:address] if params[:address]
+      current_user.occupation = params[:occupation] if params[:occupation]
+      current_user.employer = params[:employer] if params[:employer]
+      current_user.save
+    end
 
     begin
       dollars = params[:amount].to_dollars

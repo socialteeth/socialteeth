@@ -14,9 +14,18 @@
     }
 
     table {
+
+      &#paymentInfo {
+        margin-top: 40px;
+      }
+
       .field {
         width: 60%;
         span { font-size: 1.2em; }
+      }
+
+      td.hint {
+        padding-bottom: 20px;
       }
 
       .hint {
