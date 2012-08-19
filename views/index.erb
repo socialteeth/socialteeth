@@ -4,11 +4,9 @@
 <% end %>
 
 <div id="home">
-  <div id="letterbox" class="faces">
-    <div id="siteSummary">
-      <h3>Launching the Voices of Real People into the National Conversation</h3>
-      <p>That's what we're about. What you see on Social Teeth are political messages created by political underdogs, everyday people, and grassroots organizations. Donate and get these messages on air!</p>
-    </div>
+  <div id="siteSummary">
+    <h3>Launching the Voices of Real People into the National Conversation</h3>
+    <p>That's what we're about. What you see on Social Teeth are political messages created by political underdogs, everyday people, and grassroots organizations. Donate and get these messages on air!</p>
   </div>
   <div id="adGrid">
     <table>
@@ -19,12 +17,14 @@
               <a href="/ads/<%= ad.public_id %>">
                 <img src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" />
               </a>
-              <h3><a href="/ads/<%= ad.public_id %>"><%= ad.title %></a></h3>
-              <p class="amount">
-                <span class="progress"><%= ad.payment_progress.to_currency %></span>
-                <span> of <%= ad.goal.to_currency %> goal</span>
-              </p>
-              <p class="description"><%= ad.short_description %></p>
+              <div class="adMetadata">
+                <h3><a href="/ads/<%= ad.public_id %>"><%= ad.title %></a></h3>
+                <p class="amount">
+                  <span class="progress"><%= ad.payment_progress.to_currency %></span>
+                  <span> of <%= ad.goal.to_currency %> goal</span>
+                </p>
+                <p class="description"><%= ad.short_description %></p>
+              </div>
             </td>
           <% end %>
         </tr>

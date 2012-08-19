@@ -39,6 +39,10 @@ class SocialTeeth < Sinatra::Base
     super
   end
 
+  before do
+    @ads = Ad.filter(:is_published => true).order(:title).all
+  end
+
   get "/" do
     erb :index, :locals => { :ads => Ad.filter(:is_published => true).order(:votes.desc, :title).all }
   end

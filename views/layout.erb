@@ -10,46 +10,34 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <div class="container">
-          <a id="logo" href="/">SocialTeeth</a>
-          <div class="nav">
-            <ul>
-              <li><a href="/submit">Submit Ad</a></li>
-              <% if current_user && current_user.admin? %>
-                <li><a href="/browse">Browse</a></li>
-              <% end %>
-              <% if !production? %>
-                <li><a href="/labs">Labs</a></li>
-              <% end %>
-              <li><a href="/about">About</a></li>
-              <li><a href="/press">Press</a></li>
-            </ul>
-          </div>
-          <div id="signin">
-            <% if current_user %>
-              <span class="username"><%= current_user.name %></span> |
-              <a href="/signout">Sign Out</a>
-            <% else %>
-              <a href="/signup">Sign Up</a> |
-              <a href="/signin?redirect=<%= request.path_info %>">Sign In</a>
-            <% end %>
-          </div>
+        <div id="signin">
+          <% if current_user %>
+            <span class="username"><%= current_user.name %></span> |
+            <a href="/signout">Sign Out</a>
+          <% else %>
+            <a href="/signup">Sign Up</a> |
+            <a href="/signin?redirect=<%= request.path_info %>">Sign In</a>
+          <% end %>
         </div>
       </div>
-      <% if in_labs? %>
-        <div id="subheader" class="labs">
-          <div class="container">
-            <h2 class="sublogo">Labs</h2>
-            <div class="nav">
+      <div id="sidebar">
+        <a href="/" class="logo">SocialTeeth</a>
+        <div class="nav">
+          <ul>
+            <li><a href="/">Browse</a></li>
+            <li>
               <ul>
-                <li><a href="/labs/resources">Resources</a></li>
-                <li><a href="/labs/discussions">Discussions</a></li>
+                <% @ads.each do |ad| %>
+                  <li><a href="/ads/<%= ad.public_id %>"><%= ad.title %></a></li>
+                <% end %>
               </ul>
-            </div>
-          </div>
+            </li>
+            <li><a href="/brainstorm">Brainstorm</a></li>
+            <li><a href="/create">Create</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
         </div>
-        <div class="clearfix"></div>
-      <% end %>
+      </div>
       <div id="content">
         <%= yield %>
       </div>
