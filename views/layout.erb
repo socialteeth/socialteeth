@@ -4,6 +4,10 @@
     <title>Social Teeth</title>
     <%= @pinion.css_url("/css/common.css") %>
     <script type="text/javascript" src="<%= @pinion.asset_url("/js/lib/jquery-1.7.2.min.js") %>"></script>
+    <script type="text/javascript">
+      // Preload hover state
+      (new Image()).src = "/images/twitter_bird_gray.png";
+    </script>
     <%= yield_content :head %>
     <%= erb :google_analytics if production? %>
   </head>
