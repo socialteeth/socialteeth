@@ -65,7 +65,7 @@ $headerHeight: 40px;
 #header {
   height: $headerHeight;
   padding: 0px 30px;
-  max-width: $pageWidth + 370px;
+  max-width: $pageWidth + 330px;
 
   #signin {
     $paddingTop: $headerHeight / 2 - 13;
@@ -151,7 +151,7 @@ $sidebarWidth: 300px;
 }
 
 #content {
-  margin-left: $sidebarWidth + 2 * $headerHeight;
+  margin-left: $sidebarWidth + $headerHeight;
   padding-bottom: 100px;
 }
 
