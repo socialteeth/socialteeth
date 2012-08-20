@@ -84,9 +84,13 @@ $sidebarWidth: 300px;
 
 #sidebar {
   width: $sidebarWidth;
+  padding-top: $headerHeight;
   padding-left: $headerHeight;
   position: fixed;
+  top: 0px;
+  left: 0px;
   height: 100%;
+  background: #FEFFFE;
 
   .logo {
     display: block;
@@ -163,7 +167,6 @@ $sidebarWidth: 300px;
 
 #wrapper {
   min-height: 100%;
-  overflow-x: hidden;
   position: relative;
 }
 
