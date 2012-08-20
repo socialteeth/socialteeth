@@ -11,7 +11,12 @@
       #detailsText {
         width: 640px;
 
-        p { margin-bottom: 20px; }
+        p, ol { margin-bottom: 20px; }
+
+        li {
+          margin-left: 40px;
+          padding: 5px 0px;
+        }
 
         #submitterDetails {
           margin-top: 20px;
