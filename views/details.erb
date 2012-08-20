@@ -31,12 +31,8 @@
         <p class="of">goal.</p>
       </div>
       <% if current_user %>
-        <% if production? && (ad.id == 52 || ad.id == 10) # Gary Johnson || Exhale %>
-          <p class="disclaimer">This ad is not currently open for contributions because it is subject to certain donation restrictions. It will become available in a few days.</p>
-        <% else %>
-          <p>Contributions will be accepted until September 10, 2012.</p>
-          <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
-        <% end %>
+        <p>Contributions will be accepted until September 10, 2012.</p>
+        <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
       <% else %>
         <p>Sign in to help air this ad on television!</p>
         <a id="signInButton" class="button" href="/signin?redirect=<%= request.path_info %>">Sign in</a>
