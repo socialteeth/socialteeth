@@ -90,8 +90,8 @@ $sidebarWidth: 300px;
   .logo {
     display: block;
     width: $sidebarWidth;
-    height: 40px;
-    background: url(/images/logos/long240x40.png) no-repeat;
+    height: 100px;
+    background: url(/images/logos/marble.png) no-repeat;
     text-indent: -9999px;
 
     &.graffiti-blue {
@@ -120,6 +120,11 @@ $sidebarWidth: 300px;
       background: url(/images/logos/bright_indigo.png) no-repeat;
       height: 180px;
       margin-left: 30px;
+    }
+
+    &.old {
+      background: url(/images/logos/long240x40.png) no-repeat;
+      height: 40px;
     }
   }
 
