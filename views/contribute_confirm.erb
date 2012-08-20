@@ -34,6 +34,21 @@
       <td class="highlight"><%= ad.title %></p></td>
     </tr>
   </table>
+  <% if ad.id == 52 # Gary Johnson %>
+    <h4>Contribution Rules</h4>
+    <div id="ruleList">
+      <ol>
+        <li>This contribution is made on a personal credit or debit card for which I have the legal obligation to pay, and is made neither on a corporate business entity card nor on the card of another.</li>
+        <li>I am a United States citizen or a lawfully-admitted permanent resident.</li>
+        <li>I am making this contribution with my own personal funds, and I will not be reimbursed by anyone for this contribution.</li>
+        <li>I am not a federal government contractor.</li>
+        <li>I am at least 18 years of age.</li>
+      </ol>
+      <p>Contributions or gifts to Gary Johnson 2012 are not deductible as charitable contributions for Federal income tax purposes.</p>
+      <p>Gary Johnson 2012 can accept contributions from an individual of up to $2,500 per federal election (the primary and general are separate elections). By submitting your contribution, you agree that the first $2,500 of a contribution will be designated for the 2012 primary election, and any additional amount, up to $2,500 will be designated for the 2012 general election.</p>
+      <p>By clicking "Confirm and Submit Payment", you certify that you have read the above contribution rules and are in compliance with them.</p>
+    </div>
+  <% end %>
   <form class="standard" method="post" action="/ads/<%= ad.public_id %>/contribute_submit">
     <input type="hidden" name="amount" value="<%= amount %>" />
     <input type="hidden" name="token" value="<%= token %>" />

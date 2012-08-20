@@ -92,6 +92,15 @@
     }
   }
 
+  #ruleList {
+    color: $lightText;
+    li {
+      padding: 5px 0px;
+      margin-left: 40px;
+    }
+    p { margin: 20px 0px; }
+  }
+
   form.standard {
     width: 800px;
     .formField {
