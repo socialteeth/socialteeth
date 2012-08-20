@@ -18,6 +18,10 @@
         <div id="submitterDetails">
           <p><%= ad.about_submitter %></p>
         </div>
+        <div id="mediaPlan">
+          <h3>Media Plan</h3>
+          <p><%= ad.media_plan.gsub("\n", "</p><p>") %></p>
+        </div>
       </div>
     </div>
   </div>
