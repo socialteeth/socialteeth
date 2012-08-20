@@ -164,7 +164,7 @@ $sidebarWidth: 300px;
   position: absolute;
   height: 20px;
   width: 100%;
-  @include linear-gradient(#777777, #333333);
+  @include linear-gradient(#555, #111);
   bottom: 0px;
   border-top: 1px solid #555;
   text-align: center;
