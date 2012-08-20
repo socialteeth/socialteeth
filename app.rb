@@ -153,6 +153,10 @@ class SocialTeeth < Sinatra::Base
     erb :privacy_policy
   end
 
+  get "/faq" do
+    erb :faq
+  end
+
   def ensure_signed_in
     redirect "/signin?redirect=#{request.path_info}" if current_user.nil?
   end
