@@ -4,12 +4,17 @@
   #siteSummary {
     width: $pageWidth;
     margin: 0px 20px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 
     border-bottom: 1px solid $lightGray;
 
     p {
       margin: 10px 0px;
+    }
+
+    #pressLogos {
+      margin: auto;
+      td { padding: 0px 20px; }
     }
   }
 
