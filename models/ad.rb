@@ -29,7 +29,7 @@ class Ad < Sequel::Model
       "https://www.youtube.com/embed/#{url.query.split("=")[1]}"
     elsif url.host.include?("vimeo")
       # http://vimeo.com/123456
-      "https://player.vimeo.com/video/#{url.path.gsub("/", "")}"
+      "http://player.vimeo.com/video/#{url.path.gsub("/", "")}"
     else ""
     end
   end
