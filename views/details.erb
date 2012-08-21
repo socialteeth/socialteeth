@@ -49,7 +49,7 @@
       <div class="socialSharing">
         <table>
           <tr>
-            <td><%= erb :"social/twitter_vote_ad" %></td>
+            <td><%= erb :"social/twitter_tweet_ad" %></td>
             <td>
               <% fb_url = "#{request.scheme}://#{request.host_with_port}#{request.path_info}" %>
               <%= erb :"social/facebook_like_ad", :locals => { :url => fb_url } %>
