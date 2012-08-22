@@ -37,7 +37,7 @@
         <p class="of">goal.</p>
       </div>
       <% if current_user %>
-        <p>Contributions will be accepted until September 10, 2012.</p>
+        <p>This ad will be open for contributions until <%= ad.deadline.strftime("%B %d") %>.</p>
         <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
       <% else %>
         <p>Sign in to help air this ad on television!</p>
