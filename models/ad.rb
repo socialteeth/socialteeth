@@ -35,7 +35,7 @@ class Ad < Sequel::Model
   end
 
   def short_description
-    description.match(/^([^\.]*\.)/) rescue ""
+    description.match(/^([^\.]*(\.|$))/) rescue ""
   end
 
   def payment_progress
