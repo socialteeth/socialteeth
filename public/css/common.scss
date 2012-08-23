@@ -149,6 +149,11 @@ $sidebarWidth: 300px;
         margin-left: 20px;
 
         li { padding: 5px 0px; }
+
+        .disabled a {
+          color: $lightText;
+          &:hover { color: lighten($highlight, 20%); }
+        }
       }
 
       a {

@@ -41,6 +41,7 @@ class SocialTeeth < Sinatra::Base
 
   before do
     @ads = Ad.filter(:is_published => true).order(:title).all
+    @ads << Ad[10] if production? # Exhale
   end
 
   get "/" do
