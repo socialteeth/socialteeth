@@ -33,7 +33,7 @@
               <ul>
                 <% @ads.each do |ad| %>
                   <li class="<%= production? && ad.id == 10 ? "disabled" : "" %>">
-                    <a href="/ads/<%= ad.public_id %>"><%= ad.title %></a>
+                    <a href="/ads/<%= ad.public_id %>"><%= ad.issue || ad.title %></a>
                   </li>
                 <% end %>
               </ul>
