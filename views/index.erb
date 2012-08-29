@@ -37,7 +37,8 @@
   </div>
   <div id="adGrid">
     <table>
-      <% ads.each_slice(1) do |slice| %>
+      <% @ads.delete_if { |ad| ad.id == 10 } if production? # Exhale %>
+      <% @ads.each_slice(1) do |slice| %>
         <tr>
           <% slice.each do |ad| %>
             <td>

@@ -40,12 +40,12 @@ class SocialTeeth < Sinatra::Base
   end
 
   before do
-    @ads = Ad.filter(:is_published => true).order(:title).all
+    @ads = Ad.filter(:is_published => true).order(:title).sort_by(&:payment_progress).reverse
     @ads << Ad[10] if production? # Exhale
   end
 
   get "/" do
-    erb :index, :locals => { :ads => Ad.filter(:is_published => true).order(:title).all }
+    erb :index
   end
 
   get "/browse" do
