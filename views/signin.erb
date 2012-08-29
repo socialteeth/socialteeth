@@ -32,7 +32,7 @@
   </div>
 
   <div class="authenticationForm">
-    <form class="standard" action="/signup" method="post">
+    <form class="standard" action="/signup?redirect=<%= params[:redirect] %>" method="post">
       <table>
         <tr>
           <td></td>

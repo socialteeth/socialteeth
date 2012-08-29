@@ -19,7 +19,7 @@ class SocialTeeth < Sinatra::Base
       self.current_user =
           User.create(:name => params[:name], :email => params[:email], :password => params[:password],
                       :votes => 100)
-      redirect "/"
+      redirect params[:redirect] ? params[:redirect] : "/"
     else
       flash[:errors] = errors
       redirect "/signin?action=signup"
