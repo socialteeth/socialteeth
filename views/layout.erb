@@ -13,17 +13,6 @@
   </head>
   <body>
     <div id="wrapper">
-      <div id="header">
-        <div id="signin">
-          <% if current_user %>
-            <span class="username"><%= current_user.name %></span> |
-            <a href="/signout">Sign Out</a>
-          <% else %>
-            <a href="/signup">Sign Up</a> |
-            <a href="/signin?redirect=<%= request.path_info %>">Sign In</a>
-          <% end %>
-        </div>
-      </div>
       <div id="sidebar">
         <a href="/" class="logo <%= params[:logo] %>">SocialTeeth</a>
         <div class="nav">
@@ -43,6 +32,17 @@
             <li><a href="/press">Press</a></li>
             <li><a href="/faq">FAQ</a></li>
           </ul>
+        </div>
+      </div>
+      <div id="header">
+        <div id="signin">
+          <% if current_user %>
+            <span class="username"><%= current_user.name %></span> |
+            <a href="/signout">Sign Out</a>
+          <% else %>
+            <a href="/signup">Sign Up</a> |
+            <a href="/signin?redirect=<%= request.path_info %>">Sign In</a>
+          <% end %>
         </div>
       </div>
       <div id="content">

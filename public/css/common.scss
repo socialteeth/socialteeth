@@ -60,12 +60,13 @@ a {
 
 .aside { color: $lightText; }
 
-$headerHeight: 40px;
+$headerHeight: 30px;
+$sidebarWidth: 200px;
 
 #header {
   height: $headerHeight;
   padding: 0px 30px;
-  max-width: $pageWidth + 330px;
+  min-width: $sidebarWidth + 800px;
 
   #signin {
     $paddingTop: $headerHeight / 2 - 13;
@@ -80,15 +81,12 @@ $headerHeight: 40px;
   }
 }
 
-$sidebarWidth: 300px;
-
 #sidebar {
   width: $sidebarWidth;
   padding-top: $headerHeight;
   padding-left: $headerHeight;
-  position: fixed;
+  float: left;
   top: 0px;
-  left: 0px;
   height: 100%;
   background: #FEFFFE;
 
@@ -96,7 +94,7 @@ $sidebarWidth: 300px;
     display: block;
     width: $sidebarWidth;
     height: 100px;
-    background: url(/images/logos/marble.png) no-repeat;
+    background: url(/images/logos/marble200.png) no-repeat;
     text-indent: -9999px;
 
     &.graffiti-blue {
@@ -138,11 +136,10 @@ $sidebarWidth: 300px;
 
     li { list-style: none; }
     @include light-font;
-    margin-top: 30px;
     li { padding: 2px 0px;}
 
     & > ul {
-      font-size: 1.8em;
+      font-size: 1.4em;
 
       ul {
         font-size: 0.7em;
@@ -168,6 +165,12 @@ $sidebarWidth: 300px;
 #content {
   margin-left: $sidebarWidth + $headerHeight;
   padding-bottom: 100px;
+  min-width: 800px;
+  & > * {
+    margin: auto;
+    width: 800px;
+  }
+
 }
 
 #wrapper {

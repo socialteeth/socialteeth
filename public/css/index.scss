@@ -2,9 +2,8 @@
 
 #home {
   #siteSummary {
-    width: $pageWidth;
-    margin: 0px 20px;
     margin-bottom: 20px;
+    padding: 0px 30px;
 
     border-bottom: 1px solid $lightGray;
 
@@ -24,27 +23,27 @@
   }
 
   #adGrid {
-    margin: 20px 0px;
+    margin: 20px auto;
 
     table {
-      width: $pageWidth;
       table-layout: fixed;
       border-collapse: collapse;
       margin-left: 20px;
 
       td {
-        padding: 20px 0px;
+        padding: 10px 0px;
         padding-right: 60px;
 
         img {
           float: left;
           margin-top: 6px;
           border: 2px solid $darkGray;
+          width: 100px;
         }
         vertical-align: top;
 
         .adMetadata {
-          margin-left: 210px;
+          margin-left: 120px;
 
           h3 {
             margin: 0px;
