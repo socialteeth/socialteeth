@@ -2,16 +2,15 @@
 
 #details {
   display: table;
-  width: $pageWidth;
-  padding-left: 50px;
   padding-top: 100px;
 
   #detailsLeft {
     display: table-cell;
+    padding-left: 20px;
     #mainDetails {
 
       #detailsText {
-        width: 640px;
+        width: 480px;
 
         p, ol, ul { margin-bottom: 20px; }
 
@@ -32,12 +31,14 @@
   #detailsGutter {
     display: table-cell;
     vertical-align: top;
-    padding-left: 40px;
-    padding-top: 40px;
+    padding-left: 20px;
+    padding-top: 0px;
 
     #signInButton {
       margin: 20px 0px;
     }
+
+    p { font-size: 0.9em; }
 
     .summary {
       line-height: 1.0em;
@@ -54,7 +55,7 @@
 
         .of {
           display: inline-block;
-          font-size: 1.4em;
+          font-size: 1.2em;
         }
 
         .goal {

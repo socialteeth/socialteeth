@@ -1,7 +1,6 @@
 @import "css/mixins";
 
 #contribute {
-  width: 800px;
   margin-top: 40px;
 
   form.standard {
@@ -58,14 +57,14 @@
 }
 
 #contributeSuccess {
-  width: 800px;
   margin: 40px auto;
+  padding: 40px;
   p { margin: 20px 0px; }
 }
 
 #contributeConfirm {
   margin: 40px auto;
-  width: 800px;
+  padding: 40px;
 
   table {
     text-align: left;
