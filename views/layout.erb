@@ -40,7 +40,7 @@
             <span class="username"><%= current_user.name %></span> |
             <a href="/signout">Sign Out</a>
           <% else %>
-            <a href="/signup">Sign Up</a> |
+            <a href="/signin?redirect=<%= request.path_info %>">Create an Account</a> |
             <a href="/signin?redirect=<%= request.path_info %>">Sign In</a>
           <% end %>
         </div>

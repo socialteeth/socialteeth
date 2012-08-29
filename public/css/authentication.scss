@@ -1,7 +1,20 @@
-.authenticationForm {
-  margin: 110px auto;
-  h3 { margin: 0px; }
-  tr.or td {
-    padding-top: 30px;
+#authentication {
+  margin-top: 50px;
+  display: table;
+  table-layout: fixed;
+
+  .authenticationForm {
+    vertical-align: bottom;
+    display: table-cell;
+    margin-top: 110px;
+
+    h3 {
+      margin: 0px;
+      text-align: center;
+    }
+
+    form.standard {
+      width: 350px;
+    }
   }
 }

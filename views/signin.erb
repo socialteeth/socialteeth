@@ -3,28 +3,66 @@
   <%= @pinion.css_url("/assets/css/authentication.css") %>
 <% end %>
 
-<div class="authenticationForm">
-  <form class="standard" action="/signin?redirect=<%= params[:redirect] %>" method="post">
-    <table>
-      <tr>
-        <td></td>
-        <td><%= erb :_flash_errors %></td>
-      <tr>
-        <td class="label">Email</td>
-        <td class="field"><input type="text" name="email" value="<%= flash[:email] %>" /></td>
-      </tr>
-      <tr>
-        <td class="label">Password</td>
-        <td class="field"><input type="password" name="password" /></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class="field"><input type="submit" value="Sign in" /></td>
-      </tr>
-      <tr class="or">
-        <td class="label">or</td>
-        <td class="field"><a class="button" href="/signup">Sign up</a></td>
-      </tr>
-    </table>
-  </form>
+<div id="authentication">
+  <div class="authenticationForm">
+    <form class="standard" action="/signin?redirect=<%= params[:redirect] %>" method="post">
+      <table>
+        <tr>
+          <td></td>
+          <td>
+            <% if params[:action] == "signin" %>
+              <%= erb :_flash_errors %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Email</td>
+          <td class="field"><input type="text" name="email" value="<%= flash[:email] %>" /></td>
+        </tr>
+        <tr>
+          <td class="label">Password</td>
+          <td class="field"><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="field"><input type="submit" value="Sign in" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <div class="authenticationForm">
+    <form class="standard" action="/signup" method="post">
+      <table>
+        <tr>
+          <td></td>
+          <td><h5>New user? Sign up!</h5></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <% if params[:action] == "signup" %>
+              <%= erb :_flash_errors %>
+            <% end %>
+          </td>
+        </tr>
+          <td class="label">Full name</td>
+          <td class="field"><input type="text" name="name" value="<%= flash[:name] %>"/></td>
+        </tr>
+        <tr>
+          <td class="label">Email</td>
+          <td class="field"><input type="text" name="email" value="<%= flash[:email] %>"/></td>
+        </tr>
+        <tr>
+          <td class="label">Password</td>
+          <td class="field"><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="field"><input type="submit" value="Create an Account" /></td>
+        </tr>
+      </table>
+      </div>
+    </form>
+  </div>
 </div>

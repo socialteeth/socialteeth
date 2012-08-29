@@ -1,6 +1,6 @@
 class SocialTeeth < Sinatra::Base
   get "/signup" do
-    erb :signup
+    erb :signin
   end
 
   post "/signup" do
@@ -22,9 +22,9 @@ class SocialTeeth < Sinatra::Base
       redirect "/"
     else
       flash[:errors] = errors
-      redirect "/signup"
+      redirect "/signin?action=signup"
     end
-    redirect "/signup"
+    redirect "/signin"
   end
 
   get "/signin" do
@@ -42,7 +42,7 @@ class SocialTeeth < Sinatra::Base
     else
       errors << "Invalid login." if errors.empty?
       flash[:errors] = errors
-      redirect "/signin"
+      redirect "/signin?action=signin"
     end
   end
 
