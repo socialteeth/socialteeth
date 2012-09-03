@@ -27,3 +27,7 @@ $(document).ready ->
     , stripeResponseHandler
 
     false # Prevent the form from submitting with the default action
+
+  $(".customAmount").focus ->
+    $("input[type=radio][checked=checked]").attr("checked", null)
+    $("#amountCustom").attr("checked", "checked")

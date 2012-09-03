@@ -54,7 +54,16 @@
     <table id="paymentInfo">
       <tr>
         <td class="label">Contribution Amount<br/><span class="hint">(USD)</span></td>
-        <td class="field"><input type="text" class="dollarAmount" name="amount" size="4" /></td>
+        <td class="field" id="amountOptions">
+          <input id="amount10" type="radio" name="dollar_amount" value="10" checked="checked" />
+          <label for="amount10">$10.00</label><br />
+          <input id="amount50" type="radio" name="dollar_amount" value="50" />
+          <label for="amount50">$50.00</label><br />
+          <input id="amount100" type="radio" name="dollar_amount" value="100" />
+          <label for="amount100">$100.00</label><br />
+          <input id="amountCustom" type="radio" name="dollar_amount" value="custom" />
+          <input type="text" class="customAmount" name="custom_amount" size="4" />
+        </td>
       </tr>
       <tr>
         <td class="label">Credit Card Number</td>

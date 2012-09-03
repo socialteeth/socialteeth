@@ -23,13 +23,27 @@
         span { font-size: 1.2em; }
       }
 
-      td.hint {
-        padding-bottom: 20px;
-      }
-
       .hint {
         color: $lightText;
       }
+
+      #amountOptions {
+        input[type=text] {
+          display: inline-block;
+          width: 90%;
+          margin-left: 5px;
+        }
+
+        label {
+          display: inline-block;
+          margin: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .cardNumber {
+      width: 96%;
     }
 
     .cardCvc {
