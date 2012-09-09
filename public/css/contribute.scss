@@ -27,6 +27,11 @@
         color: $lightText;
       }
 
+      p {
+        margin: 10px 0px;
+        font-size: 0.8em;
+      }
+
       #amountOptions {
         input[type=text] {
           display: inline-block;
