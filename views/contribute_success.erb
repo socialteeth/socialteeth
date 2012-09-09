@@ -6,6 +6,17 @@
   <div id="contributeSuccess">
     <h3>Contribution Complete</h3>
     <p>Thank you for contributing to "<%= ad.title %>"!</p>
+    <div class="socialSharing">
+      <table>
+        <tr>
+          <% share_url = "#{request.scheme}://#{request.host_with_port}/ads/#{ad.public_id}" %>
+          <td><%= erb :"social/twitter_tweet_ad", :locals => { :url => share_url } %></td>
+          <td>
+            <%= erb :"social/facebook_like_ad", :locals => { :url => share_url } %>
+          </td>
+        </tr>
+      </table>
+    </div>
     <a class="button" href="/ads/<%= ad.public_id %>">Return to ad</a>
   </div>
 </div>

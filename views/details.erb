@@ -52,10 +52,10 @@
         <div class="socialSharing">
           <table>
             <tr>
-              <td><%= erb :"social/twitter_tweet_ad" %></td>
+              <% share_url = "#{request.scheme}://#{request.host_with_port}/ads/#{ad.public_id}" %>
+              <td><%= erb :"social/twitter_tweet_ad", :locals => { :url => share_url } %></td>
               <td>
-                <% fb_url = "#{request.scheme}://#{request.host_with_port}#{request.path_info}" %>
-                <%= erb :"social/facebook_like_ad", :locals => { :url => fb_url } %>
+                <%= erb :"social/facebook_like_ad", :locals => { :url => share_url } %>
               </td>
             </tr>
           </table>
