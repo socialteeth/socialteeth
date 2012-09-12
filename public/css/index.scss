@@ -1,6 +1,9 @@
 @import "css/mixins";
 
+
+
 #home {
+
   #siteSummary {
     margin-bottom: 20px;
     padding: 0px 30px;
@@ -21,8 +24,81 @@
     margin-top: 40px;
     text-align: center;
   }
+  
+  
+  
+#flowChartTitleDiv{
+	position:absolute;
+	margin-left:140px;
+	margin-top:-45px;
+	text-align:center;
+	width:400px;
+	font-size:1.6em;
+}
 
+#fullFlow{
+margin-top:60px;
+	width:800px;
+	height: 600px;
+
+}
+#videoHeading{
+width:100%;
+height:20px;
+background-color:red;
+padding:5px;
+
+}
+.FlowChartMain{
+ 	
+}
+
+a.whiteHighlight{
+&:hover { color: white; }
+
+}
+  
+.Tiers{
+	position:absolute;
+	display:none;
+}
+  
+.Tier1{
+	position:absolute;
+
+}
+  
+.subFlowChart{
+  	position:absolute;
+	width:800px;
+	height:600px;
+	margin-left:-70px;
+
+}
+.subFlowChartFork{
+  	position:absolute;
+	width:800px;
+	height:600px;
+	margin-left:-70px;
+	cursor:pointer;
+
+}
+  		
+.subFlowChartEnd{
+  	position:absolute;
+	width:800px;
+	height:600px;
+	margin-left:-70px;
+	cursor:pointer;
+
+}
+  	
+  	
+  	
+  
+  
   #adGrid {
+  
     margin: 20px auto;
 
     table {
@@ -72,3 +148,4 @@
     }
   }
 }
+
