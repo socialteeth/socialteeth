@@ -172,4 +172,9 @@ class SocialTeeth < Sinatra::Base
   end
 
   def production?() ENV["RACK_ENV"] == "production" end
+  
+  get "/profile" do
+  	erb :profile
+  end
+  
 end
