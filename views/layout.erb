@@ -39,7 +39,7 @@
       <div id="header">
         <div id="signin">
           <% if current_user %>
-            <span class="username"><%= current_user.name %></span> |
+            <span class="username"><a href="/profile"><%= current_user.name %></a></span> |
             <a href="/signout">Sign Out</a>
           <% else %>
             <a href="/signin?redirect=<%= request.path_info %>">Create an Account</a> |
