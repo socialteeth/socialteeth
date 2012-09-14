@@ -26,6 +26,16 @@ class SocialTeeth < Sinatra::Base
     end
     redirect "/signin"
   end
+  
+   post "/profile" do
+    if params[:password] == params[:passwordCheck]
+   		flash[:password] = params[:password]
+   		self.current_user.update(:password => params[:password])
+   		 redirect params[:redirect] ? params[:redirect] : "/"
+   	else
+   		errors << "Password did not match!"
+   		end
+	end
 
   get "/signin" do
     erb :signin
@@ -61,4 +71,7 @@ class SocialTeeth < Sinatra::Base
     session.clear
     session[:email] = user.email if user
   end
+  
+ 
+  
 end
