@@ -1,6 +1,7 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/index.css") %>
   <%= @pinion.css_url("/assets/css/forms.css") %>
+  <%= @pinion.css_url("/assets/css/flowChart.css") %>
 <% end %>
 <script>
 $(document).ready(function(){
@@ -9,7 +10,8 @@ $(document).ready(function(){
          var name = $(this).attr("name");
          $("#"+name).fadeIn('slow');
         
-         if(name.substring(name.length-3,name.length)=="End") $("#Donate").delay(4000).fadeIn('slow'); 
+         if(name.substring(name.length-3,name.length)=="End") $("#Donate").fadeIn('slow'); 
+         
          if(name == "Tier4YesEnd") {
          $("#Tier4YesEndReload").delay(2000).fadeIn('slow');
          $("#Tier2End").delay(2000).fadeIn('slow');
@@ -28,35 +30,19 @@ $(document).ready(function(){
       	$(this).attr('src',highlight+'Black.png');
     });
     
-    $("#flowChartTitleDiv").click(function(){
+    $("#videoHeading").click(function(){
          $("#fullFlow").toggle('slow');
-         $("#videoHeadToggle").html("<a href='#' id='flowChartHeader' class='whiteHighlight'> Bring Back the Flow Chart! </a>");
-    });
-    
-    $("#flowChartTitle").mouseenter(function(){
-   		$("#flowChartTitle").text("Just Let me Browse the Videos");
-    });
- 
-  	$("#flowChartTitle").mouseleave(function(){
-  		$("#flowChartTitle").text("Diagnose Your Issue");
-    });   
-    
-     $("#videoHeadToggle").click(function(){
-         $("#fullFlow").toggle('slow');
-         $("#videoHeadToggle").text("");
-    });
-    
+         if( $("#videoHeading").text()==" Bring Back the Flow Chart! "){
+        	 $("#videoHeading").html("<a href='#' id='flowChartHeader' class='whiteHighlight'> Just Show me the Videos </a>");
+ 		 }
+   		else{
+  			 $("#videoHeading").html("<a href='#' id='flowChartHeader' class='whiteHighlight'> Bring Back the Flow Chart! </a>");
+  		 }
+   });
+  
 });
 
-function changeText(type)
-{
 
-if(type=="All") document.getElementById("flowChartHeader1").innerHTML="<a href='#' id='flowChartHeader' > Just show me all the videos </a>";
-  	
-else  document.getElementById("flowChartHeader1").innerHTML="<a href='#' id='flowChartHeader' > Diagnose Your Issue </a>";
-  	
-
-}
 </script>
 
 <div id="home">
@@ -92,84 +78,8 @@ else  document.getElementById("flowChartHeader1").innerHTML="<a href='#' id='flo
     </table>
   </div>
   
-  
-  
-  
-  <div id="fullFlow">
+   <%= erb :_flowChart %>
    
-    <div id='flowChartTitleDiv' >
-    <a href='#' id ='flowChartTitle' name="Chart"> Diagnose Your Issue </a>
-  	</div>
-  	
- 	 <div class="Tier1" id="Tier1">
- 	  <!--<img class="subFlowChart" src="/images/flowchart3.jpg" alt="flowchart" />-->
- 	
- 	 	<img class="subFlowChart"  src="/images/FlowChart/Tier1Question.png" alt="flowchart" />
- 	
- 	 	<img class="subFlowChartFork"  src="/images/FlowChart/Tier1YesBlack.png" name="Tier2Question" alt="flowchart" style="clip:rect(50px,320px,130px,180px)"/>
- 	 	<img class="subFlowChartFork"  src="/images/FlowChart/Tier1NoBlack.png" name="Tier1End" alt="flowchart" style="clip:rect(50px,700px,130px,450px)">
- 	 	
- 	 
- 	 </div>
- 	 
- 	 <div class="Tiers" id="Tier2Question">
- 	 	<img class="subFlowChart"  src="/images/FlowChart/Tier2Question.png" alt="flowchart" />
- 	 	
- 	 	<img class="subFlowChartFork"  src="/images/FlowChart/Tier2YesBlack.png" name="Tier3Question" alt="flowchart" style="clip:rect(210px,230px,280px,100px)" />
- 	 	<img class="subFlowChartFork"  src="/images/FlowChart/Tier2NoBlack.png" name="Tier2End" alt="flowchart" style="clip:rect(210px,390px,280px,310px)">
- 	 </div>
- 	
- 	 <div class="Tiers" id="Tier3Question">
- 	 	<img class="subFlowChart"  src="/images/FlowChart/Tier3Question.png" alt="flowchart" />
- 	 	
- 	 		
- 	 	<img class="subFlowChartFork"  src="/images/FlowChart/Tier3YesBlack.png" name="Tier3End" alt="flowchart" style="clip:rect(380px,300px,450px,95px)"/>
- 	 	<img class="subFlowChartFork"  src="/images/FlowChart/Tier3NoBlack.png" name="Tier4Question" alt="flowchart" style="clip:rect(310px,400px,380px,320px)" />
- 	 </div>
- 	 
- 	 
- 	  <div class="Tiers" id="Tier4Question">
- 	 	<img class="subFlowChart"  src="/images/FlowChart/Tier4Question.png" alt="flowchart" />
- 	 	
- 	 	<img class="subFlowChartFork"  src="/images/FlowChart/Tier4YesBlack.png" name="Tier4YesEnd" alt="flowchart"  style="clip:rect(250px,700px,320px,590px)"/>
- 	 	<img class="subFlowChartFork"  src="/images/FlowChart/Tier4NoBlack.png" name="Tier4NoEnd" alt="flowchart" style="clip:rect(425px,620px,490px,340px)" />
- 	 </div>
- 	 
- 	 
- 	 <div class="Tiers" id="Tier1End">
- 	    <img class="subFlowChartEnd"  src="/images/FlowChart/Tier1EndBlack.png" alt="flowchart"  onclick="location.href='http://localhost:8000/ads/b67e89483e2c4b53aedeb4cc7d9b8352'" style="clip:rect(115px,680px,210px,470px)" />
- 	 
- 	 </div>
- 	 
- 	 <div class="Tiers" id="Tier2End">
- 	 	<img class="subFlowChartEnd"  src="/images/FlowChart/Tier2EndBlack.png" alt="flowchart" onclick="location.href='http://localhost:8000/ads/b67e89483e2c4b53aedeb4cc7d9b8352'" style="clip:rect(210px,565px,310px,385px)" />	
- 	 </div>
- 	 
- 	 <div class="Tiers" id="Tier3End">
- 	 	<img class="subFlowChartEnd"  src="/images/FlowChart/Tier3EndBlack.png" alt="flowchart"  onclick="location.href='http://localhost:8000/ads/b67e89483e2c4b53aedeb4cc7d9b8352'" style="clip:rect(440px,320px,575px,85px)" />	
- 	 </div>
- 	 	
- 	 <div class="Tiers" id="Tier4NoEnd">
- 	 	<img class="subFlowChartEnd"  src="/images/FlowChart/Tier4NoEndBlack.png" alt="flowchart" onclick="location.href='http://localhost:8000/ads/b67e89483e2c4b53aedeb4cc7d9b8352'" style="clip:rect(476px,600px,590px,350px)"/>
- 	 </div>
- 	  
- 	 <div class="Tiers" id="Tier4YesEnd">
- 	 	<img class="subFlowChartEnd"  src="/images/FlowChart/Tier4YesEndBlack.png" alt="flowchart" onclick="location.href='http://localhost:8000/ads/b67e89483e2c4b53aedeb4cc7d9b8352'" style="clip:rect(320px,740px,450px,580px)"/>
- 	 	</div>
- 	 	
- 	 <div class="Tiers" id="Tier4YesEndReload">
- 	 <!--<div style="margin-left:-70px;position:absolute;background-color:red;height:600px;width:800px;clip:rect(200px,630px,255px,550px)"></div>-->
- 	 	<img class="subFlowChart"  src="/images/FlowChart/Tier4YesEndReload.png" alt="flowchart"  style="display:none;clip:rect(200px,630px,255px,550px)"/>
- 	 </div>
- 	 
- 	    <img class="subFlowChart" id="Donate"  src="/images/FlowChart/Donate.png" alt="flowchart"  style="display:none;clip:rect(450px,800px,600px,535px)" />
- 	 
- 
- </div>
-  
- <div id="videoHeading">
- <p id="videoHeadToggle" style="float:right"></p>
- </div>
   <div id="adGrid">
   	
     <table>
