@@ -20,6 +20,8 @@ gem "image_science"
 gem "uuidtools"
 gem "aws-s3"
 
+gem "pony"
+
 # For parsing and normalizing video urls
 gem "opengraph"
 
