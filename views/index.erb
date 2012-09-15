@@ -3,46 +3,42 @@
   <%= @pinion.css_url("/assets/css/forms.css") %>
   <%= @pinion.css_url("/assets/css/flowChart.css") %>
 <% end %>
+
 <script>
-$(document).ready(function(){
+  $(document).ready(function() {
+    $(".subFlowChartFork").click(function() {
+      var name = $(this).attr("name");
+      $("#" + name).fadeIn("slow");
 
-      $(".subFlowChartFork").click(function(){
-         var name = $(this).attr("name");
-         $("#"+name).fadeIn('slow');
-        
-         if(name.substring(name.length-3,name.length)=="End") $("#Donate").fadeIn('slow'); 
-         
-         if(name == "Tier4YesEnd") {
-         $("#Tier4YesEndReload").delay(2000).fadeIn('slow');
-         $("#Tier2End").delay(2000).fadeIn('slow');
-         }
-    });
-    
-      $(".subFlowChartFork").mouseover(function(){
-     	 var temp =$(this).attr('src');
-     	 var highlight = temp.substring(0,temp.length-9);
-     	 $(this).attr('src',highlight+'.png');
-    });
-    
-     $(".subFlowChartFork").mouseout(function(){
-      	var temp =$(this).attr('src');
-      	var highlight = temp.substring(0,temp.length-4);
-      	$(this).attr('src',highlight+'Black.png');
-    });
-    
-    $("#videoHeading").click(function(){
-         $("#fullFlow").toggle('slow');
-         if( $("#videoHeading").text()==" Bring Back the Flow Chart! "){
-        	 $("#videoHeading").html("<a href='#' id='flowChartHeader' class='whiteHighlight'> Just Show me the Videos </a>");
- 		 }
-   		else{
-  			 $("#videoHeading").html("<a href='#' id='flowChartHeader' class='whiteHighlight'> Bring Back the Flow Chart! </a>");
-  		 }
-   });
-  
-});
+      if (name.substring(name.length - 3,name.length) == "End") $("#Donate").fadeIn("slow");
 
+      if (name == "Tier4YesEnd") {
+        $("#Tier4YesEndReload").delay(2000).fadeIn("slow");
+        $("#Tier2End").delay(2000).fadeIn("slow");
+      }
+    });
 
+    $(".subFlowChartFork").mouseover(function() {
+      var temp = $(this).attr("src");
+      var highlight = temp.substring(0, temp.length - 9);
+      $(this).attr("src", highlight + ".png");
+    });
+
+    $(".subFlowChartFork").mouseout(function() {
+      var temp = $(this).attr("src");
+      var highlight = temp.substring(0, temp.length - 4);
+      $(this).attr("src", highlight + "Black.png");
+    });
+
+    $("#videoHeading").click(function() {
+      $("#fullFlow").toggle("slow");
+      if( $("#videoHeading").text() == "Bring Back the Flow Chart!") {
+        $("#videoHeading").html("<a href='#' id='flowChartHeader' class='whiteHighlight'>Just Show me the Videos</a>");
+      } else {
+        $("#videoHeading").html("<a href='#' id='flowChartHeader' class='whiteHighlight'>Bring Back the Flow Chart!</a>");
+      }
+    });
+  });
 </script>
 
 <div id="home">
@@ -91,11 +87,11 @@ $(document).ready(function(){
       </tr>
     </table>
   </div>
-  
+
    <%= erb :_flowChart %>
-   
+
   <div id="adGrid">
-  	
+
     <table>
       <% @ads.delete_if { |ad| ad.id == 10 } if production? # Exhale %>
       <% @ads.each_slice(1) do |slice| %>

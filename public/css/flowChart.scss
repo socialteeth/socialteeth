@@ -1,62 +1,58 @@
 @import "css/mixins";
 
 #Tier1Yes{
-clip:rect(50px,320px,130px,180px)
+  clip:rect(50px,320px,130px,180px);
 }
 
 #Tier2Yes{
-clip:rect(210px,230px,280px,100px)
+  clip:rect(210px,230px,280px,100px);
 }
 
 #Tier3Yes{
-clip:rect(380px,300px,450px,95px)
+  clip:rect(380px,300px,450px,95px);
 }
 
 #Tier4Yes{
-clip:rect(250px,700px,320px,590px)
+  clip:rect(250px,700px,320px,590px);
 }
 
 #Tier1No{
-clip:rect(50px,700px,130px,450px)
+  clip:rect(50px,700px,130px,450px);
 }
 
 #Tier2No{
-clip:rect(210px,390px,280px,310px)
+  clip:rect(210px,390px,280px,310px);
 }
 
 #Tier3No{
-clip:rect(310px,400px,380px,320px)
+  clip:rect(310px,400px,380px,320px);
 }
 
 #Tier4No{
-clip:rect(425px,620px,490px,340px)
+  clip:rect(425px,620px,490px,340px);
 }
 
 #Tier1EndImg{
-clip:rect(115px,680px,210px,470px)
+  clip:rect(115px,680px,210px,470px);
 }
 
 #Tier2EndImg{
-clip:rect(210px,565px,310px,385px)
+  clip:rect(210px,565px,310px,385px);
 }
 
 #Tier3EndImg{
-clip:rect(440px,320px,575px,85px)
+  clip:rect(440px,320px,575px,85px);
 }
 
 #Tier4EndImg{
-clip:rect(476px,600px,590px,350px)
+  clip:rect(476px,600px,590px,350px);
 }
-
 
 #Tier4YesEndReloadImg{
-clip:rect(200px,630px,255px,550px)
+  clip:rect(200px,630px,255px,550px);
 }
-
 
 #Donate{
-display:none;
-clip:rect(450px,800px,600px,535px)
-
+  display:none;
+  clip:rect(450px,800px,600px,535px);
 }
-
