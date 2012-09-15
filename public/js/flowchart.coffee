@@ -23,7 +23,7 @@ $(document).ready () ->
   $("#videoHeading").click () ->
     $("#fullFlow").toggle("slow")
     if( $("#videoHeading").text() == "Bring Back the Flow Chart!")
-      $("#videoHeading").html("<a href='#' id='flowChartHeader' class='whiteHighlight'>Just Show me the Videos</a>")
+      $("#videoHeading").html("<a href='#' id='flowChartHeader'>Just Show me the Videos</a>")
     else
-      $("#videoHeading").html("<a href='#' id='flowChartHeader' class='whiteHighlight'>Bring Back the Flow Chart!</a>")
+      $("#videoHeading").html("<a href='#' id='flowChartHeader'>Bring Back the Flow Chart!</a>")
     false
