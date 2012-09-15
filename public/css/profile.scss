@@ -23,7 +23,7 @@ form.standard {
     }
 
     .field {
-      width: 80%;
+      width:30%;
     }
   }
 
@@ -44,6 +44,7 @@ form.standard {
     font-family: "Helvetica Neue", Helvetica, "Lucida Sans", Arial, Verdana, sans-serif;
     font-weight: 300;
     font-size: 1.0em;
+    float:right;
   }
 
   textarea {
@@ -59,18 +60,13 @@ form.standard {
 }
 
 
-#forgotPassword {
-  display:none;
-  margin-top: 10px;
-  /*display: table;*/
-  table-layout: fixed;
-  margin-left:250px;
 
-  .forgotPassword {
-   display:none;
-    vertical-align: bottom;
-    display: table-cell;
-    margin-top: 0px;
+#profileSettings {
+
+  margin-top: 160px;
+  margin-left:150px;
+  display: table;
+  table-layout: fixed;
 
     h3 {
       margin: 0px;
@@ -78,13 +74,15 @@ form.standard {
     }
 
     form.standard {
-      width: 335px;
-    }
+      width: 450px;
+    
   }
 }
 
-#forgotPassLink{
-float:right;
-margin-right:35px;
+#userTitle{
+position:absolute;
+margin-top:-60px;
+margin-left:30px;
+font-size:1.6em;
 
 }
