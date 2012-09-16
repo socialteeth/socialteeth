@@ -1,6 +1,5 @@
-require 'securerandom'
-
-require 'pony'
+require "securerandom"
+require "pony"
 
 class SocialTeeth < Sinatra::Base
   get "/signup" do
@@ -48,18 +47,18 @@ class SocialTeeth < Sinatra::Base
       existing_user = User.find(:email => params[:email])
 
       if existing_user
-        random_string =  SecureRandom.hex(15)
-        existing_user.password = random_string
+        new_password = SecureRandom.hex(8)
+        existing_user.password = new_password
         existing_user.save
-        send_email(params[:email],random_string)
+        send_email(params[:email], new_password)
+        flash[:message] = "A new password has been sent to your email address."
       else
-        errors << "We have no record of that email in our database"
-        redirect "/signin?action=signin"
+        flash[:errors] = ["We have no record of that email in our database."]
       end
     else
-      errors << "Not a valid email"
-      redirect "/signin?action=signin"
+      flash[:errors] = ["Invalid email."]
     end
+    redirect "/signin?action=signin"
   end
 
   get "/signin" do
@@ -103,15 +102,14 @@ class SocialTeeth < Sinatra::Base
      :to => to,
      :via => :smtp,
      :via_options => {
-       :address => 'smtp.gmail.com',
-       :port => '587',
+       :address => "smtp.gmail.com",
+       :port => "587",
        :enable_starttls_auto => true,
        :user_name => 'raulfoo', #here
        :password => 'password', #here
        :authentication => :plain, # :plain, :login, :cram_md5, no auth by default
        :domain => "HELO",
      },
-     :subject => 'Social Teeth Temporary Password', :html_body => 'Your temporary password is: '+ password +'<br /> Once you login you can change your password on your user preferences page. <br /><br /> Best,<br />Social Teeth Support')
-   redirect "/signin"
+     :subject => "Social Teeth Temporary Password", :html_body => "Your temporary password is: "+ password +"<br /> Once you login you can change your password on your user preferences page. <br /><br /> Best,<br />Social Teeth Support")
   end
 end

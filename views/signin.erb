@@ -5,6 +5,7 @@
 
 <div id="authentication">
   <div class="authenticationForm">
+    <p><%= flash[:message] %></p>
     <form class="standard" action="/signin?redirect=<%= params[:redirect] %>" method="post">
       <table>
         <tr>
