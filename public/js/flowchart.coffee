@@ -3,9 +3,6 @@ $(document).ready () ->
     name = $(this).attr("name")
     $("#" + name).fadeIn("slow")
 
-    if (name.substring(name.length - 3, name.length) == "End")
-      $("#Donate").fadeIn("slow")
-
     if (name == "Tier2Question" || name == "Tier3Question")
       $("#fullFlow").css("height","+=200")
       $("#Donate").css("marginTop","+=200")
