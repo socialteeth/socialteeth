@@ -27,9 +27,30 @@
           <td></td>
           <td class="field"><input type="submit" value="Sign in" /></td>
         </tr>
+        <tr>
+          <td></td>
+          <td>
+            <a id="forgotPassLink" href="#" onclick="$('#forgotPassword').fadeIn()">Forgot Password?</a>
+          </td>
       </table>
     </form>
-    <a id='forgotPassLink' href="#" onclick='$("#forgotPassword").fadeIn()'>Forgot Password?</a>
+
+    <div id="forgotPassword">
+      <div class="forgotPassword">
+        <form class="standard" action="/newPassword?redirect=<%= params[:redirect] %>" method="post">
+          <table>
+            <tr>
+              <td class="label">Email</td>
+              <td class="field"><input type="text" name="email" value="<%= flash[:email] %>" /></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="field"><input type="submit" value="Send me a new password" /></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
   </div>
 
   <div class="authenticationForm">
@@ -64,32 +85,6 @@
         </tr>
       </table>
       </div>
-    </form>
-  </div>
-</div>
-
-<div id="forgotPassword">
-  <div class="forgotPassword">
-    <form class="standard" action="/newPassword?redirect=<%= params[:redirect] %>" method="post">
-      <table>
-        <tr>
-          <td></td>
-          <td>
-            <% if params[:action] == "signin" %>
-              <%= erb :_flash_errors %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Email</td>
-          <td class="field"><input type="text" name="email" value="<%= flash[:email] %>" /></td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td class="field"><input type="submit" value="Send me a New Password" /></td>
-        </tr>
-      </table>
     </form>
   </div>
 </div>
