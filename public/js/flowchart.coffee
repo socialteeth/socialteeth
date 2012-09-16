@@ -6,6 +6,10 @@ $(document).ready () ->
     if (name.substring(name.length - 3, name.length) == "End")
       $("#Donate").fadeIn("slow")
 
+    if (name == "Tier2Question" || name == "Tier3Question")
+      $("#fullFlow").css("height","+=200")
+      $("#Donate").css("marginTop","+=200")
+
     if (name == "Tier4YesEnd")
       $("#Tier4YesEndReload").delay(2000).fadeIn("slow")
       $("#Tier2End").delay(2000).fadeIn("slow")
