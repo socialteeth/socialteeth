@@ -97,18 +97,17 @@ class SocialTeeth < Sinatra::Base
   end
 
  def send_email(to, password)
-   # had to do this bit for testing from my gmail, not sure what official is
    Pony.mail(
      :to => to,
+     :from => "Social Teeth Support <contact@socialteeth.org>",
      :via => :smtp,
      :via_options => {
        :address => "smtp.gmail.com",
        :port => "587",
        :enable_starttls_auto => true,
-       :user_name => 'raulfoo', #here
-       :password => 'password', #here
+       :user_name => "contact@socialteeth.org",
+       :password => EMAIL_PASSWORD,
        :authentication => :plain, # :plain, :login, :cram_md5, no auth by default
-       :domain => "HELO",
      },
      :subject => "Social Teeth Temporary Password", :html_body => "Your temporary password is: "+ password +"<br /> Once you login you can change your password on your user preferences page. <br /><br /> Best,<br />Social Teeth Support")
   end
