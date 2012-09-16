@@ -6,6 +6,8 @@ $(document).ready () ->
     if (name == "Tier2Question" || name == "Tier3Question")
       $("#fullFlow").css("height","+=200")
       $("#Donate").css("marginTop","+=200")
+      if (name == "Tier3Question")
+        $(".subFlowChart").css("clip","rect(0px,800px,600px,0px)")
 
     if (name == "Tier4YesEnd")
       $("#Tier4YesEndReload").delay(2000).fadeIn("slow")
