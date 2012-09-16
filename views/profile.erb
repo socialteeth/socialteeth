@@ -5,15 +5,21 @@
 
 <div id="profile">
   <h2>Account Preferences</h2>
-  <form class="standard" action="/profile?redirect=<%= params[:redirect] %>" method="post">
+  <p><%= flash[:message] %></p>
+
+  <form class="standard" action="/profile" method="post">
     <table>
+      <tr>
+        <td></td>
+        <td><%= erb :_flash_errors %></td>
+      </tr>
       <tr>
         <td class="label">New Password</td>
         <td class="field"><input type="password" name="password" value="<%= flash[:password] %>" /></td>
       </tr>
       <tr>
         <td class="label">Repeat New Password</td>
-        <td class="field"><input type="password" name="passwordCheck" value="<%= flash[:password] %>" /></td>
+        <td class="field"><input type="password" name="password_check" value="<%= flash[:password] %>" /></td>
       </tr>
       <tr>
         <td></td>

@@ -32,13 +32,15 @@ class SocialTeeth < Sinatra::Base
   end
 
   post "/profile" do
-    if params[:password] == params[:passwordCheck]
-      flash[:password] = params[:password]
-      self.current_user.update(:password => params[:password])
-      redirect params[:redirect] ? params[:redirect] : "/"
+    if params[:password] == params[:password_check]
+      flash[:message] = "Password changed successfully."
+      current_user.password = params[:password]
+      current_user.save
     else
-      errors << "Password did not match!"
+      flash[:errors] = ["Passwords did not match."]
     end
+
+    redirect "/profile"
   end
 
   post "/newPassword" do
