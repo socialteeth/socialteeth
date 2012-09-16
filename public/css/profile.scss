@@ -59,30 +59,25 @@ form.standard {
   }
 }
 
-
-
 #profileSettings {
-
   margin-top: 160px;
   margin-left:150px;
   display: table;
   table-layout: fixed;
 
-    h3 {
-      margin: 0px;
-      text-align: center;
-    }
+  h3 {
+    margin: 0px;
+    text-align: center;
+  }
 
-    form.standard {
-      width: 450px;
-    
+  form.standard {
+    width: 450px;
   }
 }
 
 #userTitle{
-position:absolute;
-margin-top:-60px;
-margin-left:30px;
-font-size:1.6em;
-
+  position:absolute;
+  margin-top:-60px;
+  margin-left:30px;
+  font-size:1.6em;
 }

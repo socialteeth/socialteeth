@@ -3,30 +3,6 @@
   <%= @pinion.css_url("/assets/css/authentication.css") %>
 <% end %>
 
-<!--<div id="fb-root"></div>
-      <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : 'YOUR_APP_ID', // App ID
-            channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-            status     : true, // check login status
-            cookie     : true, // enable cookies to allow the server to access the session
-            xfbml      : true  // parse XFBML
-          });
-        };
-        // Load the SDK Asynchronously
-        (function(d){
-           var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement('script'); js.id = id; js.async = true;
-           js.src = "//connect.facebook.net/en_US/all.js";
-           ref.parentNode.insertBefore(js, ref);
-         }(document));
-      </script>
-
-      <div class="fb-login-button">Login with Facebook</div>
--->
-
 <div id="authentication">
   <div class="authenticationForm">
     <form class="standard" action="/signin?redirect=<%= params[:redirect] %>" method="post">
@@ -53,10 +29,8 @@
         </tr>
       </table>
     </form>
-     <a id='forgotPassLink' href="#" onclick='$("#forgotPassword").fadeIn()'>Forgot Password?</a>
-    </div>
-   
-
+    <a id='forgotPassLink' href="#" onclick='$("#forgotPassword").fadeIn()'>Forgot Password?</a>
+  </div>
 
   <div class="authenticationForm">
     <form class="standard" action="/signup?redirect=<%= params[:redirect] %>" method="post">
@@ -95,7 +69,7 @@
 </div>
 
 <div id="forgotPassword">
-   <div class="forgotPassword">
+  <div class="forgotPassword">
     <form class="standard" action="/newPassword?redirect=<%= params[:redirect] %>" method="post">
       <table>
         <tr>
@@ -110,13 +84,12 @@
           <td class="label">Email</td>
           <td class="field"><input type="text" name="email" value="<%= flash[:email] %>" /></td>
         </tr>
-        
+
         <tr>
           <td></td>
           <td class="field"><input type="submit" value="Send me a New Password" /></td>
         </tr>
       </table>
     </form>
-    </div>
-    </div>
-    
+  </div>
+</div>
