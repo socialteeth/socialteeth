@@ -1,16 +1,12 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/profile.css") %>
+  <%= @pinion.css_url("/assets/css/forms.css") %>
 <% end %>
 
-<div id="userTitle">Account Preferences For <%= current_user.name %></div>
-
-<div id="profileSettings">
+<div id="profile">
+  <h2>Account Preferences</h2>
   <form class="standard" action="/profile?redirect=<%= params[:redirect] %>" method="post">
     <table>
-      <tr>
-        <td>Change Password:</td> <td></td>
-      </tr>
-      <tr></tr>
       <tr>
         <td class="label">New Password</td>
         <td class="field"><input type="password" name="password" value="<%= flash[:password] %>" /></td>
