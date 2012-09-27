@@ -161,6 +161,10 @@ class SocialTeeth < Sinatra::Base
   get "/profile" do
     erb :profile
   end
+  
+  get "/contributeNew" do
+    erb :contributeNew
+  end
 
   def ensure_signed_in
     redirect "/signin?redirect=#{request.path_info}" if current_user.nil?
