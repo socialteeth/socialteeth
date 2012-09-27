@@ -22,7 +22,7 @@ class SocialTeeth < Sinatra::Base
       self.current_user =
           User.create(:name => params[:name], :email => params[:email], :password => params[:password],
                       :votes => 100)
-      redirect params[:redirect] ? params[:redirect] : "/"
+      redirect params[:redirect] 
     else
       flash[:errors] = errors
       redirect "/signin?action=signup"
@@ -31,6 +31,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   post "/profile" do
+    ensure_signed_in
     if params[:password] == params[:password_check]
       flash[:message] = "Password changed successfully."
       current_user.password = params[:password]
