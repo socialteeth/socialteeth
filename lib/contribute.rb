@@ -1,3 +1,5 @@
+require "pony"
+
 class SocialTeeth < Sinatra::Base
   get "/ads/:id/contribute" do
     ensure_signed_in
@@ -50,7 +52,10 @@ class SocialTeeth < Sinatra::Base
   get "/ads/:id/contribute_success" do
     ensure_signed_in
     halt 404 unless ad = Ad.find(:public_id => params[:id])
+    
+    send_emailConfirmation(current_user.email)
     erb :contribute_success, :locals => { :ad => ad }
+   
   end
 
   post "/ads/:id/contribute_submit" do
@@ -82,4 +87,21 @@ class SocialTeeth < Sinatra::Base
 
     redirect "/ads/#{ad.public_id}/contribute_success"
   end
+  
+  def send_emailConfirmation(to)
+   Pony.mail(
+     :to => to,
+     :from => "Social Teeth Support <support@socialteeth.org",
+     :via => :smtp,
+     :via_options => {
+       :address => "smtp.gmail.com",
+       :port => "587",
+       :enable_starttls_auto => true,
+       :user_name => "socialteeth",
+       :password => PASSWORD,
+       :authentication => :plain, # :plain, :login, :cram_md5, no auth by default
+     },
+     :subject => "Social Teeth Donation Confirmation", :html_body => "Thanks! Your donation submission was successful. This ad will be on air once the total fundraising goal is reached - so tell your friends! . <br /><br /> You are the best,<br />Social Teeth")
+  end
+  
 end

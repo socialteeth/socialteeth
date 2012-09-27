@@ -6,11 +6,16 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/details.css") %>
   <%= @pinion.css_url("/assets/css/forms.css") %>
+  <%= @pinion.css_url("/assets/css/tabs.css") %>
+  <%= @pinion.js_url("/assets/js/tabs.js") %>
 
   <meta property="og:title" content="<%= ad.title %>" />
   <meta property="og:description" content="Support this ad on Social Teeth!" />
   <meta property="og:image" content="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" />
 <% end %>
+
+
+
 
 <div id="details">
   <div id="detailsLeft">
@@ -19,9 +24,25 @@
       <% if production? && ad.id == 10 %>
         <h4>This ad will begin accepting contributions in October.</h4>
       <% end %>
-      <div id="detailsText">
+      
+      <div id="customDetailsText">
+        <h3>A seperate blurb will be here</h3>
+        <p>Ladadadadididia <br /> by Rachel and Elaine</p>
+         </div>
+    
+
+     <div id="tabs">
+       <ul>
+         <li><a href="#detailsText">Ad Details</a></li>
+         <li><a href="#mediaPlan">Submitter Details</a></li>
+         <li><a href="#mediaPlan">Media Strategy</a></li>
+       </ul>
+    
+     <div id="detailsText">
         <h3><%= ad.title %></h3>
         <p><%= ad.description %></p>
+         </div>
+     
         <div id="submitterDetails">
           <p><%= ad.about_submitter %></p>
         </div>
@@ -31,6 +52,7 @@
             <%= ad.media_plan %>
           </div>
         <% end %>
+       
       </div>
     </div>
   </div>

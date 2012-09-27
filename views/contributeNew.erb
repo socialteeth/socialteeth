@@ -1,0 +1,92 @@
+<% content_for :head do %>
+  <%= @pinion.css_url("/assets/css/contribute.css") %>
+  <%= @pinion.css_url("/assets/css/forms.css") %>
+  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+  <script type="text/javascript" src="<%= @pinion.asset_url("/js/contribute.js") %>"></script>
+<% end %>
+
+<div id="contribute">
+  <input type="hidden" id="stripePublicKey" value="<%= STRIPE_PUBLIC_KEY %>" />
+  <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
+    <h3>Contribute to "<%= ad.title %>"</h3>
+    <table>
+      <tr>
+        <td class="label"></td>
+        <td class="field"><div class="paymentErrors"></div></td>
+      </tr>
+      <tr>
+        <td class="label"></td>
+        <td class="field"><%= erb :_flash_errors %></td>
+      </tr>
+    </table>
+    <% if ad.id == 52 # Gary Johnson %>
+      <table id="userInfo">
+        <tr>
+          <td></td>
+          <td class="hint">Due to the nature of this ad, contributors must supply some additional information required by campaign finance law.</td>
+        </tr>
+        <tr>
+          <td class="label">Name</td>
+          <td class="field">
+            <input type="text" autocomplete="off" name="name" value="<%= current_user.name %>"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Address <br/><span class="hint">(Street, City, State, Zip)</span></td>
+          <td class="field">
+            <input type="text" autocomplete="off" name="address" value="<%= current_user.address %>"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Occupation</td>
+          <td class="field">
+            <input type="text" autocomplete="off" name="occupation" value="<%= current_user.occupation %>"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Employer</td>
+          <td class="field">
+            <input type="text" autocomplete="off" name="employer" value="<%= current_user.employer %>"/>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+    <table id="paymentInfo">
+      <tr>
+        <td class="label">Contribution Amount<br/><span class="hint">(USD)</span></td>
+        <td class="field" id="amountOptions">
+          <input id="amount10" type="radio" name="dollar_amount" value="10" checked="checked" />
+          <label for="amount10">$10.00</label><br />
+          <input id="amount25" type="radio" name="dollar_amount" value="25" />
+          <label for="amount25">$25.00</label><br />
+          <input id="amount50" type="radio" name="dollar_amount" value="50" />
+          <label for="amount50">$50.00</label><br />
+          <input id="amountCustom" type="radio" name="dollar_amount" value="custom" />
+          <input type="text" class="customAmount" name="custom_amount" size="4" />
+        </td>
+      </tr>
+      <tr>
+        <td class="label">Credit Card Number</td>
+        <td class="field"><input type="text" size="20" autocomplete="off" class="cardNumber" /></td>
+      </tr>
+      <tr>
+        <td class="label">Security Code</td>
+        <td class="field"><input type="text" size="4" autocomplete="off" class="cardCvc" /></td>
+      </tr>
+      <tr>
+        <td class="label">Credit Card Expiration<br/><span class="hint">(MM/YYYY)</span></td>
+        <td class="field">
+          <input type="text" size="2" maxlength="2" class="cardExpiryMonth month" />
+          <span>/</span>
+          <input type="text" size="4" class="cardExpiryYear" maxlength="4" />
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+
+        <td><p class="hint">Payments are made over a secure connection. Your credit card information will not be stored.</p>
+          <input type="submit" class="submitButton" value="Proceed to Confirmation" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
