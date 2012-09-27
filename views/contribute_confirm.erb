@@ -52,6 +52,7 @@
   <form class="standard" method="post" action="/ads/<%= ad.public_id %>/contribute_submit">
     <input type="hidden" name="amount" value="<%= amount %>" />
     <input type="hidden" name="token" value="<%= token %>" />
+   
     <div class="formField">
       <a href="/ads/<%= ad.public_id %>/contribute">&laquo; Back to contribution details</a>
       <input type="submit" value="Confirm and Submit Payment" />

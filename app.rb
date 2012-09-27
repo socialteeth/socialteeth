@@ -40,7 +40,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   before do
-    @ads = Ad.filter(:is_published => true).order(:title).sort_by(&:payment_progress).reverse
+    @ads = Ad.filter(:is_published => false).order(:title).sort_by(&:payment_progress).reverse
     @ads << Ad[10] if production? # Exhale
   end
 
@@ -159,6 +159,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/profile" do
+    ensure_signed_in
     erb :profile
   end
 
