@@ -1,35 +1,25 @@
 class SocialTeeth < Sinatra::Base
   get "/ads/:id/contribute" do
-   # ensure_signed_in
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     erb :contribute, :locals => { :ad => ad }
   end
 
   get "/ads/:id/contribute_confirm" do
-   # ensure_signed_in
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     halt 400 unless params[:amount] && params[:token]
-   
-
     erb :contribute_confirm, :locals => { :ad => ad, :amount => params[:amount], :token => params[:token]}
   end
 
   post "/ads/:id/contribute_confirm" do
-    #ensure_signed_in
-    
-    
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     required_params = [:dollar_amount, :stripe_token]
     required_params += [:name, :address, :occupation, :employer] if ad.id == 52 # Gary Johnson
-    flash[:tempEmail] = params[:contributeEmail]
+    flash[:temp_email] = params[:contribute_email]
   
     errors = enforce_required_params(required_params)
     
-    if params[:contributeEmail] && params[:contributeEmail].match(/[^@]+@[^@]+/)
-    else
-      errors << "Invalid Email"
-    end
-
+    errors << "Invalid Email" unless params[:contribute_email] && params[:contribute_email].match(/[^@]+@[^@]+/)
+    
     begin
       dollars = params[:dollar_amount] == "custom" ?
           params[:custom_amount].to_dollars : params[:dollar_amount].to_dollars
@@ -58,13 +48,12 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/ads/:id/contribute_success" do
-   # ensure_signed_in
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     erb :contribute_success, :locals => { :ad => ad }
   end
 
   post "/ads/:id/contribute_submit" do
-    #ensure_signed_in
+  
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     halt 400 unless params[:amount] && params[:token]
     halt 400 unless params[:amount].to_i.to_s == params[:amount].to_s
@@ -77,7 +66,7 @@ class SocialTeeth < Sinatra::Base
         :amount => params[:amount],
         :currency => "usd",
         :card => params[:token],
-        :description => "#{flash[:tempEmail]} -- #{ad.title}"
+        :description => "#{flash[:temp_email]} -- #{ad.title}"
       )
     rescue Stripe::InvalidRequestError => error
       flash[:errors] = [error.message]
@@ -89,8 +78,7 @@ class SocialTeeth < Sinatra::Base
 
     # TODO(dmac): Validate the payment actually went through.
    
-#    puts params[:contributeEmail]
-    Payment.create(:ad_id => ad.id, :email_id => flash[:tempEmail], :amount => params[:amount])
+    Payment.create(:ad_id => ad.id, :email => flash[:temp_email], :amount => params[:amount])
 
     redirect "/ads/#{ad.public_id}/contribute_success"
   end
