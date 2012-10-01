@@ -20,6 +20,9 @@ Sequel.migration do
       DB[:payments].where(:email => email).update(:user_id => user_id)
     end
 
-    drop_column :payments, :email
+    alter_table :payments do
+      add_foreign_key :user_id, :users
+      drop_column :email
+    end
   end
 end
