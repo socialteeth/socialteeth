@@ -1,38 +1,25 @@
 Sequel.migration do
   up do
-   alter_table :payments do 
-      add_column :email, String, :size => 128
-   end
-   alter_table :payments do 
-      pay = DB[:payments]
-      usr = DB[:users]
-      
-      pay.each do |payrow|
-        id_index = payrow[:user_id]
-        email_index = DB[:users].where(:id => id_index).first[:email]
-        DB[:payments].where(:user_id => payrow[:user_id]).update(:email => email_index)
-      end
-      
-      drop_column :user_id
+    add_column :payments, :email, String, :size => 128
+
+    DB[:payments].each do |payrow|
+      user_id = payrow[:user_id]
+      email = DB[:users].where(:id => user_id).first[:email]
+      DB[:payments].where(:user_id => user_id).update(:email => email)
     end
+
+    drop_column :payments, :user_id
   end
 
   down do
-    alter_table :payments do
-      add_column :user_id, Integer
-      #add_foreign_key :user_id, :users
+    add_column :payments, :user_id, Integer
+
+    DB[:payments].each do |payrow|
+      email = payrow[:email]
+      user_id = DB[:users].where(:email => email).first[:id]
+      DB[:payments].where(:email => email).update(:user_id => user_id)
     end
-      
-    alter_table :payments do 
-      pay = DB[:payments]
-      
-      pay.each do |payrow|
-        email_index = payrow[:email]
-        id_index = DB[:users].where(:email => email_index).first[:id]
-        DB[:payments].where(:email => payrow[:email]).update(:user_id => id_index)
-      end
-      
-      drop_column :email
-    end
+
+    drop_column :payments, :email
   end
 end
