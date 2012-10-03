@@ -38,27 +38,43 @@
     <div id="detailsGutter">
       <div class="summary">
         <div class="goalProgress">
-          <p>This ad has raised</p>
-          <p class="progress"><%= ad.payment_progress.to_currency %></p>
-          <p class="of">of a</p>
-          <p class="goal"><%= ad.goal.to_currency %></p>
-          <p class="of">goal.</p>
+          <p class="goal">
+            Target: <%= ad.goal.to_currency %>
+          </p>
+          <table id="counter" border = 1>
+            <tr id="counter_row">
+              <% ad.payment_progress.to_currency.each_char do |c|%>
+                <td id="counter_cell"><%= c %></td>
+              <% end %>
+            </tr>
+          </table>
         </div>
-        <p>This ad will be open for contributions until <%= ad.deadline.strftime("%B %d") %>.</p>
-        <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute to this ad</a>
+        
+        <p><br />This ad will be open for contributions until <%= ad.deadline.strftime("%B %d") %>.</p>
+        <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute Now!</a>
         <div id="goalDisclaimer">
           <p class="aside">The current goals are estimates provided by our media partner. They may be refined as the media plan for this ad is finalized.</p>
         </div>
         <div class="socialSharing">
-          <table>
-            <tr>
-              <% share_url = "#{request.scheme}://#{request.host_with_port}/ads/#{ad.public_id}" %>
-              <td><%= erb :"social/twitter_tweet_ad", :locals => { :url => share_url } %></td>
-              <td>
-                <%= erb :"social/facebook_like_ad", :locals => { :url => share_url } %>
-              </td>
-            </tr>
-          </table>
+          <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+         </div>
+        <script type="text/javascript">
+          var addthis_config = {"data_track_addressbar":true};
+          var addthis_share = 
+            { 
+              templates: {
+                   twitter: 'Check it out!', 
+                   //preload facebook content same way...
+                         }
+            }
+        </script>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-506bbab12a7eb599"></script>
         </div>
       </div>
     </div>
