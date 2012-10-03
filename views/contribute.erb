@@ -6,7 +6,6 @@
 <% end %>
 
 
-
 <div id="contribute">
   <input type="hidden" id="stripePublicKey" value="<%= STRIPE_PUBLIC_KEY %>" />
   <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
@@ -30,25 +29,25 @@
         <tr>
           <td class="label">Name</td>
           <td class="field">
-            <input type="text" autocomplete="off" name="name" value="<%= current_user.name %>"/>
+            <input type="text" autocomplete="off" name="name" value="<% if current_user %><%= current_user.name %><% end %>"/>
           </td>
         </tr>
         <tr>
           <td class="label">Address <br/><span class="hint">(Street, City, State, Zip)</span></td>
           <td class="field">
-            <input type="text" autocomplete="off" name="address" value="<%= current_user.address %>"/>
+            <input type="text" autocomplete="off" name="address" value="<% if current_user %><%= current_user.address %><% end %>"/>
           </td>
         </tr>
         <tr>
           <td class="label">Occupation</td>
           <td class="field">
-            <input type="text" autocomplete="off" name="occupation" value="<%= current_user.occupation %>"/>
+            <input type="text" autocomplete="off" name="occupation" value="<% if current_user %><%= current_user.occupation %><% end %>"/>
           </td>
         </tr>
         <tr>
           <td class="label">Employer</td>
           <td class="field">
-            <input type="text" autocomplete="off" name="employer" value="<%= current_user.employer %>"/>
+            <input type="text" autocomplete="off" name="employer" value="<% if current_user %><%= current_user.employer %><% end %>"/>
           </td>
         </tr>
       </table>
@@ -114,6 +113,7 @@
             <option value ='2016'>2016</option>
             <option value ='2017'>2017</option>
             <option value ='2018'>2018</option>
+            <option value ='2019'>2019</option>
            </select>
        
         </td>
@@ -144,4 +144,6 @@
   <p>On Visa, Master Card, and Discover the security code is the 3 digits to the right of the signature area. <br /><br />
   On American Express, it is the 4 digits on the top-right of the credit card.</p>
 </div>
+
+
 

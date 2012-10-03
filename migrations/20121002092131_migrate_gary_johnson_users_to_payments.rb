@@ -4,6 +4,7 @@ Sequel.migration do
       add_column :address, String, :size => 128
       add_column :occupation, String, :size => 128
       add_column :employer, String, :size => 128
+      add_column :name, String, :size => 128
    end
    
    alter_table :payments do 
@@ -16,7 +17,8 @@ Sequel.migration do
           address_index = DB[:users].where(:email => email_index).first[:address]
           occupation_index = DB[:users].where(:email => email_index).first[:occupation]
           employer_index = DB[:users].where(:email => email_index).first[:employer]
-          DB[:payments].where(:email => payrow[:email]).update(:address => address_index,:occupation => occupation_index,:employer => employer_index)
+          name_index =  DB[:users].where(:email => email_index).first[:name]
+          DB[:payments].where(:email => payrow[:email]).update(:address => address_index,:occupation => occupation_index,:employer => employer_index,:name => name_index)
         end
       end
     end
@@ -27,6 +29,8 @@ Sequel.migration do
       drop_column :address
       drop_column :occupation
       drop_column :employer
+      drop_column :name
+      
     end
   end
 end
