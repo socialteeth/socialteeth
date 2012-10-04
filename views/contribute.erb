@@ -5,147 +5,159 @@
   <script type="text/javascript" src="<%= @pinion.asset_url("/js/contribute.js") %>"></script>
 <% end %>
 
-
-<div id="contribute">
-  <input type="hidden" id="stripePublicKey" value="<%= STRIPE_PUBLIC_KEY %>" />
-  <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
-    <h3>Contribute to "<%= ad.title %>"</h3>
-    <table>
-      <tr>
-        <td class="label"></td>
-        <td class="field"><div class="paymentErrors"></div></td>
-      </tr>
-      <tr>
-        <td class="label"></td>
-        <td class="field"><%= erb :_flash_errors %></td>
-      </tr>
-    </table>
-    <% if ad.id == 52 # Gary Johnson %>
-      <table id="userInfo">
+<div id="wrapper">
+  <div id="contribute">
+    <input type="hidden" id="stripePublicKey" value="<%= STRIPE_PUBLIC_KEY %>" />
+    <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
+      <h3>Contribute to "<%= ad.title %>"</h3>
+      <table>
         <tr>
-          <td></td>
-          <td class="hint">Due to the nature of this ad, contributors must supply some additional information required by campaign finance law.</td>
+          <td class="label"></td>
+          <td class="field"><div class="paymentErrors"></div></td>
         </tr>
         <tr>
-          <td class="label">Name</td>
-          <td class="field">
-            <input type="text" autocomplete="off" name="name"
-                value="<%= current_user.name if current_user %>"/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Address <br/><span class="hint">(Street, City, State, Zip)</span></td>
-          <td class="field">
-            <input type="text" autocomplete="off" name="address"
-                value="<%= current_user.address if current_user %>"/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Occupation</td>
-          <td class="field">
-            <input type="text" autocomplete="off" name="occupation"
-                value="<%= current_user.occupation if current_user %>"/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Employer</td>
-          <td class="field">
-            <input type="text" autocomplete="off" name="employer"
-                value="<%= current_user.employer if current_user %>"/>
-          </td>
+          <td class="label"></td>
+          <td class="field"><%= erb :_flash_errors %></td>
         </tr>
       </table>
-    <% end %>
-    <table id="paymentInfo">
-      <tr>
-      <img id="creditCardFronts" src="/images/creditCardFronts.png" alt="Accepted Credit Cards"><br>
-        <td class="label">Contribution Amount<br/><span class="hint">(USD)</span></td>
-        <td class="field" id="amountOptions">
-          <input id="amount10" type="radio" name="dollar_amount" value="10" checked="checked" />
-          <label for="amount10">$10.00</label><br />
-          <input id="amount25" type="radio" name="dollar_amount" value="25" />
-          <label for="amount25">$25.00</label><br />
-          <input id="amount50" type="radio" name="dollar_amount" value="50" />
-          <label for="amount50">$50.00</label><br />
-          <input id="amountCustom" type="radio" name="dollar_amount" value="custom" />
-          <label>Custom</label><br />
-          <input type="text" class="customAmount" name="custom_amount" size="4" />
-
-        </td>
-      </tr>
-      <tr><td>&nbsp;</td></tr>
-     <tr>
-        <td class="label">Email Address</td>
-        <td class="field"><input type="text" id="contribute_email" name="contribute_email"
-            value= "<%= current_user.email if current_user %>" /></td>
-      </tr>
-      <tr>
-        <td class="label">Name on Card</td>
-        <td class="field"><input type="text" id="cardName" /></td>
-      </tr>
-      <tr>
-        <td class="label">Credit Card Number</td>
-        <td class="field"><input type="text" size="20" autocomplete="off" class="cardNumber" /></td>
-      </tr>
-      <tr>
-        <td class="label">Security Code</td>
-        <td class="field"><input type="text" size="4" autocomplete="off" class="cardCvc" /></td>
-      </tr>
-      <tr>
-        <td class="label">Credit Card Expiration<br/><span class="hint">(MM/YYYY)</span></td>
-        <td class="field">
-          <select class="cardExpiryMonth">
-            <option value ="01">01</option>
-            <option value ="02">02</option>
-            <option value ="03">03</option>
-            <option value ="04">04</option>
-            <option value ="05">05</option>
-            <option value ="06">06</option>
-            <option value ="07">07</option>
-            <option value ="08">08</option>
-            <option value ="09">09</option>
-            <option value ="10">10</option>
-            <option value ="11">11</option>
-            <option value ="12">12</option>
-           </select>
-           <span>/</span>
-           <select class="cardExpiryYear">
-            <option value ="2012">2012</option>
-            <option value ="2013">2013</option>
-            <option value ="2014">2014</option>
-            <option value ="2015">2015</option>
-            <option value ="2016">2016</option>
-            <option value ="2017">2017</option>
-            <option value ="2018">2018</option>
-            <option value ="2019">2019</option>
-           </select>
-
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><p class="hint">Payments are made over a secure connection. Your credit card information will not be stored.</p>
-          <input type="submit" class="submitButton" value="Proceed to Confirmation" /></td>
-      </tr>
-    </table>
-  </form>
+      <% if ad.id == 52 # Gary Johnson %>
+        <table id="userInfo">
+          <tr>
+            <td></td>
+            <td class="hint">Due to the nature of this ad, contributors must supply some additional information required by campaign finance law.</td>
+          </tr>
+          <tr>
+            <td class="label">Name</td>
+            <td class="field">
+              <input type="text" autocomplete="off" name="name"
+                  value="<%= current_user.name if current_user %>"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Address <br/><span class="hint">(Street, City, State, Zip)</span></td>
+            <td class="field">
+              <input type="text" autocomplete="off" name="address"
+                  value="<%= current_user.address if current_user %>"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Occupation</td>
+            <td class="field">
+              <input type="text" autocomplete="off" name="occupation"
+                  value="<%= current_user.occupation if current_user %>"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Employer</td>
+            <td class="field">
+              <input type="text" autocomplete="off" name="employer"
+                  value="<%= current_user.employer if current_user %>"/>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+      <table id="paymentInfo">
+        <tr>
+        <img id="creditCardFronts" src="/images/creditCardFronts.png" alt="Accepted Credit Cards"><br>
+          <td class="label">Contribution Amount<br/><span class="hint">(USD)</span></td>
+          <td class="field" id="amountOptions">
+            <input id="amount10" type="radio" name="dollar_amount" value="10" checked="checked" />
+            <label for="amount10">$10.00</label><br />
+            <input id="amount25" type="radio" name="dollar_amount" value="25" />
+            <label for="amount25">$25.00</label><br />
+            <input id="amount50" type="radio" name="dollar_amount" value="50" />
+            <label for="amount50">$50.00</label><br />
+            <input id="amountCustom" type="radio" name="dollar_amount" value="custom" />
+            <label>Custom</label><br />
+            <input type="text" class="customAmount" name="custom_amount" size="4" />
+  
+          </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+       <tr>
+          <td class="label">Email Address</td>
+          <td class="field"><input type="text" id="contribute_email" name="contribute_email"
+              value= "<%= current_user.email if current_user %>" /></td>
+        </tr>
+        <tr>
+          <td class="label">Name on Card</td>
+          <td class="field"><input type="text" id="cardName" /></td>
+        </tr>
+        <tr>
+          <td class="label">Credit Card Number</td>
+          <td class="field"><input type="text" size="20" autocomplete="off" class="cardNumber" /></td>
+        </tr>
+        <tr>
+          <td class="label">Security Code</td>
+          <td class="field"><input type="text" size="4" autocomplete="off" class="cardCvc" /></td>
+        </tr>
+        <tr>
+          <td class="label">Credit Card Expiration<br/><span class="hint">(MM/YYYY)</span></td>
+          <td class="field">
+            <select class="cardExpiryMonth">
+              <option value ="01">01</option>
+              <option value ="02">02</option>
+              <option value ="03">03</option>
+              <option value ="04">04</option>
+              <option value ="05">05</option>
+              <option value ="06">06</option>
+              <option value ="07">07</option>
+              <option value ="08">08</option>
+              <option value ="09">09</option>
+              <option value ="10">10</option>
+              <option value ="11">11</option>
+              <option value ="12">12</option>
+             </select>
+             <span>/</span>
+             <select class="cardExpiryYear">
+              <option value ="2012">2012</option>
+              <option value ="2013">2013</option>
+              <option value ="2014">2014</option>
+              <option value ="2015">2015</option>
+              <option value ="2016">2016</option>
+              <option value ="2017">2017</option>
+              <option value ="2018">2018</option>
+              <option value ="2019">2019</option>
+             </select>
+  
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><p class="hint">Payments are made over a secure connection. Your credit card information will not be stored.</p>
+            <input type="submit" class="submitButton" value="Proceed to Confirmation" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  
+  
+  <div id="more_info">
+    <div id="contributeAdInfo">
+      <b><%= ad.title %></b>
+      <table id="imageCaption" width="80" border="0" align="right" cellpadding="5" cellspacing="0">
+       <tr>
+          <img id="contributeThumbnail" src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" alt="ad thumbnail"><br>
+       </tr>
+      </table>
+      <%= ad.description %>
+    </div>
+  
+    <div id="creditPics">
+      <b>Card Security Code:</b>
+      <img id="creditCardBacks" src="/images/creditCardBacks.png" alt="Security Code Locations"><br>
+      <p>On Visa, Master Card, and Discover the security code is the 3 digits to the right of the signature area. <br /><br />
+      On American Express, it is the 4 digits on the top-right of the credit card.</p>
+    </div>
+  </div>
 </div>
 
-<div id="more_info">
-  <div id="contributeAdInfo">
-    <b><%= ad.title %></b>
-    <table id="imageCaption" width="80" border="0" align="right" cellpadding="5" cellspacing="0">
-     <tr>
-        <img id="contributeThumbnail" src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" alt="ad thumbnail"><br>
-     </tr>
-    </table>
-    <%= ad.description %>
-  </div>
 
-  <div id="creditPics">
-    <b>Card Security Code:</b>
-    <img id="creditCardBacks" src="/images/creditCardBacks.png" alt="Security Code Locations"><br>
-    <p>On Visa, Master Card, and Discover the security code is the 3 digits to the right of the signature area. <br /><br />
-    On American Express, it is the 4 digits on the top-right of the credit card.</p>
-  </div>
-</div>
+
+
+
+
+
+
+
+

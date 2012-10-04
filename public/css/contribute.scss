@@ -1,21 +1,17 @@
 @import "css/mixins";
 
-
 #contribute {
-  
+  display: inline-block;
   margin-top: 100px;
-  margin-left:0px;
   background-color:$lightGray;
   border-width:2px;
   border-style:solid;
   border-color:black;
   padding:0px;
+  background-color:$lightGray;
   width:550px;
-  
-  
-  
  
-
+  
   form.standard {
     width: 450px;
     margin: 10px;
@@ -155,6 +151,7 @@
       }
     }
   }
+  
 }
 
 #contributeAdInfo{
@@ -195,12 +192,13 @@
 }
 
 #more_info{
- position: absolute;
- top: 130px;
+ vertical-align: top;
+ display: inline-block;
  width: 350px;
- margin-left: 625px;
+ margin-top:100px;
+ margin-left:100px;
 }
 
-
-
-
+#wrapper{
+  min-width: 1020px;
+}
