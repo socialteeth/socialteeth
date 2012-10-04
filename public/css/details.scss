@@ -51,6 +51,7 @@
           font-size: 2.5em;
           padding-top: 20px;
           line-height: 1.0em;
+
         }
 
         .of {
@@ -73,6 +74,8 @@
       #payButton {
         display: block;
         margin: 20px auto;
+        font-weight: bold;
+        background: $highlight;
       }
 
       .socialSharing {
@@ -89,5 +92,25 @@
         }
       }
     }
+  }
+}
+
+#counter {
+  margin-top: 40px;
+  border-collapse: collapse;
+  @include linear-gradient(#CDCDCD 0%, #FFFFFF 20%,#FFFFFF 80%, #CDCDCD 100%);
+
+  #counter_row {
+    padding-top: 0px;
+    font-weight: bold;
+    display: block;
+    color: $highlight;
+    font-size: 2.5em;
+    line-height: 1.0em;
+  }
+
+  #counter_cell {
+    padding: 4px;
+    border: 2px solid $lightGray;
   }
 }
