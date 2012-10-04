@@ -76,6 +76,7 @@
         margin: 20px auto;
         font-weight: bold;
         background: $highlight;
+        border: 1px solid darken($highlight, 20%);
       }
 
       .socialSharing {
