@@ -31,6 +31,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   post "/profile" do
+    ensure_signed_in
     if params[:password] == params[:password_check]
       flash[:message] = "Password changed successfully."
       current_user.password = params[:password]

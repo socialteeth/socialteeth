@@ -1,21 +1,35 @@
 @import "css/mixins";
 
 #contribute {
-  margin-top: 40px;
+  margin-top: 100px;
+  margin-left:0px;
+  background-color:$lightGray;
+  border-width:2px;
+  border-style:solid;
+  border-color:black;
+  padding:0px;
+  width:550px;
+  
+  
+ 
 
   form.standard {
-    width: 600px;
-    margin: auto;
+    width: 450px;
+    margin: 10px;
+      
+
 
     h3 {
       margin: 0px;
-      text-align: center;
+      text-align: left;
+            
     }
 
     table {
 
       &#paymentInfo {
-        margin-top: 40px;
+        margin-top: 10px;
+          
       }
 
       .field {
@@ -35,8 +49,8 @@
       #amountOptions {
         input[type=text] {
           display: inline-block;
-          width: 90%;
-          margin-left: 5px;
+          width: 100%;
+          margin-left: 0px;
         }
 
         label {
@@ -48,7 +62,7 @@
     }
 
     .cardNumber {
-      width: 96%;
+      width: 100%;
     }
 
     .cardCvc {
@@ -57,12 +71,12 @@
 
     .cardExpiryMonth {
       display: inline-block;
-      width: 10%;
+      width: 18%;
     }
 
     .cardExpiryYear {
       display: inline-block;
-      width: 20%;
+      width: 25%;
     }
 
     .paymentErrors {
@@ -139,3 +153,51 @@
     }
   }
 }
+
+#contributeAdInfo{
+  position: absolute;
+  margin-left: 625px;
+  top: 130px;
+  width: 350px;
+  background-color: $lightGray;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+#contributeThumbnail{
+  width: 140px;
+  height: 140px;
+  float: right;
+  margin: 5px;
+  border-style: solid; border-color:black; border-width:2px;
+}
+
+#creditPics{
+  position: absolute;
+  margin-left: 625px;
+  top: 650px;
+  width: 350px;
+  height: 150px;
+  background-color: $lightGray;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+}
+
+#creditCardBacks{
+  width: 150px;
+  height: 50px;
+  float: right;
+}
+
+#creditCardFronts{
+  width: 338px;
+  height: 53px;
+  float: right;
+}
+
+
+

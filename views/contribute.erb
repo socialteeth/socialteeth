@@ -5,6 +5,8 @@
   <script type="text/javascript" src="<%= @pinion.asset_url("/js/contribute.js") %>"></script>
 <% end %>
 
+
+
 <div id="contribute">
   <input type="hidden" id="stripePublicKey" value="<%= STRIPE_PUBLIC_KEY %>" />
   <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
@@ -53,6 +55,7 @@
     <% end %>
     <table id="paymentInfo">
       <tr>
+      <img id="creditCardFronts" src="/images/creditCardFronts.png" alt="Accepted Credit Cards"><br>
         <td class="label">Contribution Amount<br/><span class="hint">(USD)</span></td>
         <td class="field" id="amountOptions">
           <input id="amount10" type="radio" name="dollar_amount" value="10" checked="checked" />
@@ -62,8 +65,20 @@
           <input id="amount50" type="radio" name="dollar_amount" value="50" />
           <label for="amount50">$50.00</label><br />
           <input id="amountCustom" type="radio" name="dollar_amount" value="custom" />
+          <label>Custom</label><br />
           <input type="text" class="customAmount" name="custom_amount" size="4" />
+           
         </td>
+      </tr>
+     
+      <tr><td>&nbsp;</td></tr>
+     <tr>
+        <td class="label">Email Address</td>
+        <td class="field"><input type="text" id="contribute_email" name="contribute_email" value= "<% if current_user %><%=current_user.email %><% end %>" /></td>
+      </tr>
+      <tr>
+        <td class="label">Name on Card</td>
+        <td class="field"><input type="text" id="cardName" /></td>
       </tr>
       <tr>
         <td class="label">Credit Card Number</td>
@@ -76,9 +91,31 @@
       <tr>
         <td class="label">Credit Card Expiration<br/><span class="hint">(MM/YYYY)</span></td>
         <td class="field">
-          <input type="text" size="2" maxlength="2" class="cardExpiryMonth month" />
-          <span>/</span>
-          <input type="text" size="4" class="cardExpiryYear" maxlength="4" />
+          <select class="cardExpiryMonth">
+            <option value ='01'>01</option>
+            <option value ='02'>02</option>
+            <option value ='03'>03</option>
+            <option value ='04'>04</option>
+            <option value ='05'>05</option>
+            <option value ='06'>06</option>
+            <option value ='07'>07</option>
+            <option value ='08'>08</option>
+            <option value ='09'>09</option>
+            <option value ='10'>10</option>
+            <option value ='11'>11</option>
+            <option value ='12'>12</option>
+           </select>
+           <span>/</span>
+           <select class="cardExpiryYear">
+            <option value ='2012'>2012</option>
+            <option value ='2013'>2013</option>
+            <option value ='2014'>2014</option>
+            <option value ='2015'>2015</option>
+            <option value ='2016'>2016</option>
+            <option value ='2017'>2017</option>
+            <option value ='2018'>2018</option>
+           </select>
+       
         </td>
       </tr>
       <tr>
@@ -90,3 +127,21 @@
     </table>
   </form>
 </div>
+
+<div id="contributeAdInfo">
+  <b><%= ad.title %></b>
+  <table id="imageCaption" width="80" border="0" align="right" cellpadding="5" cellspacing="0">
+    <tr>
+        <img id="contributeThumbnail" src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" alt="ad thumbnail"><br>
+    </tr>
+  </table>
+  <%= ad.description %> 
+</div>
+
+<div id="creditPics">
+  <b>Card Security Code:</b>
+  <img id="creditCardBacks" src="/images/creditCardBacks.png" alt="Security Code Locations"><br>
+  <p>On Visa, Master Card, and Discover the security code is the 3 digits to the right of the signature area. <br /><br />
+  On American Express, it is the 4 digits on the top-right of the credit card.</p>
+</div>
+
