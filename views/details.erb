@@ -38,6 +38,7 @@
     <div id="detailsGutter">
       <div class="summary">
         <div class="goalProgress">
+        <h4> Help us reach our <%= ad.goal.to_currency %> goal! </h4>
           <table id="counter">
             <tr id="counter_row">
               <% ad.payment_progress.to_currency.each_char do |c|%>
@@ -45,10 +46,7 @@
               <% end %>
             </tr>
           </table>
-          <p class="of">of</p>
-          <p class="goal"><%= ad.goal.to_currency %></p>
-          <p class="of">goal.</p>
-          </p>
+        
         </div>
 
         <p>This ad will be open for contributions until <%= ad.deadline.strftime("%B %d") %>.</p>

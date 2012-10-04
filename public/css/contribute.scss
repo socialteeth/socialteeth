@@ -4,11 +4,11 @@
 #contribute {
   
   margin-top: 100px;
-  margin-left:0px;
-  background-color:$lightGray;
+  margin-left: 10px;
+  background-color:$lightestGray;
   border-width:2px;
   border-style:solid;
-  border-color:black;
+  border-color:$lightGray;
   padding:0px;
   width:550px;
   
@@ -41,7 +41,7 @@
       }
 
       .hint {
-        color: $lightText;
+        color: $darkGray;
       }
 
       p {
@@ -162,10 +162,10 @@
   margin-left: 625px;
   top: 130px;
   width: 350px;
-  background-color: $lightGray;
+  background-color: $lightestGray;
   border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: $lightGray;
   padding: 10px;
 }
 
@@ -183,10 +183,10 @@
   top: 650px;
   width: 350px;
   height: 150px;
-  background-color: $lightGray;
+  background-color: $lightestGray;
   border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: $lightGray;
   padding: 10px;
 }
 
@@ -201,6 +201,7 @@
   height: 53px;
   float: right;
 }
+
 
 
 

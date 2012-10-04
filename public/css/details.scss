@@ -44,6 +44,8 @@
       line-height: 1.0em;
 
       .goalProgress {
+        
+        text-align:center;
         .progress {
           font-weight: bold;
           display: block;
@@ -97,10 +99,14 @@
 }
 
 #counter {
+  
   margin-top: 40px;
   border-collapse: collapse;
   @include linear-gradient(#CDCDCD 0%, #FFFFFF 20%,#FFFFFF 80%, #CDCDCD 100%);
-
+  margin: auto;
+  margin-bottom:10px;
+  
+          
   #counter_row {
     padding-top: 0px;
     font-weight: bold;
@@ -112,6 +118,6 @@
 
   #counter_cell {
     padding: 4px;
-    border: 2px solid $lightGray;
+    border: 2px solid #808080;
   }
 }
