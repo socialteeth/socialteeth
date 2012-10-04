@@ -159,6 +159,7 @@ class SocialTeeth < Sinatra::Base
   end
 
   get "/profile" do
+    ensure_signed_in
     erb :profile
   end
 
