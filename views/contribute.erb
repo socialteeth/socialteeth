@@ -128,22 +128,26 @@
   </form>
 </div>
 
-<div id="contributeAdInfo">
-  <b><%= ad.title %></b>
-  <table id="imageCaption" width="80" border="0" align="right" cellpadding="5" cellspacing="0">
-    <tr>
+<div id="more_info">
+  <div id="contributeAdInfo">
+    <b><%= ad.title %></b>
+    <table id="imageCaption" width="80" border="0" align="right" cellpadding="5" cellspacing="0">
+      <tr>
         <img id="contributeThumbnail" src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" alt="ad thumbnail"><br>
-    </tr>
-  </table>
-  <%= ad.description %> 
+      </tr>
+   </table>
+   <%= ad.description %> 
+  </div>
+
+  <div id="creditPics">
+   <b>Card Security Code:</b>
+    <img id="creditCardBacks" src="/images/creditCardBacks.png" alt="Security Code Locations"><br>
+   <p>On Visa, Master Card, and Discover the security code is the 3 digits to the right of the signature area. <br /><br />
+   On American Express, it is the 4 digits on the top-right of the credit card.</p>
+  </div>
 </div>
 
-<div id="creditPics">
-  <b>Card Security Code:</b>
-  <img id="creditCardBacks" src="/images/creditCardBacks.png" alt="Security Code Locations"><br>
-  <p>On Visa, Master Card, and Discover the security code is the 3 digits to the right of the signature area. <br /><br />
-  On American Express, it is the 4 digits on the top-right of the credit card.</p>
-</div>
+
 
 
 
