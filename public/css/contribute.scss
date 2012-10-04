@@ -158,10 +158,6 @@
 }
 
 #contributeAdInfo{
-  position: absolute;
-  margin-left: 625px;
-  top: 130px;
-  width: 350px;
   background-color: $lightGray;
   border-width: 2px;
   border-style: solid;
@@ -178,11 +174,7 @@
 }
 
 #creditPics{
-  position: absolute;
-  margin-left: 625px;
-  top: 650px;
-  width: 350px;
-  height: 150px;
+  margin-top: 50px;
   background-color: $lightGray;
   border-width: 2px;
   border-style: solid;
@@ -201,6 +193,14 @@
   height: 53px;
   float: right;
 }
+
+#more_info{
+ position: absolute;
+ top: 130px;
+ width: 350px;
+ margin-left: 625px;
+}
+
 
 
 
