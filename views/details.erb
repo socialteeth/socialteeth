@@ -38,18 +38,19 @@
     <div id="detailsGutter">
       <div class="summary">
         <div class="goalProgress">
-          <p class="goal">
-            Target: <%= ad.goal.to_currency %>
-          </p>
-          <table id="counter" border = 1>
+          <table id="counter">
             <tr id="counter_row">
               <% ad.payment_progress.to_currency.each_char do |c|%>
                 <td id="counter_cell"><%= c %></td>
               <% end %>
             </tr>
           </table>
+          <p class="of">of</p>
+          <p class="goal"><%= ad.goal.to_currency %></p>
+          <p class="of">goal.</p>
+          </p>
         </div>
-        
+
         <p><br />This ad will be open for contributions until <%= ad.deadline.strftime("%B %d") %>.</p>
         <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute Now!</a>
         <div id="goalDisclaimer">
@@ -66,10 +67,10 @@
          </div>
         <script type="text/javascript">
           var addthis_config = {"data_track_addressbar":true};
-          var addthis_share = 
-            { 
+          var addthis_share =
+            {
               templates: {
-                   twitter: 'Check it out!', 
+                   twitter: 'Check it out!',
                    //preload facebook content same way...
                          }
             }
