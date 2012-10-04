@@ -52,8 +52,11 @@
     </table>
   </div>
 
-  <div id="adGrid">
+  <div id="homeVideo">
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/MHVOZkyI_1Q" frameborder="0" allowfullscreen></iframe>
+  </div>
 
+  <div id="adGrid">
     <table>
       <% @ads.delete_if { |ad| ad.id == 10 } if production? # Exhale %>
       <% @ads.each_slice(1) do |slice| %>
