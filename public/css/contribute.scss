@@ -1,21 +1,17 @@
 @import "css/mixins";
 
-
 #contribute {
-  
+  display: inline-block;
   margin-top: 100px;
   margin-left: 10px;
-  background-color:$lightestGray;
   border-width:2px;
   border-style:solid;
   border-color:$lightGray;
   padding:0px;
+  background-color:$lightestGray;
   width:550px;
-  
-  
-  
  
-
+  
   form.standard {
     width: 450px;
     margin: 10px;
@@ -155,13 +151,10 @@
       }
     }
   }
+  
 }
 
 #contributeAdInfo{
-  position: absolute;
-  margin-left: 625px;
-  top: 130px;
-  width: 350px;
   background-color: $lightestGray;
   border-width: 2px;
   border-style: solid;
@@ -178,12 +171,8 @@
 }
 
 #creditPics{
-  position: absolute;
-  margin-left: 625px;
-  top: 650px;
-  width: 350px;
-  height: 150px;
   background-color: $lightestGray;
+  margin-top: 50px;
   border-width: 2px;
   border-style: solid;
   border-color: $lightGray;
@@ -202,6 +191,16 @@
   float: right;
 }
 
+#more_info{
+ vertical-align: top;
+ display: inline-block;
+ width: 350px;
+ margin-top:100px;
+ margin-left:100px;
+}
 
 
+#contribute_wrapper{
+  min-width: 1020px;
+}
 
