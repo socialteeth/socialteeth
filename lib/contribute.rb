@@ -35,7 +35,7 @@ class SocialTeeth < Sinatra::Base
       employer = params[:employer] if params[:employer]
       name =  params[:name] if params[:name]
 
-      errors << "The maximum contribution amount for this ad is $2500." if dollars > 2500
+      errors << "The maximum contribution amount for this ad is $2500." if dollars && dollars > 2500
     end
 
     if errors.empty?
