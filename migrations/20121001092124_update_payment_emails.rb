@@ -22,6 +22,7 @@ Sequel.migration do
 
     alter_table :payments do
       add_foreign_key :user_id, :users
+
       drop_column :email
     end
   end
