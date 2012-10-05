@@ -5,7 +5,7 @@
   <script type="text/javascript" src="<%= @pinion.asset_url("/js/contribute.js") %>"></script>
 <% end %>
 
-<div id="contribute_wrapper">
+<div id="contributeWrapper">
   <div id="contribute">
     <input type="hidden" id="stripePublicKey" value="<%= STRIPE_PUBLIC_KEY %>" />
     <form action="/ads/<%= ad.public_id %>/contribute_confirm" method="post" id="paymentForm" class="standard">
@@ -132,22 +132,22 @@
   </div>
   
   
-  <div id="more_info">
+  <div id="moreInfo">
     <div id="contributeAdInfo">
       <b><%= ad.title %></b>
-      <table id="imageCaption" width="80" border="0" align="right" cellpadding="5" cellspacing="0">
+      <table id="imageCaption">
        <tr>
           <img id="contributeThumbnail" src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" alt="ad thumbnail"><br>
        </tr>
       </table>
-      <%= ad.description %>
+      <%= ad.media_plan %>
     </div>
   
     <div id="creditPics">
       <b>Card Security Code:</b>
       <img id="creditCardBacks" src="/images/creditCardBacks.png" alt="Security Code Locations"><br>
-      <p>On Visa, Master Card, and Discover the security code is the 3 digits to the right of the signature area. <br /><br />
-      On American Express, it is the 4 digits on the top-right of the credit card.</p>
+      <p>On Visa, Master Card, and Discover the security code is the 3 digits to the right of the signature area.</p> 
+      <p id="americanExpressSpace">On American Express, it is the 4 digits on the top-right of the credit card.</p>
     </div>
   </div>
 </div>

@@ -40,9 +40,9 @@
         <div class="goalProgress">
         <h4> Help us reach our <%= ad.goal.to_currency %> goal! </h4>
           <table id="counter">
-            <tr id="counter_row">
+            <tr id="counterRow">
               <% ad.payment_progress.to_currency.each_char do |c|%>
-                <td id="counter_cell"><%= c %></td>
+                <td id="counterCell"><%= c %></td>
               <% end %>
             </tr>
           </table>

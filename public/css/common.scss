@@ -89,6 +89,12 @@ $sidebarWidth: 200px;
   top: 0px;
   height: 100%;
   background: #FEFFFE;
+  
+  #socialMedia{
+    width: 250px;
+    margin-top: 50px;
+  }
+
 
   .logo {
     display: block;
@@ -190,6 +196,7 @@ $sidebarWidth: 200px;
   color: #FEFFFE;
   font-size: 0.9em;
   font-weight: 300;
+  
 
   .copyright {
     display: inline-block;
@@ -227,7 +234,5 @@ blockquote {
   background-color: #FFFFFF;
 }
 
-#footer_social_media{
-width:250px;
-margin-top:50px;
-}
+
+
