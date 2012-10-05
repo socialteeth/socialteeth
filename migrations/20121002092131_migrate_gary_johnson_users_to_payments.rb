@@ -1,6 +1,6 @@
 Sequel.migration do
   up do
-    alter_table :payments do
+   alter_table :payments do 
       add_column :address, String, :size => 128
       add_column :occupation, String, :size => 128
       add_column :employer, String, :size => 128
@@ -22,8 +22,9 @@ Sequel.migration do
     end
   end
 
-  down do
-    alter_table :payments do
+
+  down do 
+    alter_table :payments do 
       drop_column :address
       drop_column :occupation
       drop_column :employer
