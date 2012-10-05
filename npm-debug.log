@@ -1,0 +1,111 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'coffee-script' ]
+2 info using npm@1.1.61
+3 info using node@v0.8.9
+4 verbose read json /usr/local/lib/package.json
+5 verbose read json /usr/local/lib/package.json
+6 verbose cache add [ 'coffee-script', null ]
+7 silly cache add name=undefined spec="coffee-script" args=["coffee-script",null]
+8 verbose parsed url { pathname: 'coffee-script',
+8 verbose parsed url   path: 'coffee-script',
+8 verbose parsed url   href: 'coffee-script' }
+9 silly lockFile ab358269-coffee-script coffee-script
+10 verbose lock coffee-script /Users/raulfoo/.npm/ab358269-coffee-script.lock
+11 silly lockFile ab358269-coffee-script coffee-script
+12 verbose addNamed [ 'coffee-script', '' ]
+13 verbose addNamed [ null, '' ]
+14 silly lockFile 53951495-coffee-script coffee-script@
+15 verbose lock coffee-script@ /Users/raulfoo/.npm/53951495-coffee-script.lock
+16 silly addNameRange { name: 'coffee-script', range: '', hasData: false }
+17 verbose url raw coffee-script
+18 verbose url resolving [ 'https://registry.npmjs.org/', './coffee-script' ]
+19 verbose url resolved https://registry.npmjs.org/coffee-script
+20 info trying registry request attempt 1 at 12:36:23
+21 verbose etag "ES3SNJJG9CXPB6XEIRPAT2G3G"
+22 http GET https://registry.npmjs.org/coffee-script
+23 http 304 https://registry.npmjs.org/coffee-script
+24 silly registry.get cb [ 304,
+24 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+24 silly registry.get     etag: '"ES3SNJJG9CXPB6XEIRPAT2G3G"',
+24 silly registry.get     date: 'Fri, 05 Oct 2012 19:36:24 GMT',
+24 silly registry.get     'content-length': '0' } ]
+25 verbose etag coffee-script from cache
+26 silly addNameRange number 2 { name: 'coffee-script', range: '', hasData: true }
+27 silly addNameRange versions [ 'coffee-script',
+27 silly addNameRange   [ '0.7.0',
+27 silly addNameRange     '0.7.1',
+27 silly addNameRange     '0.7.2',
+27 silly addNameRange     '0.9.0',
+27 silly addNameRange     '0.9.1',
+27 silly addNameRange     '0.9.2',
+27 silly addNameRange     '0.9.3',
+27 silly addNameRange     '0.9.4',
+27 silly addNameRange     '0.9.5',
+27 silly addNameRange     '0.9.6',
+27 silly addNameRange     '1.0.0',
+27 silly addNameRange     '1.0.1',
+27 silly addNameRange     '1.1.0',
+27 silly addNameRange     '1.1.1',
+27 silly addNameRange     '1.1.2',
+27 silly addNameRange     '1.1.3',
+27 silly addNameRange     '1.2.0',
+27 silly addNameRange     '1.3.0',
+27 silly addNameRange     '1.3.1',
+27 silly addNameRange     '1.3.2',
+27 silly addNameRange     '1.3.3' ] ]
+28 verbose addNamed [ 'coffee-script', '1.3.3' ]
+29 verbose addNamed [ '1.3.3', '1.3.3' ]
+30 silly lockFile 022c8436-coffee-script-1-3-3 coffee-script@1.3.3
+31 verbose lock coffee-script@1.3.3 /Users/raulfoo/.npm/022c8436-coffee-script-1-3-3.lock
+32 verbose read json /Users/raulfoo/.npm/coffee-script/1.3.3/package/package.json
+33 silly lockFile 022c8436-coffee-script-1-3-3 coffee-script@1.3.3
+34 silly lockFile 53951495-coffee-script coffee-script@
+35 silly resolved [ { name: 'coffee-script',
+35 silly resolved     description: 'Unfancy JavaScript',
+35 silly resolved     keywords: [ 'javascript', 'language', 'coffeescript', 'compiler' ],
+35 silly resolved     author: { name: 'Jeremy Ashkenas' },
+35 silly resolved     version: '1.3.3',
+35 silly resolved     licenses: [ [Object] ],
+35 silly resolved     engines: { node: '>=0.4.0' },
+35 silly resolved     directories: { lib: './lib/coffee-script' },
+35 silly resolved     main: './lib/coffee-script/coffee-script',
+35 silly resolved     bin: { coffee: './bin/coffee', cake: './bin/cake' },
+35 silly resolved     homepage: 'http://coffeescript.org',
+35 silly resolved     bugs: 'https://github.com/jashkenas/coffee-script/issues',
+35 silly resolved     repository:
+35 silly resolved      { type: 'git',
+35 silly resolved        url: 'git://github.com/jashkenas/coffee-script.git' },
+35 silly resolved     devDependencies: { 'uglify-js': '>=1.0.0', jison: '>=0.2.0' },
+35 silly resolved     readme: '\n            {\n         }   }   {\n        {   {  }  }\n         }   }{  {\n        {  }{  }  }                    _____       __  __\n       ( }{ }{  { )                   / ____|     / _|/ _|\n     .- { { }  { }} -.               | |     ___ | |_| |_ ___  ___\n    (  ( } { } { } }  )              | |    / _ \\|  _|  _/ _ \\/ _ \\\n    |`-..________ ..-\'|              | |___| (_) | | | ||  __/  __/\n    |                 |               \\_____\\___/|_| |_| \\___|\\___|\n    |                 ;--.\n    |                (__  \\            _____           _       _\n    |                 | )  )          / ____|         (_)     | |\n    |                 |/  /          | (___   ___ _ __ _ _ __ | |_\n    |                 (  /            \\___ \\ / __| \'__| | \'_ \\| __|\n    |                 |/              ____) | (__| |  | | |_) | |_\n    |                 |              |_____/ \\___|_|  |_| .__/ \\__|\n     `-.._________..-\'                                  | |\n                                                        |_|\n\n\n  CoffeeScript is a little language that compiles into JavaScript.\n\n  Install Node.js, and then the CoffeeScript compiler:\n  sudo bin/cake install\n\n  Or, if you have the Node Package Manager installed:\n  npm install -g coffee-script\n  (Leave off the -g if you don\'t wish to install globally.)\n\n  Execute a script:\n  coffee /path/to/script.coffee\n\n  Compile a script:\n  coffee -c /path/to/script.coffee\n\n  For documentation, usage, and examples, see:\n  http://coffeescript.org/\n\n  To suggest a feature, report a bug, or general discussion:\n  http://github.com/jashkenas/coffee-script/issues/\n\n  If you\'d like to chat, drop by #coffeescript on Freenode IRC,\n  or on webchat.freenode.net.\n\n  The source repository:\n  git://github.com/jashkenas/coffee-script.git\n\n  All contributors are listed here:\n  http://github.com/jashkenas/coffee-script/contributors\n',
+35 silly resolved     _id: 'coffee-script@1.3.3',
+35 silly resolved     _from: 'coffee-script' } ]
+36 info install coffee-script@1.3.3 into /usr/local/lib
+37 info installOne coffee-script@1.3.3
+38 verbose from cache /Users/raulfoo/.npm/coffee-script/1.3.3/package/package.json
+39 info /usr/local/lib/node_modules/coffee-script unbuild
+40 verbose read json /usr/local/lib/node_modules/coffee-script/package.json
+41 info preuninstall coffee-script@1.3.3
+42 info uninstall coffee-script@1.3.3
+43 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild coffee-script@1.3.3
+44 verbose /usr/local/bin,[object Object] binRoot
+45 info /usr/local/lib/node_modules/coffee-script unbuild
+46 verbose read json /usr/local/lib/node_modules/coffee-script/package.json
+47 info preuninstall coffee-script@1.3.3
+48 info uninstall coffee-script@1.3.3
+49 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild coffee-script@1.3.3
+50 verbose /usr/local/bin,[object Object] binRoot
+51 error error rolling back Error: EPERM, chmod '/usr/local/bin/cake'
+51 error error rolling back  coffee-script@1.3.3 { [Error: EPERM, chmod '/usr/local/bin/cake'] errno: 50, code: 'EPERM', path: '/usr/local/bin/cake' }
+52 error Error: EPERM, chmod '/usr/local/bin/coffee'
+52 error  { [Error: EPERM, chmod '/usr/local/bin/coffee'] errno: 50, code: 'EPERM', path: '/usr/local/bin/coffee' }
+53 error Please try running this command again as root/Administrator.
+54 error System Darwin 10.8.0
+55 error command "node" "/usr/local/bin/npm" "install" "-g" "coffee-script"
+56 error cwd /Users/raulfoo/socialteeth
+57 error node -v v0.8.9
+58 error npm -v 1.1.61
+59 error path /usr/local/bin/coffee
+60 error code EPERM
+61 error errno 50
+62 error stack Error: EPERM, chmod '/usr/local/bin/coffee'
+63 verbose exit [ 50, true ]

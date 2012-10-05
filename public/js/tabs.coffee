@@ -1,4 +1,4 @@
-$(document).ready () ->
+$(document).ready () -> 
   $('#tabs div').hide()
   $('#tabs div:first').show()
   $('#tabs ul li:first').addClass('active')
