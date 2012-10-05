@@ -1,21 +1,17 @@
 @import "css/mixins";
 
-
 #contribute {
-  
+  display: inline-block;
   margin-top: 100px;
-  margin-left:0px;
-  background-color:$lightGray;
+  margin-left: 10px;
   border-width:2px;
   border-style:solid;
-  border-color:black;
+  border-color:$lightGray;
   padding:0px;
+  background-color:$lightestGray;
   width:550px;
-  
-  
-  
  
-
+  
   form.standard {
     width: 450px;
     margin: 10px;
@@ -41,7 +37,7 @@
       }
 
       .hint {
-        color: $lightText;
+        color: $darkGray;
       }
 
       p {
@@ -155,18 +151,16 @@
       }
     }
   }
+  
 }
 
 #contributeAdInfo{
-  position: absolute;
-  margin-left: 625px;
-  top: 130px;
-  width: 350px;
-  background-color: $lightGray;
+  background-color: $lightestGray;
   border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: $lightGray;
   padding: 10px;
+  min-height:180px;
 }
 
 #contributeThumbnail{
@@ -178,15 +172,11 @@
 }
 
 #creditPics{
-  position: absolute;
-  margin-left: 625px;
-  top: 650px;
-  width: 350px;
-  height: 150px;
-  background-color: $lightGray;
+  background-color: $lightestGray;
+  margin-top: 50px;
   border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: $lightGray;
   padding: 10px;
 }
 
@@ -202,5 +192,29 @@
   float: right;
 }
 
+#imageCaption{
+  width: 80px;
+  border: 0px;
+  align: right;
+  cellpadding: 5px;
+  cellspacing: 5px;
+}
 
+#moreInfo{
+  vertical-align: top;
+  display: inline-block;
+  width: 350px;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+
+#contributeWrapper{
+  min-width: 1020px;
+}
+
+#americanExpressSpace{
+  padding-top: 15px;
+
+}
 
