@@ -89,15 +89,11 @@ $sidebarWidth: 200px;
   top: 0px;
   height: 100%;
   background: #FEFFFE;
-  
+
   #socialMedia{
+    margin-top: 40px;
     width: 250px;
   }
-  
-  #spreadTheWord{
-  color: $darkGray;
-  }
-
 
   .logo {
     display: block;
@@ -199,7 +195,7 @@ $sidebarWidth: 200px;
   color: #FEFFFE;
   font-size: 0.9em;
   font-weight: 300;
-  
+
 
   .copyright {
     display: inline-block;

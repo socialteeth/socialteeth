@@ -6,10 +6,10 @@
         content="<%= "#{request.scheme}://#{request.host_with_port}/images/logos/marble200.png" %>" />
     <meta property="og:title" content="Social Teeth" />
     <meta property="og:description" content="What you see on Social Teeth are political messages created by underdogs,
-        everyday people, and grassroots organizations. 
+        everyday people, and grassroots organizations.
         Donate and get these messages on air!" />
     <meta property="og:url" content="http://socialteeth.org" />
-    
+
     <%= @pinion.css_url("/css/common.css") %>
     <script type="text/javascript" src="<%= @pinion.asset_url("/js/lib/jquery-1.7.2.min.js") %>"></script>
     <script type="text/javascript">
@@ -41,7 +41,6 @@
             <li><a href="/faq">FAQ</a></li>
 
           </ul>
-          <h4 id="spreadTheWord"> Spread the Word! </h4>
           <div id="socialMedia"><%= erb :_social_media %></div>
         </div>
       </div>
