@@ -1,4 +1,8 @@
+require "lib/email"
+include Email
+
 class SocialTeeth < Sinatra::Base
+
   get "/ads/:id/contribute" do
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     erb :contribute, :locals => { :ad => ad }
@@ -52,6 +56,8 @@ class SocialTeeth < Sinatra::Base
 
   get "/ads/:id/contribute_success" do
     halt 404 unless ad = Ad.find(:public_id => params[:id])
+    
+   
     erb :contribute_success, :locals => { :ad => ad }
   end
 
@@ -85,7 +91,12 @@ class SocialTeeth < Sinatra::Base
     Payment.create(:ad_id => ad.id, :email => params[:email], :amount => params[:amount],
                    :address => params[:address], :occupation => params[:occupation],
                    :employer => params[:employer],:employer => params[:employer], :name => params[:name])
-
+    
+    body = "Thanks! You have just helped the '" + ad.title + "' 
+    campaign get " + (params[:amount].to_i).to_currency + " closer to airtime. <br /> 
+    Their ad will be on air once the total fundraising goal is reached 
+    - so tell your friends! <br /><br /> You are the best,<br />Social Teeth"
+    send_email(params[:email],"Social Teeth Contribution Confirmation", body)
     redirect "/ads/#{ad.public_id}/contribute_success"
   end
 end
