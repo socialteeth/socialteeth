@@ -3,6 +3,7 @@
   <%= @pinion.css_url("/assets/css/forms.css") %>
   <%= @pinion.css_url("/assets/css/flowChart.css") %>
   <%= @pinion.js_url("/assets/js/flowchart.js") %>
+  <%= @pinion.js_url("/assets/js/twitterFeedPosition.js") %> 
 <% end %>
 
 <div id="home">
@@ -87,3 +88,5 @@
     </table>
   </div>
 </div>
+
+<%= erb :"social/twitter_feed" %>
