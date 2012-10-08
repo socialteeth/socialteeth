@@ -75,12 +75,12 @@
                 <img src="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" />
               </a>
               <div class="adMetadata">
-                <h3><a href="/ads/<%= ad.public_id %>"><%= ad.title %></a></h3>
+                <p class="title"><a href="/ads/<%= ad.public_id %>"><%= ad.title %></a></p>
+                <p class="callToAction"><%= ad.call_to_action %></p>
                 <p class="amount">
                   <span class="progress"><%= ad.payment_progress.to_currency %></span>
                   <span> of <%= ad.goal.to_currency %> goal</span>
                 </p>
-                <p class="description"><%= ad.short_description %></p>
               </div>
             </td>
           <% end %>
