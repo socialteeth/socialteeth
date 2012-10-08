@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <%= @pinion.css_url("/assets/css/contribute.css") %>
-  
+
 <% end %>
 
 <div class="container">
@@ -18,14 +18,15 @@
         </tr>
       </table>
     </div>
-    <a class="button" href="/ads/<%= ad.public_id %>">Return to ad</a>
     <% if !current_user %>
-    <h3>New User? <br /> Want to stay in the loop and save time?</h3>
-    <div><a class="button" href="/signin">Sign up!</a></div>
+      <p>New User? Want to stay in the loop and save time?</p>
+      <div><a class="button" href="/signin">Sign up!</a></div>
+    <% else %>
+      <a class="button" href="/ads/<%= ad.public_id %>">Return to ad</a>
     <% end %>
   </div>
-  
-  
+
+
 </div>
 
 
