@@ -46,15 +46,20 @@
               <% end %>
             </tr>
           </table>
-        
         </div>
-
         <p>This ad will be open for contributions until <%= ad.deadline.strftime("%B %d") %>.</p>
         <a id="payButton" class="button" href="/ads/<%= ad.public_id %>/contribute">Contribute Now!</a>
         <div id="goalDisclaimer">
           <p class="aside">The current goals are estimates provided by our media partner. They may be refined as the media plan for this ad is finalized.</p>
         </div>
+        <h4 id="spreadTheWord"> Talk about THIS ad! </h4>
+        <div id="socialMedia">
+          <%= erb :_social_media_ad_specific %>
+        </div>
       </div>
     </div>
   <% end %>
+  
 </div>
+
+
