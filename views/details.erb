@@ -24,7 +24,7 @@
       <% if production? && ad.id == 10 %>
         <h4>This ad will begin accepting contributions in October.</h4>
       <% end %>
-      
+
       <div id="customDetailsText">
         <p><%= ad[:call_to_action] %></p>
       </div>
@@ -34,12 +34,12 @@
           <li><a href="#submitterDetails">Submitter Details</a></li>
           <li><a href="#mediaPlan">Media Strategy</a></li>
         </ul>
-    
+
         <div id="detailsText">
           <h3><%= ad.title %></h3>
           <p><%= ad.description %></p>
         </div>
-     
+
         <div id="submitterDetails">
           <p><%= ad.about_submitter %></p>
         </div>
@@ -49,7 +49,7 @@
           <%= ad.media_plan %>
         </div>
         <% end %>
-       
+
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
               <% end %>
             </tr>
           </table>
-        
+
         </div>
 
         <p>This ad will be open for contributions until <%= ad.deadline.strftime("%B %d") %>.</p>
