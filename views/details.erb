@@ -10,12 +10,12 @@
   <%= @pinion.js_url("/assets/js/tabs.js") %>
 
   <meta property="og:title" content="<%= ad.title %>" />
+  <meta property="og:type" content="website"/>
   <meta property="og:description" content="Support this ad on Social Teeth!" />
   <meta property="og:image" content="<%= ad.thumbnail_url(:size => 200, :cropped => true) %>" />
+  <meta property="og:url" content="<%= URI.parse(url) %>"/>
+  <meta property="fb:app_id" content="522481364436011" />  
 <% end %>
-
-
-
 
 <div id="details">
   <div id="detailsLeft">

@@ -1,6 +1,8 @@
-require "pony"
+require "lib/email"
+include Email
 
 class SocialTeeth < Sinatra::Base
+
   get "/ads/:id/contribute" do
     halt 404 unless ad = Ad.find(:public_id => params[:id])
     erb :contribute, :locals => { :ad => ad }
@@ -90,26 +92,30 @@ class SocialTeeth < Sinatra::Base
                    :address => params[:address], :occupation => params[:occupation],
                    :employer => params[:employer],:employer => params[:employer], :name => params[:name])
     
-    send_emailConfirmation(params[:email],ad.title,params[:amount].to_i)
+    body = "Thanks! You have just helped the '" + ad.title + "' 
+    campaign get " + (params[:amount].to_i).to_currency + " closer to airtime. <br /> 
+    Their ad will be on air once the total fundraising goal is reached 
+    - so tell your friends! <br /><br /> You are the best,<br />Social Teeth"
+    send_email(params[:email],"Social Teeth Contribution Confirmation", body)
     redirect "/ads/#{ad.public_id}/contribute_success"
   end
   
   
-  def send_emailConfirmation(to,campaign,amount)
-   Pony.mail(
-     :to => to,
-     :from => "Social Teeth Support <contact@socialteeth.org",
-     :via => :smtp,
-     :via_options => {
-       :address => "smtp.gmail.com",
-       :port => "587",
-       :enable_starttls_auto => true,
-       :user_name => "contact@socialteeth.org",
-       :password => EMAIL_PASSWORD,
-       :authentication => :plain, # :plain, :login, :cram_md5, no auth by default
-     },
-     :subject => "Social Teeth Donation Confirmation", :html_body => "Thanks! You have just helped the '"+campaign+"' campaign get " + amount.to_currency + " closer to airtime. <br /> Their ad will be on air once the total fundraising goal is reached - so tell your friends! <br /><br /> You are the best,<br />Social Teeth")
-  end
+ # def send_email_confirmation(to,campaign,amount)
+  # Pony.mail(
+   #  :to => to,
+    # :from => "Social Teeth Support <contact@socialteeth.org",
+     #:via => :smtp,
+     #:via_options => {
+      # :address => "smtp.gmail.com",
+      # :port => "587",
+       #:enable_starttls_auto => true,
+       #:user_name => "contact@socialteeth.org",
+       #:password => EMAIL_PASSWORD,
+       #:authentication => :plain, # :plain, :login, :cram_md5, no auth by default
+     #},
+     #:subject => "Social Teeth Donation Confirmation", :html_body => "Thanks! You have just helped the '"+campaign+"' campaign get " + amount.to_currency + " closer to airtime. <br /> Their ad will be on air once the total fundraising goal is reached - so tell your friends! <br /><br /> You are the best,<br />Social Teeth")
+  #end
 
   
   

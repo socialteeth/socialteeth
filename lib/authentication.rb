@@ -1,5 +1,6 @@
 require "securerandom"
-require "pony"
+require "lib/email"
+include Email
 
 class SocialTeeth < Sinatra::Base
   get "/signup" do
@@ -51,7 +52,11 @@ class SocialTeeth < Sinatra::Base
         new_password = SecureRandom.hex(8)
         existing_user.password = new_password
         existing_user.save
-        send_email(params[:email], new_password)
+        body = "Your temporary password is: "+ new_password +"<br /> 
+        Once you login you can change your password on your user 
+        preferences page. <br /><br /> Best,<br />Social Teeth Support"
+        
+        send_email(params[:email],"Social Teeth Password Reset", body)
         flash[:message] = "A new password has been sent to your email address."
       else
         flash[:errors] = ["We have no record of that email in our database."]
@@ -97,19 +102,19 @@ class SocialTeeth < Sinatra::Base
     session[:email] = user.email if user
   end
 
- def send_email(to, password)
-   Pony.mail(
-     :to => to,
-     :from => "Social Teeth Support <contact@socialteeth.org>",
-     :via => :smtp,
-     :via_options => {
-       :address => "smtp.gmail.com",
-       :port => "587",
-       :enable_starttls_auto => true,
-       :user_name => "contact@socialteeth.org",
-       :password => EMAIL_PASSWORD,
-       :authentication => :plain, # :plain, :login, :cram_md5, no auth by default
-     },
-     :subject => "Social Teeth Temporary Password", :html_body => "Your temporary password is: "+ password +"<br /> Once you login you can change your password on your user preferences page. <br /><br /> Best,<br />Social Teeth Support")
-  end
+# def send_email(to, password)
+ #  Pony.mail(
+  #   :to => to,
+   #  :from => "Social Teeth Support <contact@socialteeth.org>",
+    # :via => :smtp,
+     #:via_options => {
+      # :address => "smtp.gmail.com",
+       #:port => "587",
+       #:enable_starttls_auto => true,
+       #:user_name => "contact@socialteeth.org",
+       #:password => EMAIL_PASSWORD,
+       #:authentication => :plain, # :plain, :login, :cram_md5, no auth by default
+     #},
+     #:subject => "Social Teeth Temporary Password", :html_body => "Your temporary password is: "+ password +"<br /> Once you login you can change your password on your user preferences page. <br /><br /> Best,<br />Social Teeth Support")
+  #end
 end
